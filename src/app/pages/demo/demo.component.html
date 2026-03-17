@@ -1,0 +1,604 @@
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
+<div class="min-h-screen bg-stone-100 font-sans pb-20">
+  <!-- Header & Switch -->
+  <header class="bg-emerald-900 text-stone-50 p-4 flex flex-col sm:flex-row justify-between items-center shadow-md gap-4 sticky top-0 z-40">
+    <div class="flex items-center gap-3">
+      <mat-icon class="text-amber-400">explore</mat-icon>
+      @if (isAccessible()) {
+        <h1 class="text-2xl font-bold text-amber-50 tracking-wide">Atlante del Mondo Pokémon</h1>
+      } @else {
+        <!-- ERRORE: div usato come titolo principale, invisibile agli screen reader come heading -->
+        <div class="text-2xl font-bold text-amber-50 tracking-wide">Atlante del Mondo Pokémon</div>
+      }
+    </div>
+    
+    <div class="flex items-center gap-3 bg-emerald-950/50 p-2 rounded-xl border border-emerald-800/50">
+      <span class="text-sm font-medium" [class.text-amber-400]="!isAccessible()" [class.text-stone-300]="isAccessible()" aria-hidden="true">Non Accessibile</span>
+      <button 
+        (click)="toggleAccessibility()"
+        class="relative inline-flex h-7 w-14 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-emerald-900 cursor-pointer"
+        [class.bg-amber-500]="isAccessible()"
+        [class.bg-stone-500]="!isAccessible()"
+        role="switch"
+        [attr.aria-checked]="isAccessible()"
+        aria-label="Modalità accessibile">
+        <span 
+          class="inline-block h-5 w-5 transform rounded-full bg-white transition-transform shadow-sm"
+          [class.translate-x-8]="isAccessible()"
+          [class.translate-x-1]="!isAccessible()">
+        </span>
+      </button>
+      <span class="text-sm font-medium" [class.text-amber-400]="isAccessible()" [class.text-stone-300]="!isAccessible()" aria-hidden="true">Accessibile</span>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-6 mt-8 space-y-12">
+    
+    <!-- Hero & Actions -->
+    <section class="bg-white p-8 rounded-3xl shadow-sm border border-stone-200 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-50 rounded-full blur-3xl -mr-20 -mt-20 opacity-50 pointer-events-none"></div>
+      
+      <div class="flex flex-col md:flex-row gap-8 items-center relative z-10">
+        <div class="flex-1">
+          @if (isAccessible()) {
+            <h2 class="text-3xl font-bold text-stone-800 mb-4">Laboratorio di Ricerca Pokémon</h2>
+          } @else {
+            <!-- ERRORE: Salto di gerarchia e falso heading (div invece di h2) -->
+            <div class="text-3xl font-bold text-stone-800 mb-4">Laboratorio di Ricerca Pokémon</div>
+          }
+          <p class="text-stone-600 leading-relaxed text-lg mb-6">
+            Benvenuto nel laboratorio centrale, Allenatore! Da qui coordiniamo tutte le nostre spedizioni. 
+            Oggi ci concentreremo sullo studio degli ecosistemi e sulla catalogazione di nuove specie. 
+            Scegli un'attività per iniziare la tua ricerca sul campo.
+          </p>
+
+          @if (isAccessible()) {
+            <div class="flex flex-wrap gap-4">
+              <button (click)="scrollTo('habitat')" class="px-6 py-3 bg-emerald-700 text-white rounded-xl font-medium cursor-pointer hover:bg-emerald-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 transition-all flex items-center gap-2 shadow-sm">
+                <mat-icon class="text-sm w-5 h-5">landscape</mat-icon>
+                Esplora Habitat
+              </button>
+              <button (click)="scrollTo('species')" class="px-6 py-3 bg-amber-500 text-stone-900 rounded-xl font-medium cursor-pointer hover:bg-amber-600 focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-500/50 transition-all flex items-center gap-2 shadow-sm">
+                <mat-icon class="text-sm w-5 h-5">menu_book</mat-icon>
+                Consulta Appunti
+              </button>
+              <button (click)="scrollTo('report')" class="px-6 py-3 bg-red-700 text-white rounded-xl font-medium cursor-pointer hover:bg-red-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-500/50 transition-all flex items-center gap-2 shadow-sm">
+                <mat-icon class="text-sm w-5 h-5">campaign</mat-icon>
+                Segnala Avvistamento
+              </button>
+            </div>
+          } @else {
+            <div class="flex flex-wrap gap-4">
+              <!-- ERRORE: 
+                   - Uso di <div> invece di <a> per la navigazione interna
+                   - outline-none (nessun focus ring se forzati)
+                   - Colori problematici: contrasto insufficiente (accent) e invisibile per daltonici (warning)
+              -->
+              <div (click)="scrollTo('habitat', false, true)" class="px-6 py-3 bg-[#34d399] text-[#ecfdf5] rounded-xl font-medium cursor-pointer outline-none flex items-center gap-2 shadow-sm">
+                <mat-icon class="text-sm w-5 h-5">landscape</mat-icon>
+                Esplora Habitat
+              </div>
+              <div (click)="scrollTo('species', true, false)" class="px-6 py-3 bg-[#a3e635] text-white rounded-xl font-medium cursor-pointer outline-none flex items-center gap-2 shadow-sm">
+                <mat-icon class="text-sm w-5 h-5">menu_book</mat-icon>
+                Consulta Appunti
+              </div>
+              <div (click)="scrollTo('report', true, false)" class="px-6 py-3 bg-[#8B0000] text-[#006400] rounded-xl font-medium cursor-pointer outline-none flex items-center gap-2 shadow-sm">
+                <mat-icon class="text-sm w-5 h-5">campaign</mat-icon>
+                Segnala Avvistamento
+              </div>
+            </div>
+          }
+        </div>
+        <div class="w-full md:w-1/3 shrink-0">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png" 
+               alt="Eevee, un simpatico Pokémon simile a una volpe con una folta criniera" 
+               class="w-full h-auto object-contain drop-shadow-xl"
+               referrerpolicy="no-referrer">
+        </div>
+      </div>
+    </section>
+
+    <!-- Habitat -->
+    <section id="habitat" class="scroll-mt-24 bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
+      @if (isAccessible()) {
+        <h2 class="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2">
+          <mat-icon class="text-emerald-700">park</mat-icon> L'Ecosistema
+        </h2>
+        <div class="rounded-2xl overflow-hidden mb-6 border border-stone-200 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80" 
+               alt="Una fitta foresta con alberi alti e raggi di luce solare che filtrano a fatica tra le foglie verdi, creando un'atmosfera umida e ombrosa." 
+               class="w-full h-64 object-cover"
+               referrerpolicy="no-referrer">
+        </div>
+      } @else {
+        <div class="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2">
+          <mat-icon class="text-emerald-700">park</mat-icon> L'Ecosistema
+        </div>
+        <div class="rounded-2xl overflow-hidden mb-6 border border-stone-200 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80" 
+               alt="forest_bg_final_v2.jpg" 
+               class="w-full h-64 object-cover"
+               referrerpolicy="no-referrer">
+        </div>
+      }
+      <p class="text-stone-600 leading-relaxed text-lg">
+        La Foresta Smeraldo è un ecosistema chiuso. Gli alberi secolari sono così fitti da bloccare quasi completamente la luce del sole, mantenendo un'umidità costante dell'85%. Questo ambiente è il paradiso terrestre per i Pokémon di tipo Coleottero e Erba, che trovano riparo tra le radici giganti e nutrimento nelle bacche cadute.
+      </p>
+    </section>
+
+    <!-- Expandable Panels -->
+    <section id="species" class="scroll-mt-24 bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
+      @if (isAccessible()) {
+        <h2 class="text-2xl font-bold text-stone-800 mb-6">Appunti di Campo: Specie Endemiche</h2>
+        <div class="space-y-4">
+          <details class="group bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden">
+            <summary class="p-5 font-semibold text-lg text-stone-800 cursor-pointer hover:bg-stone-100 focus:outline-none focus-visible:bg-stone-100 focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-emerald-500 flex justify-between items-center">
+              Caterpie (Comportamento)
+              <mat-icon class="text-stone-600 group-open:rotate-180 transition-transform">expand_more</mat-icon>
+            </summary>
+            <div class="p-5 border-t border-stone-200 text-stone-600 bg-white leading-relaxed">
+              Caterpie si nutre prevalentemente di foglie di Baccapesca. Il suo odore respinge i predatori alati come Pidgey. È molto docile e facile da catturare per i giovani allenatori.
+              <div class="mt-4">
+                <button (click)="scrollTo('caterpie-entry')" class="inline-flex items-center gap-1 text-emerald-700 font-medium cursor-pointer hover:text-emerald-800 hover:underline focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500 rounded px-2 py-1 -ml-2 transition-colors">
+                  <mat-icon class="text-sm w-4 h-4">menu_book</mat-icon> Apri scheda Pokédex
+                </button>
+              </div>
+            </div>
+          </details>
+          <details class="group bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden">
+            <summary class="p-5 font-semibold text-lg text-stone-800 cursor-pointer hover:bg-stone-100 focus:outline-none focus-visible:bg-stone-100 focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-emerald-500 flex justify-between items-center">
+              Weedle (Tossicologia)
+              <mat-icon class="text-stone-600 group-open:rotate-180 transition-transform">expand_more</mat-icon>
+            </summary>
+            <div class="p-5 border-t border-stone-200 text-stone-600 bg-white leading-relaxed">
+              Il veleno del pungiglione di Weedle è un neurotossico leggero. Viene studiato per applicazioni mediche nella regione di Kanto. Attenzione a dove metti i piedi!
+              <div class="mt-4">
+                <button (click)="scrollTo('weedle-entry')" class="inline-flex items-center gap-1 text-emerald-700 font-medium cursor-pointer hover:text-emerald-800 hover:underline focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500 rounded px-2 py-1 -ml-2 transition-colors">
+                  <mat-icon class="text-sm w-4 h-4">menu_book</mat-icon> Apri scheda Pokédex
+                </button>
+              </div>
+            </div>
+          </details>
+          <details class="group bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden">
+            <summary class="p-5 font-semibold text-lg text-stone-800 cursor-pointer hover:bg-stone-100 focus:outline-none focus-visible:bg-stone-100 focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-emerald-500 flex justify-between items-center">
+              Bulbasaur (Simbiosi)
+              <mat-icon class="text-stone-600 group-open:rotate-180 transition-transform">expand_more</mat-icon>
+            </summary>
+            <div class="p-5 border-t border-stone-200 text-stone-600 bg-white leading-relaxed">
+              Il bulbo sulla schiena di Bulbasaur è piantato alla nascita. Cresce in simbiosi con il Pokémon, fornendogli energia attraverso la fotosintesi. Spesso si crogiola al sole nelle radure della foresta.
+              <div class="mt-4">
+                <button (click)="scrollTo('bulbasaur-entry')" class="inline-flex items-center gap-1 text-emerald-700 font-medium cursor-pointer hover:text-emerald-800 hover:underline focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500 rounded px-2 py-1 -ml-2 transition-colors">
+                  <mat-icon class="text-sm w-4 h-4">menu_book</mat-icon> Apri scheda Pokédex
+                </button>
+              </div>
+            </div>
+          </details>
+        </div>
+      } @else {
+        <div class="text-2xl font-bold text-stone-800 mb-6">Appunti di Campo: Specie Endemiche</div>
+        <div class="space-y-4">
+          <!-- ERRORE: 
+               - Uso di <div> invece di <details>/<summary>
+               - Assenza di attributi ARIA (aria-expanded, aria-controls)
+               - Il contenuto è nascosto con height: 0 e opacity: 0, ma i link all'interno rimangono nell'ordine di tabulazione (focus trap invisibile per utenti da tastiera)
+          -->
+          <div class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden">
+            <div (click)="togglePanel(1)" class="p-5 font-semibold text-lg text-stone-800 cursor-pointer hover:bg-stone-100 outline-none flex justify-between items-center">
+              Caterpie (Comportamento)
+              <mat-icon class="text-stone-400 transition-transform" [class.rotate-180]="openPanel() === 1">expand_more</mat-icon>
+            </div>
+            <div class="border-t border-stone-200 text-stone-600 bg-white transition-all duration-300"
+                 [ngStyle]="{'opacity': openPanel() === 1 ? '1' : '0', 'height': openPanel() === 1 ? 'auto' : '0px', 'overflow': openPanel() === 1 ? 'visible' : 'hidden'}">
+              <div class="p-5 leading-relaxed">
+                Caterpie si nutre prevalentemente di foglie di Baccapesca. Il suo odore respinge i predatori alati come Pidgey. È molto docile e facile da catturare per i giovani allenatori.
+                <div class="mt-4">
+                  <div (click)="scrollTo('caterpie-entry')" class="inline-flex items-center gap-1 text-emerald-700 font-medium cursor-pointer outline-none">
+                    <mat-icon class="text-sm w-4 h-4">menu_book</mat-icon> Apri scheda Pokédex
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden">
+            <div (click)="togglePanel(2)" class="p-5 font-semibold text-lg text-stone-800 cursor-pointer hover:bg-stone-100 outline-none flex justify-between items-center">
+              Weedle (Tossicologia)
+              <mat-icon class="text-stone-400 transition-transform" [class.rotate-180]="openPanel() === 2">expand_more</mat-icon>
+            </div>
+            <div class="border-t border-stone-200 text-stone-600 bg-white transition-all duration-300"
+                 [ngStyle]="{'opacity': openPanel() === 2 ? '1' : '0', 'height': openPanel() === 2 ? 'auto' : '0px', 'overflow': openPanel() === 2 ? 'visible' : 'hidden'}">
+              <div class="p-5 leading-relaxed">
+                Il veleno del pungiglione di Weedle è un neurotossico leggero. Viene studiato per applicazioni mediche nella regione di Kanto. Attenzione a dove metti i piedi!
+                <div class="mt-4">
+                  <div (click)="scrollTo('weedle-entry')" class="inline-flex items-center gap-1 text-emerald-700 font-medium cursor-pointer outline-none">
+                    <mat-icon class="text-sm w-4 h-4">menu_book</mat-icon> Apri scheda Pokédex
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden">
+            <div (click)="togglePanel(3)" class="p-5 font-semibold text-lg text-stone-800 cursor-pointer hover:bg-stone-100 outline-none flex justify-between items-center">
+              Bulbasaur (Simbiosi)
+              <mat-icon class="text-stone-400 transition-transform" [class.rotate-180]="openPanel() === 3">expand_more</mat-icon>
+            </div>
+            <div class="border-t border-stone-200 text-stone-600 bg-white transition-all duration-300"
+                 [ngStyle]="{'opacity': openPanel() === 3 ? '1' : '0', 'height': openPanel() === 3 ? 'auto' : '0px', 'overflow': openPanel() === 3 ? 'visible' : 'hidden'}">
+              <div class="p-5 leading-relaxed">
+                Il bulbo sulla schiena di Bulbasaur è piantato alla nascita. Cresce in simbiosi con il Pokémon, fornendogli energia attraverso la fotosintesi. Spesso si crogiola al sole nelle radure della foresta.
+                <div class="mt-4">
+                  <div (click)="scrollTo('bulbasaur-entry')" class="inline-flex items-center gap-1 text-emerald-700 font-medium cursor-pointer outline-none">
+                    <mat-icon class="text-sm w-4 h-4">menu_book</mat-icon> Apri scheda Pokédex
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </section>
+
+    <!-- Pokedex Entries -->
+    <section class="space-y-6">
+      @if (isAccessible()) {
+        <h2 class="text-2xl font-bold text-stone-800 mb-6">Dati Pokédex</h2>
+        
+        <article id="caterpie-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-3xl border border-stone-200 shadow-sm">
+          <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center p-4 shrink-0">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png" 
+                 alt="Caterpie, un piccolo Pokémon a forma di bruco verde con grandi occhi rotondi, ventre giallo e un'antenna rossa a forma di Y sulla testa." 
+                 class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
+                 referrerpolicy="no-referrer">
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <h3 class="text-2xl font-bold text-emerald-800">Caterpie</h3>
+              <span class="text-stone-600 font-mono font-bold">#0010</span>
+            </div>
+            <p class="text-stone-600 leading-relaxed mb-4">
+              Per proteggersi rilascia un puzzo terribile dalle antenne con cui respinge i nemici. I suoi piedini a ventosa gli permettono di arrampicarsi ovunque.
+            </p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-lime-100 text-lime-800 text-sm font-bold rounded-full border border-lime-200">Coleottero</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="weedle-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-3xl border border-stone-200 shadow-sm">
+          <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center p-4 shrink-0">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png" 
+                 alt="Weedle, un Pokémon simile a un millepiedi marrone chiaro con un naso rosso a palla e un pungiglione velenoso sulla testa e sulla coda." 
+                 class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
+                 referrerpolicy="no-referrer">
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <h3 class="text-2xl font-bold text-amber-800">Weedle</h3>
+              <span class="text-stone-600 font-mono font-bold">#0013</span>
+            </div>
+            <p class="text-stone-600 leading-relaxed mb-4">
+              Spesso si nasconde nell'erba alta o sotto le foglie. Ha un pungiglione velenoso sulla testa lungo circa 5 centimetri.
+            </p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-lime-100 text-lime-800 text-sm font-bold rounded-full border border-lime-200">Coleottero</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-bold rounded-full border border-purple-200">Veleno</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="bulbasaur-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-3xl border border-stone-200 shadow-sm">
+          <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center p-4 shrink-0">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" 
+                 alt="Bulbasaur, un Pokémon quadrupede simile a un dinosauro di colore verde acqua con macchie più scure e un grande bulbo verde sulla schiena." 
+                 class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
+                 referrerpolicy="no-referrer">
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <h3 class="text-2xl font-bold text-emerald-800">Bulbasaur</h3>
+              <span class="text-stone-600 font-mono font-bold">#0001</span>
+            </div>
+            <p class="text-stone-600 leading-relaxed mb-4">
+              Per qualche tempo dopo la nascita, cresce assorbendo nutrimento dal seme piantato sul suo dorso.
+            </p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-sm font-bold rounded-full border border-emerald-200">Erba</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-bold rounded-full border border-purple-200">Veleno</span>
+            </div>
+          </div>
+        </article>
+
+      } @else {
+        <div class="text-2xl font-bold text-stone-800 mb-6">Dati Pokédex</div>
+        
+        <div id="caterpie-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-3xl border border-stone-200 shadow-sm">
+          <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center p-4 shrink-0">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png" 
+                 alt="immagine10.png" 
+                 class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
+                 referrerpolicy="no-referrer">
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="text-2xl font-bold text-emerald-800">Caterpie</div>
+              <span class="text-stone-400 font-mono font-bold">#0010</span>
+            </div>
+            <div class="text-stone-600 leading-relaxed mb-4">
+              Per proteggersi rilascia un puzzo terribile dalle antenne con cui respinge i nemici. I suoi piedini a ventosa gli permettono di arrampicarsi ovunque.
+            </div>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-lime-100 text-lime-800 text-sm font-bold rounded-full border border-lime-200">Coleottero</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="weedle-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-3xl border border-stone-200 shadow-sm">
+          <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center p-4 shrink-0">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png" 
+                 alt="" 
+                 class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
+                 referrerpolicy="no-referrer">
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="text-2xl font-bold text-amber-800">Weedle</div>
+              <span class="text-stone-400 font-mono font-bold">#0013</span>
+            </div>
+            <div class="text-stone-600 leading-relaxed mb-4">
+              Spesso si nasconde nell'erba alta o sotto le foglie. Ha un pungiglione velenoso sulla testa lungo circa 5 centimetri.
+            </div>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-lime-100 text-lime-800 text-sm font-bold rounded-full border border-lime-200">Coleottero</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-bold rounded-full border border-purple-200">Veleno</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="bulbasaur-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-3xl border border-stone-200 shadow-sm">
+          <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center p-4 shrink-0">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" 
+                 alt="immagine1.png" 
+                 class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
+                 referrerpolicy="no-referrer">
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="text-2xl font-bold text-emerald-800">Bulbasaur</div>
+              <span class="text-stone-400 font-mono font-bold">#0001</span>
+            </div>
+            <div class="text-stone-600 leading-relaxed mb-4">
+              Per qualche tempo dopo la nascita, cresce assorbendo nutrimento dal seme piantato sul suo dorso.
+            </div>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-sm font-bold rounded-full border border-emerald-200">Erba</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-bold rounded-full border border-purple-200">Veleno</span>
+            </div>
+          </div>
+        </div>
+      }
+    </section>
+
+    <!-- Form -->
+    <section id="report" class="scroll-mt-24 bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
+      <div class="flex items-start gap-4 mb-6">
+        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center shrink-0 border border-red-200">
+          <mat-icon class="text-red-700">smart_toy</mat-icon>
+        </div>
+        <div>
+          @if (isAccessible()) {
+            <h2 class="text-2xl font-bold text-stone-800">Rotom-Dex: Segnala Avvistamento</h2>
+          } @else {
+            <div class="text-2xl font-bold text-stone-800">Rotom-Dex: Segnala Avvistamento</div>
+          }
+          <p class="text-stone-600 mt-1">Bzzzt! Hai visto un Pokémon raro? Compila il modulo per aggiornare il database dell'Atlante! Bzzzt!</p>
+        </div>
+      </div>
+
+      @if (isAccessible()) {
+        <form class="space-y-5 max-w-xl bg-stone-50 p-6 rounded-2xl border border-stone-100" (submit)="$event.preventDefault(); submitForm()">
+          <div>
+            <label for="pokemon-name" class="block text-sm font-semibold text-stone-700 mb-1">Specie Avvistata <span class="text-red-700" aria-hidden="true">*</span></label>
+            <input type="text" id="pokemon-name" required aria-required="true"
+                   class="w-full px-4 py-2 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 invalid:focus:ring-red-500 invalid:focus:border-red-500 transition-shadow"
+                   placeholder="es. Pikachu">
+          </div>
+          <div>
+            <label for="habitat-desc" class="block text-sm font-semibold text-stone-700 mb-1">Descrizione Habitat</label>
+            <textarea id="habitat-desc" rows="3"
+                      class="w-full px-4 py-2 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 invalid:focus:ring-red-500 invalid:focus:border-red-500 transition-shadow"
+                      placeholder="Descrivi dove l'hai visto..."></textarea>
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="checkbox" id="urgent" class="w-5 h-5 text-emerald-600 rounded border-stone-300 focus:ring-emerald-500 cursor-pointer">
+            <label for="urgent" class="text-sm text-stone-700 cursor-pointer">Segnala come urgente (es. Pokémon ferito)</label>
+          </div>
+          <button type="submit" class="px-6 py-3 bg-emerald-700 text-white rounded-xl font-medium cursor-pointer hover:bg-emerald-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 transition-all shadow-sm flex items-center gap-2">
+            <mat-icon class="text-sm w-5 h-5">send</mat-icon> Invia Dati
+          </button>
+          
+          @if (isSubmitted()) {
+            <div class="mt-4 p-4 bg-emerald-100 text-emerald-900 rounded-xl flex items-center gap-3 border border-emerald-200 animate-in fade-in slide-in-from-bottom-2" role="status" aria-live="polite">
+              <mat-icon class="text-emerald-700">check_circle</mat-icon>
+              <span class="font-medium">Dati inviati con successo al Professor Oak!</span>
+            </div>
+          }
+        </form>
+      } @else {
+        <form class="space-y-5 max-w-xl bg-stone-50 p-6 rounded-2xl border border-stone-100" (submit)="$event.preventDefault()" role="menu">
+          <!-- ERRORE: 
+               - Nessuna <label> associata all'input
+               - Si affida solo al placeholder (che scompare quando si scrive)
+               - Nessuna indicazione semantica di campo obbligatorio (aria-required)
+               - Misuso di role="menu" sul form e role="menuitem" sugli input
+               - Checkbox custom fatto con div senza role="checkbox" o tabindex
+          -->
+          <div>
+            <span class="block text-sm font-semibold text-stone-700 mb-1">Specie Avvistata *</span>
+            <input type="text" role="menuitem" aria-expanded="false"
+                   class="w-full px-4 py-2 rounded-xl border border-stone-300 outline-none transition-shadow">
+          </div>
+          <div>
+            <textarea rows="3" role="menuitem"
+                      class="w-full px-4 py-2 rounded-xl border border-stone-300 outline-none transition-shadow"
+                      placeholder="Descrizione Habitat"></textarea>
+          </div>
+          <div class="flex items-center gap-2 cursor-pointer" (click)="toggleUrgent()">
+            <div class="w-5 h-5 border border-stone-300 rounded flex items-center justify-center" [class.bg-emerald-600]="isUrgent()">
+              @if (isUrgent()) {
+                <mat-icon class="text-white text-sm w-4 h-4">check</mat-icon>
+              }
+            </div>
+            <span class="text-sm text-stone-700">Segnala come urgente (es. Pokémon ferito)</span>
+          </div>
+          <!-- ERRORE: div usato come bottone di submit -->
+          <div (click)="submitForm()" role="heading" aria-level="1" class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-700 text-white rounded-xl font-medium cursor-pointer outline-none shadow-sm">
+            <mat-icon class="text-sm w-5 h-5">send</mat-icon> Invia Dati
+          </div>
+          
+          @if (isSubmitted()) {
+            <!-- ERRORE: Nessun ruolo ARIA (role="status" o aria-live="polite") per annunciare il successo -->
+            <div class="mt-4 p-4 bg-emerald-100 text-emerald-900 rounded-xl flex items-center gap-3 border border-emerald-200">
+              <mat-icon class="text-emerald-700">check_circle</mat-icon>
+              <span class="font-medium">Dati inviati con successo al Professor Oak!</span>
+            </div>
+          }
+        </form>
+      }
+    </section>
+
+    <!-- Language Example -->
+    <section class="bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
+      @if (isAccessible()) {
+        <h2 class="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2">
+          <mat-icon class="text-emerald-700">translate</mat-icon> Note di Ricerca (Giappone)
+        </h2>
+        <div lang="jp" class="p-6 bg-stone-50 rounded-2xl border border-stone-100">
+          <p class="text-lg text-stone-800 leading-relaxed italic">
+            「ポケットモンスター」は、たくさんの謎を秘めた不思議な生き物。空に、海に、森に、街に、世界中の至る所でその姿を見ることができる。
+          </p>
+          <p class="text-sm text-stone-500 mt-4">
+            (Traduzione: I Pokémon sono creature misteriose con molti segreti. Possono essere visti ovunque nel mondo: nel cielo, nel mare, nelle foreste e nelle città.)
+          </p>
+        </div>
+      } @else {
+        <div class="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2">
+          <mat-icon class="text-emerald-700">translate</mat-icon> Note di Ricerca (Giappone)
+        </div>
+        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-100">
+          <p class="text-lg text-stone-800 leading-relaxed italic">
+            「ポケットモンスター」は、たくさんの謎を秘めた不思議な生き物。空に、海に、森に、街に、世界中の至る所でその姿を見ることができる。
+          </p>
+          <p class="text-sm text-stone-500 mt-4">
+            (Traduzione: I Pokémon sono creature misteriose con molti segreti. Possono essere visti ovunque nel mondo: nel cielo, nel mare, nelle foreste e nelle città.)
+          </p>
+        </div>
+      }
+    </section>
+
+    <!-- Warning Popup Trigger -->
+    <section id="terminal" class="scroll-mt-24 bg-emerald-900 p-8 rounded-3xl shadow-sm border border-emerald-800 text-center relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+      <h2 class="text-2xl font-bold text-amber-300 mb-4 relative z-10">Terminale di Ricerca</h2>
+      <p class="mb-6 text-emerald-100 relative z-10 max-w-lg mx-auto">Simula la fine della sessione di ricerca nel terminale dell'Atlante. Un avviso chiederà di confermare la presenza.</p>
+      
+      @if (isAccessible()) {
+        <button (click)="openPopup()" class="relative z-10 px-8 py-3 bg-amber-500 text-stone-900 rounded-xl font-bold cursor-pointer hover:bg-amber-400 focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-500/50 shadow-lg transition-all">
+          Simula Fine Sessione
+        </button>
+      } @else {
+        <!-- ERRORE: div invece di button -->
+        <div (click)="openPopup()" class="relative z-10 inline-block px-8 py-3 bg-amber-500 text-stone-900 rounded-xl font-bold cursor-pointer outline-none shadow-lg">
+          Simula Fine Sessione
+        </div>
+      }
+    </section>
+
+  </main>
+
+  <!-- Popup -->
+  @if (showPopup()) {
+    @if (isAccessible()) {
+      <!-- Popup Accessibile -->
+      <div class="fixed inset-0 bg-stone-900/80 backdrop-blur-sm flex items-center justify-center z-50 p-4" (click)="closePopup()">
+        <div 
+          #accessiblePopup
+          role="alertdialog" 
+          aria-modal="true" 
+          aria-labelledby="popup-title"
+          aria-describedby="popup-desc"
+          class="bg-white p-8 rounded-3xl shadow-2xl max-w-md w-full border-2 border-red-100"
+          (click)="$event.stopPropagation()"
+          tabindex="-1">
+          
+          <div class="flex items-center gap-3 mb-4 text-red-600">
+            <mat-icon class="text-3xl">warning</mat-icon>
+            <h2 id="popup-title" class="text-2xl font-bold text-stone-800">Disconnessione Imminente</h2>
+          </div>
+          
+          <p id="popup-desc" class="text-stone-600 mb-8 text-lg">
+            La sessione del terminale terminerà presto se non confermi la tua presenza.
+          </p>
+          
+          <div class="mb-8 bg-stone-50 p-4 rounded-2xl border border-stone-100">
+            <div class="flex justify-between text-sm font-bold text-stone-700 mb-2">
+              <span>Tempo rimanente</span>
+              <span aria-live="polite" aria-atomic="true" class="text-red-700">{{ timeLeft() }} secondi</span>
+            </div>
+            <div class="w-full bg-stone-200 rounded-full h-3 overflow-hidden" role="progressbar" [attr.aria-valuenow]="timeLeft()" aria-valuemin="0" aria-valuemax="60">
+              <div class="bg-red-500 h-full rounded-full transition-all duration-1000 ease-linear" [style.width.%]="(timeLeft() / 60) * 100"></div>
+            </div>
+          </div>
+
+          <div class="flex justify-end gap-3">
+            <button (click)="closePopup()" class="px-6 py-3 text-stone-600 hover:bg-stone-100 rounded-xl font-bold cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-stone-200 transition-colors">
+              Esci
+            </button>
+            <button (click)="closePopup()" class="px-6 py-3 bg-red-700 text-white rounded-xl font-bold cursor-pointer hover:bg-red-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-500/50 transition-colors shadow-md">
+              Resta connesso
+            </button>
+          </div>
+        </div>
+      </div>
+    } @else {
+      <!-- ERRORE Popup Non Accessibile:
+           - Nessun ruolo ARIA (role="alertdialog")
+           - Il focus non viene spostato all'interno del popup
+           - Nessun annuncio allo screen reader (manca aria-live)
+           - Nessun suono di avviso
+           - Tempo insufficiente (10 secondi)
+           - Div invece di button per le azioni
+      -->
+      <div class="fixed inset-0 bg-stone-900/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-white p-8 rounded-3xl shadow-2xl max-w-md w-full border-2 border-red-100">
+          
+          <div class="flex items-center gap-3 mb-4 text-red-600">
+            <mat-icon class="text-3xl">warning</mat-icon>
+            <div class="text-2xl font-bold text-stone-800">Disconnessione Imminente</div>
+          </div>
+          
+          <div class="text-stone-600 mb-8 text-lg">
+            La sessione del terminale terminerà presto se non confermi la tua presenza.
+          </div>
+          
+          <div class="mb-8 bg-stone-50 p-4 rounded-2xl border border-stone-100">
+            <div class="flex justify-between text-sm font-bold text-stone-700 mb-2">
+              <span>Tempo rimanente</span>
+              <span class="text-red-600">{{ timeLeft() }} secondi</span>
+            </div>
+            <div class="w-full bg-stone-200 rounded-full h-3 overflow-hidden">
+              <div class="bg-red-500 h-full rounded-full transition-all duration-1000 ease-linear" [style.width.%]="(timeLeft() / 10) * 100"></div>
+            </div>
+          </div>
+
+          <div class="flex justify-end gap-3">
+            <div (click)="closePopup()" class="px-6 py-3 text-stone-600 hover:bg-stone-100 rounded-xl font-bold cursor-pointer outline-none transition-colors">
+              Esci
+            </div>
+            <div (click)="closePopup()" class="px-6 py-3 bg-red-600 text-white rounded-xl font-bold hover:bg-red-700 cursor-pointer outline-none transition-colors shadow-md">
+              Resta connesso
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  }
+</div>

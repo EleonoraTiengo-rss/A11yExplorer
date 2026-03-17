@@ -1,0 +1,109 @@
+<div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 mt-12">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center">
+      <mat-icon>quiz</mat-icon>
+    </div>
+    <h3 class="text-2xl font-bold text-slate-900 tracking-tight">Quiz dell'Accademia</h3>
+  </div>
+
+  @if (!isFinished()) {
+    <div class="mb-8">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-sm font-medium text-slate-500 uppercase tracking-wider">
+          Domanda {{ currentQuestionIndex() + 1 }} di {{ questions.length }}
+        </span>
+        <div class="flex gap-1">
+          @for (q of questions; track $index) {
+            <div class="w-8 h-2 rounded-full" 
+                 [class.bg-red-600]="$index <= currentQuestionIndex()"
+                 [class.bg-slate-200]="$index > currentQuestionIndex()">
+            </div>
+          }
+        </div>
+      </div>
+
+      <h4 class="text-xl font-semibold text-slate-900 mb-6">
+        {{ currentQuestion().text }}
+      </h4>
+
+      <div class="space-y-3">
+        @for (option of currentQuestion().options; track option.id) {
+          <button 
+            (click)="selectOption(option)"
+            [disabled]="isAnswered()"
+            class="w-full text-left px-5 py-4 rounded-xl border-2 transition-all duration-200 flex items-center justify-between group"
+            [ngClass]="{
+              'border-slate-200 hover:border-red-600 hover:bg-red-50 focus:border-red-600 focus:bg-red-50': !isAnswered(),
+              'border-emerald-500 bg-emerald-50 text-emerald-900': isAnswered() && option.isCorrect,
+              'border-red-500 bg-red-50 text-red-900': isAnswered() && selectedOption()?.id === option.id && !option.isCorrect,
+              'border-slate-200 opacity-50': isAnswered() && selectedOption()?.id !== option.id && !option.isCorrect
+            }">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full border-2 flex items-center justify-center font-bold text-sm"
+                    [ngClass]="{
+                      'border-slate-300 text-slate-500 group-hover:border-red-600 group-hover:text-red-600': !isAnswered(),
+                      'border-emerald-500 text-emerald-600': isAnswered() && option.isCorrect,
+                      'border-red-500 text-red-600': isAnswered() && selectedOption()?.id === option.id && !option.isCorrect,
+                      'border-slate-300 text-slate-400': isAnswered() && selectedOption()?.id !== option.id && !option.isCorrect
+                    }">
+                {{ option.id }}
+              </span>
+              <span class="font-medium">{{ option.text }}</span>
+            </div>
+
+            @if (isAnswered() && option.isCorrect) {
+              <mat-icon class="text-emerald-500">check_circle</mat-icon>
+            }
+            @if (isAnswered() && selectedOption()?.id === option.id && !option.isCorrect) {
+              <mat-icon class="text-red-500">cancel</mat-icon>
+            }
+          </button>
+        }
+      </div>
+
+      @if (isAnswered()) {
+        <div class="mt-6 p-5 rounded-xl border flex gap-4 items-start"
+             [ngClass]="isCorrect() ? 'bg-emerald-50 border-emerald-200' : 'bg-amber-50 border-amber-200'">
+          <mat-icon class="mt-0.5" [ngClass]="isCorrect() ? 'text-emerald-600' : 'text-amber-600'">
+            {{ isCorrect() ? 'emoji_events' : 'lightbulb' }}
+          </mat-icon>
+          <div>
+            <h5 class="font-bold mb-1" [ngClass]="isCorrect() ? 'text-emerald-900' : 'text-amber-900'">
+              {{ isCorrect() ? 'Risposta esatta! Ottimo lavoro!' : 'Non esattamente, ma impariamo insieme!' }}
+            </h5>
+            <p [ngClass]="isCorrect() ? 'text-emerald-800' : 'text-amber-800'">
+              {{ currentQuestion().explanation }}
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 flex justify-end">
+          <button 
+            (click)="nextQuestion()"
+            class="px-6 py-3 bg-slate-900 text-white font-semibold rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-2">
+            {{ currentQuestionIndex() === questions.length - 1 ? 'Vedi Risultati' : 'Prossima Domanda' }}
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="text-center py-8">
+      <div class="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <mat-icon class="text-emerald-600 text-5xl w-12 h-12">workspace_premium</mat-icon>
+      </div>
+      <h4 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight">Quiz Completato!</h4>
+      <p class="text-lg text-slate-600 mb-8">
+        Hai risposto correttamente a <span class="font-bold text-slate-900">{{ score() }}</span> domande su {{ questions.length }}.
+        <br>
+        {{ score() === questions.length ? "Sei un vero Maestro dell'Accessibilità!" : "Ottimo inizio, continua ad esplorare e imparare!" }}
+      </p>
+      <button 
+        (click)="resetQuiz()"
+        class="px-6 py-3 bg-red-600 text-white font-semibold rounded-xl hover:bg-red-700 transition-colors inline-flex items-center gap-2">
+        <mat-icon>refresh</mat-icon>
+        Riprova il Quiz
+      </button>
+    </div>
+  }
+</div>
