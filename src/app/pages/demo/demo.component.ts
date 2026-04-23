@@ -1,11 +1,31 @@
-import { Component, ChangeDetectionStrategy, signal, ViewChild, ElementRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+
+import { DemoHeaderComponent } from './components/demo-header';
+import { DemoHeroComponent } from './components/demo-hero';
+import { DemoHabitatComponent } from './components/demo-habitat';
+import { DemoSpeciesComponent } from './components/demo-species';
+import { DemoPokedexComponent } from './components/demo-pokedex';
+import { DemoReportFormComponent } from './components/demo-report-form';
+import { DemoTerminalComponent } from './components/demo-terminal';
+import { DemoPopupComponent } from './components/demo-popup';
 
 @Component({
   selector: 'app-demo',
   standalone: true,
-  imports: [MatIconModule, CommonModule],
+  imports: [
+    MatIconModule, 
+    CommonModule,
+    DemoHeaderComponent,
+    DemoHeroComponent,
+    DemoHabitatComponent,
+    DemoSpeciesComponent,
+    DemoPokedexComponent,
+    DemoReportFormComponent,
+    DemoTerminalComponent,
+    DemoPopupComponent
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './demo.component.html'
 })
@@ -18,8 +38,6 @@ export class DemoComponent {
   showPopup = signal(false);
   timeLeft = signal(60);
   timer: ReturnType<typeof setInterval> | undefined;
-
-  @ViewChild('accessiblePopup') accessiblePopup!: ElementRef;
 
   toggleAccessibility() {
     this.isAccessible.update(v => !v);
@@ -41,7 +59,8 @@ export class DemoComponent {
     setTimeout(() => this.isSubmitted.set(false), 4000);
   }
 
-  scrollTo(id: string, focusOnly = false, noFocus = false) {
+  scrollTo(params: {id: string, focusOnly?: boolean, noFocus?: boolean}) {
+    const { id, focusOnly = false, noFocus = false } = params;
     const element = document.getElementById(id);
     if (element) {
       if (!focusOnly) {
@@ -64,15 +83,6 @@ export class DemoComponent {
     this.showPopup.set(true);
     this.timeLeft.set(this.isAccessible() ? 60 : 10);
     
-    if (this.isAccessible()) {
-      this.playSound();
-      setTimeout(() => {
-        if (this.accessiblePopup) {
-          this.accessiblePopup.nativeElement.focus();
-        }
-      }, 50);
-    }
-
     this.timer = setInterval(() => {
       this.timeLeft.update(t => {
         if (t <= 1) {
@@ -88,29 +98,6 @@ export class DemoComponent {
     this.showPopup.set(false);
     if (this.timer) {
       clearInterval(this.timer);
-    }
-  }
-
-  private playSound() {
-    try {
-      const audioCtx = new (window.AudioContext || (window as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext!)();
-      const oscillator = audioCtx.createOscillator();
-      const gainNode = audioCtx.createGain();
-      
-      oscillator.type = 'sine';
-      oscillator.frequency.setValueAtTime(440, audioCtx.currentTime); 
-      oscillator.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.1);
-      
-      gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
-      
-      oscillator.connect(gainNode);
-      gainNode.connect(audioCtx.destination);
-      
-      oscillator.start();
-      oscillator.stop(audioCtx.currentTime + 0.1);
-    } catch {
-      // Ignora errori audio se il browser blocca l'autoplay
     }
   }
 }

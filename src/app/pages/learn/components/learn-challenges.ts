@@ -1,0 +1,117 @@
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+
+@Component({
+  selector: 'app-learn-challenges',
+  standalone: true,
+  imports: [MatIconModule],
+  template: `
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold text-lg font-mono">1</div>
+        <h3 class="text-3xl font-bold text-slate-900 tracking-tight">Le sfide degli Allenatori 🎒</h3>
+      </div>
+      
+      <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+        Nel mondo Pokémon, ogni creatura ha le sue caratteristiche uniche, i suoi punti di forza e le sue debolezze. Lo stesso vale per le persone che navigano nel web! 🌟 Alcuni utenti affrontano sfide specifiche, e il nostro compito è costruire percorsi accessibili a tutti, senza lasciare indietro nessuno.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png" alt="Zubat" class="absolute -right-4 -bottom-4 w-28 h-28 opacity-20" referrerpolicy="no-referrer" />
+          <div class="flex items-center gap-3 mb-4 text-emerald-600 relative z-10">
+            <mat-icon>visibility_off</mat-icon>
+            <h4 class="text-xl font-bold text-slate-900">Visive 🦇</h4>
+          </div>
+          <ul class="space-y-2 text-slate-600 relative z-10">
+            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-slate-400 rounded-full"></div> Cecità</li>
+            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-slate-400 rounded-full"></div> Ipovisione</li>
+            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-slate-400 rounded-full"></div> Daltonismo</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/293.png" alt="Whismur" class="absolute -right-4 -bottom-4 w-28 h-28 opacity-20" referrerpolicy="no-referrer" />
+          <div class="flex items-center gap-3 mb-4 text-blue-600 relative z-10">
+            <mat-icon>hearing_disabled</mat-icon>
+            <h4 class="text-xl font-bold text-slate-900">Uditive 🎧</h4>
+          </div>
+          <ul class="space-y-2 text-slate-600 relative z-10">
+            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-slate-400 rounded-full"></div> Sordità parziale</li>
+            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-slate-400 rounded-full"></div> Sordità totale</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png" alt="Slowpoke" class="absolute -right-4 -bottom-4 w-28 h-28 opacity-20" referrerpolicy="no-referrer" />
+          <div class="flex items-center gap-3 mb-4 text-amber-600 relative z-10">
+            <mat-icon>accessible</mat-icon>
+            <h4 class="text-xl font-bold text-slate-900">Motorie 🐢</h4>
+          </div>
+          <ul class="space-y-2 text-slate-600 relative z-10">
+            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-slate-400 rounded-full"></div> Difficoltà nell'uso del mouse</li>
+            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-slate-400 rounded-full"></div> Tremori</li>
+            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-slate-400 rounded-full"></div> Paralisi</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png" alt="Psyduck" class="absolute -right-4 -bottom-4 w-28 h-28 opacity-20" referrerpolicy="no-referrer" />
+          <div class="flex items-center gap-3 mb-4 text-purple-600 relative z-10">
+            <mat-icon>psychology</mat-icon>
+            <h4 class="text-xl font-bold text-slate-900">Cognitive 🦆</h4>
+          </div>
+          <ul class="space-y-2 text-slate-600 relative z-10">
+            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-slate-400 rounded-full"></div> Dislessia</li>
+            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-slate-400 rounded-full"></div> Deficit di attenzione</li>
+            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-slate-400 rounded-full"></div> Difficoltà di apprendimento</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-lg relative overflow-hidden">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png" alt="Snorlax" class="absolute -right-10 -bottom-10 w-48 h-48 opacity-20" referrerpolicy="no-referrer" />
+        <h4 class="text-xl font-bold mb-4 flex items-center gap-2 relative z-10">
+          <mat-icon class="text-amber-400">hourglass_empty</mat-icon>
+          Situazioni temporanee o contestuali 💤
+        </h4>
+        <p class="text-slate-300 mb-6 relative z-10">Esistono situazioni che possono creare difficoltà simili a quelle permanenti (come trovarsi la strada bloccata da uno Snorlax!):</p>
+        
+        <div class="grid sm:grid-cols-3 gap-6 relative z-10">
+          <div>
+            <h5 class="font-semibold text-red-400 mb-2 uppercase text-sm tracking-wider">Temporanee / Situazionali</h5>
+            <ul class="space-y-2 text-slate-300 text-sm">
+              <li>• Un braccio rotto 🤕</li>
+              <li>• Riflessi del sole sullo schermo ☀️</li>
+              <li>• Navigare in ambienti rumorosi 🔊</li>
+              <li>• Stanchezza o sovraccarico mentale 😵‍💫</li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-semibold text-blue-400 mb-2 uppercase text-sm tracking-wider">Ambientali / Sociali</h5>
+            <ul class="space-y-2 text-slate-300 text-sm">
+              <li>• Cultura e Simbologia locale 🌍</li>
+              <li>• Barriere linguistiche 🗣️</li>
+              <li>• Livello di istruzione / Digital Divide 📚</li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-semibold text-emerald-400 mb-2 uppercase text-sm tracking-wider">Limiti tecnologici</h5>
+            <ul class="space-y-2 text-slate-300 text-sm">
+              <li>• Connessioni internet lente 🐌</li>
+              <li>• Dispositivi datati o poco performanti 📱</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="mt-8 pt-6 border-t border-slate-700 text-center relative z-10">
+          <p class="text-lg font-medium">
+            Progettare per l'accessibilità significa adottare un approccio <span class="text-red-400 font-bold">human-first</span>. ❤️
+          </p>
+        </div>
+      </div>
+    </section>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class LearnChallengesComponent {}

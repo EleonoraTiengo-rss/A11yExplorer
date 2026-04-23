@@ -1,0 +1,99 @@
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+
+@Component({
+  selector: 'app-learn-gym',
+  standalone: true,
+  imports: [MatIconModule],
+  template: `
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold text-lg font-mono">4</div>
+        <h3 class="text-3xl font-bold text-slate-900 tracking-tight">La Palestra dell'Accessibilità 🏟️</h3>
+      </div>
+      
+      <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+        È il momento di scendere in campo! Ecco alcune sfide pratiche. Prova a navigare questi esempi usando solo il tasto <kbd class="bg-slate-200 px-2 py-0.5 rounded text-sm font-mono border-b-2 border-slate-300">Tab</kbd> della tua tastiera. ⌨️
+      </p>
+
+      <div class="space-y-8">
+        <!-- Esempio 1 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <h4 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <mat-icon class="text-red-500">catching_pokemon</mat-icon> Sfida 1: Il Bottone Illusione
+          </h4>
+          <p class="text-slate-600 mb-6">Sembrano identici, ma uno dei due è un "falso bottone" (un div travestito) che non può essere "catturato" con la tastiera.</p>
+          
+          <div class="grid sm:grid-cols-2 gap-8 p-6 bg-slate-50 rounded-xl border border-slate-100">
+            <div>
+              <div class="mb-3 text-sm font-bold text-emerald-600 flex items-center gap-1"><mat-icon class="text-sm w-4 h-4">check_circle</mat-icon> Accessibile (Nativo)</div>
+              <button class="px-6 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 focus:ring-4 focus:ring-red-300 outline-none transition-all shadow-sm">
+                Lancia Poké Ball
+              </button>
+              <p class="mt-3 text-xs text-slate-500 font-mono">&lt;button&gt; vero e proprio</p>
+            </div>
+            <div>
+              <div class="mb-3 text-sm font-bold text-red-600 flex items-center gap-1"><mat-icon class="text-sm w-4 h-4">cancel</mat-icon> Inaccessibile (Div)</div>
+              <div class="inline-block px-6 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 cursor-pointer transition-all shadow-sm">
+                Lancia Poké Ball
+              </div>
+              <p class="mt-3 text-xs text-slate-500 font-mono">&lt;div&gt; con (click)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Esempio 2 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <h4 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <mat-icon class="text-blue-500">visibility</mat-icon> Sfida 2: Mimetismo e Contrasto
+          </h4>
+          <p class="text-slate-600 mb-6">Un testo con poco contrasto è come un Kecleon mimetizzato: invisibile per molti allenatori!</p>
+          
+          <div class="grid sm:grid-cols-2 gap-8 p-6 bg-slate-50 rounded-xl border border-slate-100">
+            <div>
+              <div class="mb-3 text-sm font-bold text-emerald-600 flex items-center gap-1"><mat-icon class="text-sm w-4 h-4">check_circle</mat-icon> Accessibile (Alto Contrasto)</div>
+              <div class="p-4 bg-white border border-slate-200 rounded-lg">
+                <p class="text-slate-800 font-medium">Un Pidgey selvatico è apparso! Preparati alla lotta.</p>
+              </div>
+              <p class="mt-3 text-xs text-slate-500 font-mono">Testo scuro su sfondo bianco</p>
+            </div>
+            <div>
+              <div class="mb-3 text-sm font-bold text-red-600 flex items-center gap-1"><mat-icon class="text-sm w-4 h-4">cancel</mat-icon> Inaccessibile (Basso Contrasto)</div>
+              <div class="p-4 bg-white border border-slate-200 rounded-lg">
+                <p class="text-slate-300 font-medium">Un Pidgey selvatico è apparso! Preparati alla lotta.</p>
+              </div>
+              <p class="mt-3 text-xs text-slate-500 font-mono">Testo grigio chiaro su sfondo bianco</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Esempio 3 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <h4 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <mat-icon class="text-purple-500">hearing</mat-icon> Sfida 3: Il Richiamo Misterioso
+          </h4>
+          <p class="text-slate-600 mb-6">I bottoni con sole icone sono muti per gli screen reader se non usi <code class="bg-slate-100 text-pink-600 px-1 rounded">aria-label</code>. Inoltre, occhio ai colori!</p>
+          
+          <div class="grid sm:grid-cols-2 gap-8 p-6 bg-slate-50 rounded-xl border border-slate-100">
+            <div>
+              <div class="mb-3 text-sm font-bold text-emerald-600 flex items-center gap-1"><mat-icon class="text-sm w-4 h-4">check_circle</mat-icon> Accessibile (Aria-label + Colore)</div>
+              <button class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 outline-none shadow-sm" aria-label="Cura la squadra Pokémon">
+                <mat-icon>healing</mat-icon>
+              </button>
+              <p class="mt-3 text-xs text-slate-500 font-mono">aria-label presente, contrasto OK</p>
+            </div>
+            <div>
+              <div class="mb-3 text-sm font-bold text-red-600 flex items-center gap-1"><mat-icon class="text-sm w-4 h-4">cancel</mat-icon> Inaccessibile (Muto + Colore errato)</div>
+              <button class="w-12 h-12 bg-blue-200 text-white rounded-full flex items-center justify-center hover:bg-blue-300 outline-none shadow-sm">
+                <mat-icon>healing</mat-icon>
+              </button>
+              <p class="mt-3 text-xs text-slate-500 font-mono">Nessun aria-label, testo bianco su azzurro chiaro</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class LearnGymComponent {}

@@ -1,0 +1,142 @@
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+
+@Component({
+  selector: 'app-css-logical-properties',
+  standalone: true,
+  imports: [MatIconModule],
+  template: `
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-bold text-lg font-mono">5.1</div>
+        <h3 class="text-2xl font-bold text-slate-900 tracking-tight">Evoluzione: Proprietà Logiche CSS 📐</h3>
+      </div>
+      
+      <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+        Siamo abituati a pensare in termini di "sopra, sotto, destra, sinistra". Ma cosa succede quando il testo non scorre da sinistra a destra? Le <strong>proprietà logiche</strong> si adattano alla direzione del contenuto, garantendo un layout coerente in ogni lingua.
+      </p>
+
+      <div class="bg-indigo-50 p-8 rounded-3xl border border-indigo-100 shadow-sm">
+        <div class="grid lg:grid-cols-2 gap-8">
+          
+          <!-- Versione FISICA -->
+          <div class="bg-white p-6 rounded-2xl border border-red-100 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-16 h-16 bg-red-50 -mr-8 -mt-8 rounded-full"></div>
+            <div class="flex items-center gap-2 mb-6 text-red-600 relative z-10">
+              <mat-icon>do_not_disturb</mat-icon>
+              <h4 class="font-bold">Proprietà Fisiche (Limitate)</h4>
+            </div>
+            
+            <div class="space-y-8">
+              <!-- LTR -->
+              <div>
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">1. Orizzontale (LTR)</p>
+                <div class="p-4 bg-slate-50 rounded-xl border border-dashed border-slate-300">
+                  <div class="bg-slate-700 text-white rounded-lg p-2 inline-block" style="margin-left: 2rem;">
+                    <span>Margine a sinistra</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Vertical -->
+              <div>
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">2. Verticale (Giapponese)</p>
+                <div class="p-4 bg-slate-50 rounded-xl border border-dashed border-slate-300 flex justify-center">
+                  <div lang="ja" class="bg-slate-700 text-white rounded-lg p-2" style="writing-mode: vertical-rl; margin-left: 2rem;">
+                    <span>物理的な余白</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RTL -->
+              <div>
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">3. Destra-Sinistra (Arabo)</p>
+                <div class="p-4 bg-slate-50 rounded-xl border border-dashed border-slate-300">
+                  <div dir="rtl" class="bg-slate-700 text-white rounded-lg p-2" style="margin-left: 2rem;">
+                    <span>هوامش مادية</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6 text-xs font-mono bg-slate-900 text-red-300 p-4 rounded-xl leading-relaxed">
+              margin-left: 2rem; <span class="text-slate-500">/* Sempre a sinistra */</span>
+            </div>
+            <p class="mt-4 text-sm text-slate-500 leading-relaxed italic">
+              Il margine resta bloccato a sinistra anche se l'inizio della riga è a destra (Arabo) o se si scrive in verticale.
+            </p>
+          </div>
+
+          <!-- Versione LOGICA -->
+          <div class="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm relative overflow-hidden border-t-4 border-emerald-500">
+            <div class="absolute top-0 right-0 w-16 h-16 bg-emerald-50 -mr-8 -mt-8 rounded-full"></div>
+            <div class="flex items-center gap-2 mb-6 text-emerald-600 relative z-10">
+              <mat-icon>check_circle</mat-icon>
+              <h4 class="font-bold">Proprietà Logiche (Universali)</h4>
+            </div>
+            
+            <div class="space-y-8">
+              <!-- LTR -->
+              <div>
+                <p class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-2">1. Orizzontale (LTR)</p>
+                <div class="p-4 bg-emerald-50 rounded-xl border border-dashed border-emerald-300">
+                  <div class="bg-emerald-600 text-white rounded-lg p-2 inline-block" style="margin-inline-start: 2rem;">
+                    <span>Inizio riga</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Vertical -->
+              <div>
+                <p class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-2">2. Verticale (Giapponese)</p>
+                <div class="p-4 bg-emerald-50 rounded-xl border border-dashed border-emerald-300 flex justify-center">
+                  <div lang="ja" class="bg-emerald-600 text-white rounded-lg p-2" style="writing-mode: vertical-rl; margin-inline-start: 2rem;">
+                    <span>論理的な余白</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RTL -->
+              <div>
+                <p class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-2">3. Destra-Sinistra (Arabo)</p>
+                <div class="p-4 bg-emerald-50 rounded-xl border border-dashed border-emerald-300">
+                  <div dir="rtl" class="bg-emerald-600 text-white rounded-lg p-2" style="margin-inline-start: 2rem;">
+                    <span>هوامش منطقية</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6 text-xs font-mono bg-slate-900 text-emerald-400 p-4 rounded-xl leading-relaxed">
+              margin-inline-start: 2rem; <span class="text-emerald-800">/* All'inizio della riga */</span>
+            </div>
+            <p class="mt-4 text-sm text-slate-500 leading-relaxed italic">
+              Il margine "capisce" dov'è l'inizio della riga in base alla lingua e alla direzione del testo.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-white/60 p-4 rounded-2xl border border-indigo-100 backdrop-blur-sm">
+            <div class="text-indigo-900 font-bold mb-1">margin-block</div>
+            <div class="text-xs text-indigo-700/60 uppercase font-mono tracking-tighter">Perpendicolare</div>
+          </div>
+          <div class="bg-white/60 p-4 rounded-2xl border border-indigo-100 backdrop-blur-sm">
+            <div class="text-indigo-900 font-bold mb-1">padding-inline</div>
+            <div class="text-xs text-indigo-700/60 uppercase font-mono tracking-tighter">Lungo la riga</div>
+          </div>
+          <div class="bg-white/60 p-4 rounded-2xl border border-indigo-100 backdrop-blur-sm">
+            <div class="text-indigo-900 font-bold mb-1">inset-inline</div>
+            <div class="text-xs text-indigo-700/60 uppercase font-mono tracking-tighter">Posizione (Bordi)</div>
+          </div>
+          <div class="bg-white/60 p-4 rounded-2xl border border-indigo-100 backdrop-blur-sm">
+            <div class="text-indigo-900 font-bold mb-1">overflow-inline</div>
+            <div class="text-xs text-indigo-700/60 uppercase font-mono tracking-tighter">Scorrimento</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class CssLogicalPropertiesComponent {}
