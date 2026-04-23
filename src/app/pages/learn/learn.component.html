@@ -103,7 +103,7 @@
       </h4>
       <p class="text-slate-300 mb-6 relative z-10">Esistono situazioni che possono creare difficoltà simili a quelle permanenti (come trovarsi la strada bloccata da uno Snorlax!):</p>
       
-      <div class="grid sm:grid-cols-2 gap-6 relative z-10">
+      <div class="grid sm:grid-cols-3 gap-6 relative z-10">
         <div>
           <h5 class="font-semibold text-red-400 mb-2 uppercase text-sm tracking-wider">Temporanee / Situazionali</h5>
           <ul class="space-y-2 text-slate-300 text-sm">
@@ -114,7 +114,15 @@
           </ul>
         </div>
         <div>
-          <h5 class="font-semibold text-blue-400 mb-2 uppercase text-sm tracking-wider">Limiti tecnologici</h5>
+          <h5 class="font-semibold text-blue-400 mb-2 uppercase text-sm tracking-wider">Ambientali / Sociali</h5>
+          <ul class="space-y-2 text-slate-300 text-sm">
+            <li>• Cultura e Simbologia locale 🌍</li>
+            <li>• Barriere linguistiche 🗣️</li>
+            <li>• Livello di istruzione / Digital Divide 📚</li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-semibold text-emerald-400 mb-2 uppercase text-sm tracking-wider">Limiti tecnologici</h5>
           <ul class="space-y-2 text-slate-300 text-sm">
             <li>• Connessioni internet lente 🐌</li>
             <li>• Dispositivi datati o poco performanti 📱</li>
@@ -129,6 +137,9 @@
       </div>
     </div>
   </section>
+
+  <!-- Accessibilità Universale: Oltre la disabilità - RIMOSSO DA QUI -->
+
 
   <!-- 2. Principi WCAG -->
   <section class="mb-16">
@@ -188,6 +199,72 @@
             <li>• Uso corretto dell'HTML semantico</li>
             <li>• Utilizzo degli attributi <code class="bg-slate-200 px-1.5 py-0.5 rounded text-sm text-pink-600 font-mono">aria-*</code> quando necessario</li>
           </ul>
+        </div>
+      </div>
+
+      <!-- Approfondimento: Accessibilità Universale (Moved here) -->
+      <div class="bg-indigo-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden mt-8">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+        <div class="relative z-10">
+          <h4 class="text-2xl font-bold mb-4 flex items-center gap-3">
+            <mat-icon class="text-indigo-400">public</mat-icon>
+            Accessibilità Universale: Un ponte tra culture e conoscenze
+          </h4>
+          <p class="text-indigo-100 text-lg mb-8 leading-relaxed max-w-4xl">
+            L'accessibilità viene spesso ridotta a una serie di accorgimenti per disabilità permanenti. Tuttavia, una vera inclusione considera anche il <strong>linguaggio</strong>, la <strong>cultura</strong> e il <strong>livello di istruzione</strong> degli utenti.
+          </p>
+
+          <div class="grid lg:grid-cols-3 gap-6 text-slate-100">
+            <!-- Linguaggio e Conformità -->
+            <div class="bg-white/10 p-6 rounded-2xl border border-white/10 backdrop-blur-sm flex flex-col">
+              <div class="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center mb-4">
+                <mat-icon class="text-white">translate</mat-icon>
+              </div>
+              <h5 class="font-bold text-lg mb-2">Linguaggio e Conformità</h5>
+              <p class="text-indigo-100/90 text-sm leading-relaxed mb-4 flex-grow">
+                Secondo la <strong>Conformance (Statement 5.5)</strong> delle WCAG, la conformità deve essere garantita per <em>ogni lingua supportata</em>. Le traduzioni devono essere adattate localmente: una traduzione letterale può rendere il sito inaccessibile a chi parla quella lingua.
+              </p>
+              <div class="text-[10px] bg-indigo-950/50 p-3 rounded-lg border border-indigo-400/20 font-mono italic">
+                Esempio Localizzazione:<br>"Piece of cake" -> "Facile come bere un bicchier d'acqua"
+              </div>
+            </div>
+
+            <!-- Livello di Istruzione -->
+            <div class="bg-white/10 p-6 rounded-2xl border border-white/10 backdrop-blur-sm flex flex-col">
+              <div class="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center mb-4">
+                <mat-icon class="text-white">school</mat-icon>
+              </div>
+              <h5 class="font-bold text-lg mb-2">Livello di Istruzione</h5>
+              <p class="text-indigo-100/90 text-sm leading-relaxed mb-4 flex-grow">
+                Il <strong>Principio 3 (Understandable)</strong> impone che i testi siano chiari anche per chi ha un livello di istruzione basso o difficoltà cognitive. Ad esempio, il <strong>prezzo finale</strong> deve essere esplicito: l'utente non deve fare calcoli complessi o leggere note minuscole per capire quanto pagherà.
+              </p>
+              <div class="flex items-center gap-2 text-xs text-indigo-200 bg-indigo-950/50 p-2 rounded-lg border border-indigo-400/20">
+                <mat-icon class="text-emerald-400 text-sm">payments</mat-icon>
+                <span>Trasparenza: Prezzo € 10 (IVA e tasse incluse)</span>
+              </div>
+            </div>
+
+            <!-- Errori Culturali -->
+            <div class="bg-white/10 p-6 rounded-2xl border border-white/10 backdrop-blur-sm flex flex-col">
+              <div class="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center mb-4">
+                <mat-icon class="text-white">auto_awesome</mat-icon>
+              </div>
+              <h5 class="font-bold text-lg mb-2">Errori Culturali</h5>
+              <p class="text-indigo-100/90 text-sm leading-relaxed mb-4 flex-grow">
+                I colori e i simboli non sono universali. Per prevenire errori critici dovuti a interpretazioni culturali diverse, è obbligatorio fornire <strong>legende esplicite</strong> o spiegazioni testuali che non si affidino esclusivamente alla percezione visiva o simbolica del colore.
+              </p>
+              <div class="flex flex-col gap-1 text-[10px] bg-indigo-950/50 p-2 rounded-lg border border-indigo-400/20">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                  <span class="text-indigo-200">Rosso in Cina: Fortuna (non sempre pericolo!)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <mat-icon class="text-indigo-200 text-[12px]">info</mat-icon>
+                  <span class="italic">Sempre aggiungere etichette testuali.</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -396,6 +473,138 @@
       <div class="bg-red-50 p-5 rounded-xl border border-red-100">
         <h5 class="font-bold text-red-700 mb-2">Ignorare i pattern ufficiali</h5>
         <p class="text-sm text-red-900">Inventare soluzioni "comode" per lo sviluppatore ma che violano la prevedibilità per l'utente. Segui sempre i pattern WAI-ARIA ufficiali per componenti complessi come tab, modali e menu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5.1 Approfondimento: Proprietà Logiche CSS -->
+  <section class="mb-16">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-bold text-lg font-mono">5.1</div>
+      <h3 class="text-2xl font-bold text-slate-900 tracking-tight">Evoluzione: Proprietà Logiche CSS 📐</h3>
+    </div>
+    
+    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+      Siamo abituati a pensare in termini di "sopra, sotto, destra, sinistra". Ma cosa succede quando il testo non scorre da sinistra a destra? Le <strong>proprietà logiche</strong> si adattano alla direzione del contenuto, garantendo un layout coerente in ogni lingua.
+    </p>
+
+    <div class="bg-indigo-50 p-8 rounded-3xl border border-indigo-100 shadow-sm">
+      <div class="grid lg:grid-cols-2 gap-8">
+        
+        <!-- Versione FISICA -->
+        <div class="bg-white p-6 rounded-2xl border border-red-100 shadow-sm relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-16 h-16 bg-red-50 -mr-8 -mt-8 rounded-full"></div>
+          <div class="flex items-center gap-2 mb-6 text-red-600 relative z-10">
+            <mat-icon>do_not_disturb</mat-icon>
+            <h4 class="font-bold">Proprietà Fisiche (Limitate)</h4>
+          </div>
+          
+          <div class="space-y-8">
+            <!-- LTR (Funziona per caso) -->
+            <div>
+              <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">1. Orizzontale (LTR)</p>
+              <div class="p-4 bg-slate-50 rounded-xl border border-dashed border-slate-300">
+                <div class="bg-slate-700 text-white rounded-lg p-2 inline-block" style="margin-left: 2rem;">
+                  <span>Margine a sinistra</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vertical (Fallisce) -->
+            <div>
+              <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">2. Verticale (Giapponese)</p>
+              <div class="p-4 bg-slate-50 rounded-xl border border-dashed border-slate-300 flex justify-center">
+                <div lang="ja" class="bg-slate-700 text-white rounded-lg p-2" style="writing-mode: vertical-rl; margin-left: 2rem;">
+                  <span>物理的な余白</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- RTL (Fallisce) -->
+            <div>
+              <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">3. Destra-Sinistra (Arabo)</p>
+              <div class="p-4 bg-slate-50 rounded-xl border border-dashed border-slate-300">
+                <div dir="rtl" class="bg-slate-700 text-white rounded-lg p-2" style="margin-left: 2rem;">
+                  <span>هوامش مادية</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-6 text-xs font-mono bg-slate-900 text-red-300 p-4 rounded-xl leading-relaxed">
+            margin-left: 2rem; <span class="text-slate-500">/* Sempre a sinistra */</span>
+          </div>
+          <p class="mt-4 text-sm text-slate-500 leading-relaxed italic">
+            Il margine resta bloccato a sinistra anche se l'inizio della riga è a destra (Arabo) o se si scrive in verticale.
+          </p>
+        </div>
+
+        <!-- Versione LOGICA -->
+        <div class="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm relative overflow-hidden border-t-4 border-emerald-500">
+          <div class="absolute top-0 right-0 w-16 h-16 bg-emerald-50 -mr-8 -mt-8 rounded-full"></div>
+          <div class="flex items-center gap-2 mb-6 text-emerald-600 relative z-10">
+            <mat-icon>check_circle</mat-icon>
+            <h4 class="font-bold">Proprietà Logiche (Universali)</h4>
+          </div>
+          
+          <div class="space-y-8">
+            <!-- LTR -->
+            <div>
+              <p class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-2">1. Orizzontale (LTR)</p>
+              <div class="p-4 bg-emerald-50 rounded-xl border border-dashed border-emerald-300">
+                <div class="bg-emerald-600 text-white rounded-lg p-2 inline-block" style="margin-inline-start: 2rem;">
+                  <span>Inizio riga</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vertical -->
+            <div>
+              <p class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-2">2. Verticale (Giapponese)</p>
+              <div class="p-4 bg-emerald-50 rounded-xl border border-dashed border-emerald-300 flex justify-center">
+                <div lang="ja" class="bg-emerald-600 text-white rounded-lg p-2" style="writing-mode: vertical-rl; margin-inline-start: 2rem;">
+                  <span>論理的な余白</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- RTL -->
+            <div>
+              <p class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-2">3. Destra-Sinistra (Arabo)</p>
+              <div class="p-4 bg-emerald-50 rounded-xl border border-dashed border-emerald-300">
+                <div dir="rtl" class="bg-emerald-600 text-white rounded-lg p-2" style="margin-inline-start: 2rem;">
+                  <span>هوامش منطقية</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-6 text-xs font-mono bg-slate-900 text-emerald-400 p-4 rounded-xl leading-relaxed">
+            margin-inline-start: 2rem; <span class="text-emerald-800">/* All'inizio della riga */</span>
+          </div>
+          <p class="mt-4 text-sm text-slate-500 leading-relaxed italic">
+            Il margine "capisce" dov'è l'inizio della riga in base alla lingua e alla direzione del testo.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white/60 p-4 rounded-2xl border border-indigo-100 backdrop-blur-sm">
+          <div class="text-indigo-900 font-bold mb-1">margin-block</div>
+          <div class="text-xs text-indigo-700/60 uppercase font-mono tracking-tighter">Perpendicolare</div>
+        </div>
+        <div class="bg-white/60 p-4 rounded-2xl border border-indigo-100 backdrop-blur-sm">
+          <div class="text-indigo-900 font-bold mb-1">padding-inline</div>
+          <div class="text-xs text-indigo-700/60 uppercase font-mono tracking-tighter">Lungo la riga</div>
+        </div>
+        <div class="bg-white/60 p-4 rounded-2xl border border-indigo-100 backdrop-blur-sm">
+          <div class="text-indigo-900 font-bold mb-1">inset-inline</div>
+          <div class="text-xs text-indigo-700/60 uppercase font-mono tracking-tighter">Posizione (Bordi)</div>
+        </div>
+        <div class="bg-white/60 p-4 rounded-2xl border border-indigo-100 backdrop-blur-sm">
+          <div class="text-indigo-900 font-bold mb-1">overflow-inline</div>
+          <div class="text-xs text-indigo-700/60 uppercase font-mono tracking-tighter">Scorrimento</div>
+        </div>
       </div>
     </div>
   </section>
