@@ -1,0 +1,173 @@
+<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-8 border-l-purple-400">
+  <div class="flex justify-between items-start mb-6">
+    <div>
+      <h4 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+        <mat-icon class="text-indigo-500">auto_fix_high</mat-icon> Sfida DITTO: Il Duplicato Perfetto
+      </h4>
+      <p class="text-slate-600">Un Pikachu nativo contro un Ditto che mima ogni suo comportamento. Riuscirai a distinguerli?</p>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-12 p-8 bg-slate-50 rounded-2xl border border-slate-100 relative italic">
+    <!-- Watermarks container -->
+    <div class="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+      <mat-icon class="absolute -bottom-4 -left-4 text-yellow-200/30 text-9xl rotate-12">bolt</mat-icon>
+      <mat-icon class="absolute -top-4 -right-4 text-purple-200/30 text-9xl -rotate-12">face</mat-icon>
+    </div>
+
+    <!-- Pikachu: Native Select -->
+    <div class="space-y-6 relative z-10">
+      <div class="flex flex-col gap-2 relative">
+        <label for="poke-select" class="text-sm font-medium text-slate-700">Scegli il tuo Pokémon:</label>
+        <div class="relative">
+          <select id="poke-select" class="w-full h-10 px-3 pr-10 bg-white border border-slate-300 rounded-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-none cursor-default appearance-none text-slate-900 text-sm">
+            @for (poke of pokes; track poke.id) {
+              <option [value]="poke.id">{{ poke.name }} ({{ poke.type }})</option>
+            }
+          </select>
+          <mat-icon class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-600 pointer-events-none text-lg">expand_more</mat-icon>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ditto: Custom Select (Accessible) -->
+    <div class="space-y-6 relative z-10" #dittoContainer>
+      <div class="flex flex-col gap-2 relative">
+        <span id="ditto-label" class="text-sm font-medium text-slate-700">Scegli il tuo Pokémon:</span>
+        
+        <div class="relative">
+          <div 
+            id="ditto-combobox"
+            role="combobox"
+            aria-haspopup="listbox"
+            [attr.aria-expanded]="isDittoOpen()"
+            aria-controls="ditto-listbox"
+            aria-labelledby="ditto-label"
+            tabindex="0"
+            (click)="toggleDitto()"
+            (keydown)="onKeyDown($event)"
+            class="w-full h-10 px-3 pr-10 bg-white border border-slate-300 rounded-none flex items-center cursor-default transition-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none"
+            [class.border-blue-500]="isDittoOpen()"
+            [class.ring-2]="isDittoOpen()"
+            [class.ring-blue-500/20]="isDittoOpen()"
+          >
+            <span class="text-slate-900 text-sm">{{ selectedPoke().name }} ({{ selectedPoke().type }})</span>
+            <mat-icon class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-600 text-lg">expand_more</mat-icon>
+          </div>
+
+          @if (isDittoOpen()) {
+            <ul 
+              id="ditto-listbox"
+              role="listbox"
+              aria-labelledby="ditto-label"
+              class="absolute top-full left-0 right-0 mt-0 bg-white border border-slate-300 shadow-lg z-[100] overflow-hidden py-0 animate-in fade-in duration-75"
+            >
+              @for (poke of pokes; track poke.id; let i = $index) {
+                <li 
+                  role="option"
+                  [attr.aria-selected]="i === selectedPokeIdx()"
+                  tabindex="0"
+                  (click)="selectPoke(i)"
+                  (keydown.enter)="selectPoke(i)"
+                  (keydown.space)="selectPoke(i); $event.preventDefault()"
+                  (mouseenter)="highlightedIdx.set(i)"
+                  class="px-3 py-1 cursor-default transition-none text-slate-900 text-sm select-none outline-none focus:bg-gray-600 focus:text-white"
+                  [class.bg-gray-600]="i === highlightedIdx()"
+                  [class.text-white]="i === highlightedIdx()"
+                >
+                  <span>{{ poke.name }} ({{ poke.type }})</span>
+                </li>
+              }
+            </ul>
+          }
+        </div>
+      </div>
+    </div>
+  </div>  <!-- Unified Solutions Panel -->
+  <div class="mt-4 border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm">
+    <button 
+      (click)="toggleSolutions()" 
+      class="w-full px-4 py-3 flex items-center justify-between text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors"
+    >
+      <div class="flex items-center gap-2">
+        <mat-icon class="text-indigo-500">lightbulb</mat-icon>
+        <span>Svela il segreto: Come sono stati implementati?</span>
+      </div>
+      <mat-icon [class.rotate-180]="showSolutions()">expand_more</mat-icon>
+    </button>
+    
+    @if (showSolutions()) {
+      <div class="p-6 bg-slate-50 border-t border-slate-100 animate-in slide-in-from-top-1 duration-200">
+        <div class="grid sm:grid-cols-2 gap-8">
+          <!-- Soluzione Nativa -->
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
+              <p class="text-[10px] uppercase tracking-wider font-bold text-slate-500">Implementazione Nativa (Pikachu)</p>
+            </div>
+            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+              Usa l'elemento HTML nativo <code>&lt;select&gt;</code>. È la scelta migliore per l'accessibilità perché il browser gestisce "gratis" la navigazione tastiera e la comunicazione con gli screen reader.
+            </p>
+            <code class="block bg-slate-800 text-indigo-300 p-3 rounded text-[11px] overflow-x-auto">
+              &lt;select id="poke-select"&gt;<br>
+              &nbsp;&nbsp;&lt;option&gt;Pikachu&lt;/option&gt;<br>
+              &lt;/select&gt;
+            </code>
+          </div>
+
+          <!-- Soluzione Custom -->
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-2 h-2 rounded-full bg-purple-400"></div>
+              <p class="text-[10px] uppercase tracking-wider font-bold text-slate-500">Implementazione Custom (Ditto)</p>
+            </div>
+            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+              Costruita con <code>&lt;div&gt;</code>. Per renderla accessibile abbiamo usato attributi <strong>ARIA</strong> (<code>role="combobox"</code>) e implementato manualmente il supporto alla tastiera.
+            </p>
+            <code class="block bg-slate-800 text-indigo-300 p-3 rounded text-[11px] overflow-x-auto">
+              &lt;div role="combobox" aria-haspopup="listbox"&gt;...&lt;/div&gt;<br>
+              &lt;ul role="listbox"&gt;<br>
+              &nbsp;&nbsp;&lt;li role="option"&gt;...&lt;/li&gt;<br>
+              &lt;/ul&gt;
+            </code>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Footer Info with CSS-reconstructed Ditto face -->
+  <div class="mt-8 p-6 bg-purple-50 rounded-xl flex flex-col md:flex-row gap-6 items-center">
+    <div class="flex items-center gap-4 shrink-0">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu Vero" class="w-20 h-20 object-contain drop-shadow-md" referrerpolicy="no-referrer">
+      <mat-icon class="text-purple-400 text-4xl">arrow_forward</mat-icon>
+      
+      <!-- Ditto-Pikachu Reconstruction via CSS Overlay -->
+      <div class="relative w-24 h-24 flex items-center justify-center">
+        <!-- Pikachu Base Image -->
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu Ditto Base" class="w-full h-full object-contain grayscale-[20%] brightness-110" referrerpolicy="no-referrer">
+        
+        <!-- Ditto Face Mask Overlay (The "Cropped" Ditto face from the user image) -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none translate-y-1">
+          <div class="relative w-10 h-6">
+            <!-- Tiny dots for eyes -->
+            <div class="absolute left-1.5 top-0 w-1.5 h-1.5 bg-slate-900 rounded-full shadow-[0_0_10px_rgba(0,0,0,0.1)]"></div>
+            <div class="absolute right-1.5 top-0 w-1.5 h-1.5 bg-slate-900 rounded-full shadow-[0_0_10px_rgba(0,0,0,0.1)]"></div>
+            <!-- Simple line for mouth -->
+            <div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-slate-900 rounded-full"></div>
+            
+            <!-- Hide original Pikachu eyes with yellow patches if necessary (optional improvement) -->
+            <div class="absolute -left-6 -top-2 w-4 h-4 bg-[#fde047] rounded-full hidden"></div>
+            <div class="absolute -right-6 -top-2 w-4 h-4 bg-[#fde047] rounded-full hidden"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-4 items-start">
+      <mat-icon class="text-purple-500 shrink-0 mt-1">info</mat-icon>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        <strong>Perché Ditto è accessibile?</strong> Perché nonostante usi dei semplici <code>div</code>, comunica correttamente il suo stato tramite ARIA e risponde ai tasti proprio come farebbe Pikachu.
+      </p>
+    </div>
+  </div>
+</div>
