@@ -7,22 +7,24 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatIconModule],
   host: { class: 'block' },
   template: `
-    <section class="space-y-6">
-      <div class="text-2xl font-bold text-stone-800 mb-6">Dati Pokédex</div>
+    <section style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+      <div class="text-2xl font-bold text-stone-800" style="margin-bottom: 1.5rem;">Dati Pokédex</div>
       
-      <div id="caterpie-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-3xl border border-stone-200 shadow-sm">
-        <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center p-4 shrink-0">
+      <div id="caterpie-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white rounded-3xl border border-stone-200 shadow-sm"
+           style="padding-top: 1.5rem; padding-bottom: 1.5rem; padding-left: 1.5rem; padding-right: 1.5rem; margin-bottom: 1.5rem;">
+        <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center shrink-0"
+             style="padding-top: 1rem; padding-bottom: 1rem; padding-left: 1rem; padding-right: 1rem;">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png" 
                alt="immagine10.png" 
                class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
                referrerpolicy="no-referrer">
         </div>
         <div class="flex-1">
-          <div class="flex items-center gap-3 mb-2">
+          <div class="flex items-center gap-3" style="margin-bottom: 0.5rem;">
             <div class="text-2xl font-bold text-emerald-800">Caterpie</div>
             <span class="text-stone-400 font-mono font-bold">#0010</span>
           </div>
-          <div class="text-stone-600 leading-relaxed mb-4">
+          <div class="text-stone-600 leading-relaxed" style="margin-bottom: 1rem;">
             Per proteggersi rilascia un puzzo terribile dalle antenne con cui respinge i nemici. I suoi piedini a ventosa gli permettono di arrampicarsi ovunque.
           </div>
           <div class="flex gap-2">
@@ -31,19 +33,21 @@ import { MatIconModule } from '@angular/material/icon';
         </div>
       </div>
 
-      <div id="weedle-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-3xl border border-stone-200 shadow-sm">
-        <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center p-4 shrink-0">
+      <div id="weedle-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white rounded-3xl border border-stone-200 shadow-sm"
+           style="padding-top: 1.5rem; padding-bottom: 1.5rem; padding-left: 1.5rem; padding-right: 1.5rem; margin-bottom: 1.5rem;">
+        <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center shrink-0"
+             style="padding-top: 1rem; padding-bottom: 1rem; padding-left: 1rem; padding-right: 1rem;">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png" 
                alt="" 
                class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
                referrerpolicy="no-referrer">
         </div>
         <div class="flex-1">
-          <div class="flex items-center gap-3 mb-2">
+          <div class="flex items-center gap-3" style="margin-bottom: 0.5rem;">
             <div class="text-2xl font-bold text-amber-800">Weedle</div>
             <span class="text-stone-400 font-mono font-bold">#0013</span>
           </div>
-          <div class="text-stone-600 leading-relaxed mb-4">
+          <div class="text-stone-600 leading-relaxed" style="margin-bottom: 1rem;">
             Spesso si nasconde nell'erba alta o sotto le foglie. Ha un pungiglione velenoso sulla testa lungo circa 5 centimetri.
           </div>
           <div class="flex gap-2">
@@ -53,19 +57,21 @@ import { MatIconModule } from '@angular/material/icon';
         </div>
       </div>
 
-      <div id="bulbasaur-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-3xl border border-stone-200 shadow-sm">
-        <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center p-4 shrink-0">
+      <div id="bulbasaur-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white rounded-3xl border border-stone-200 shadow-sm"
+           style="padding-top: 1.5rem; padding-bottom: 1.5rem; padding-left: 1.5rem; padding-right: 1.5rem;">
+        <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center shrink-0"
+             style="padding-top: 1rem; padding-bottom: 1rem; padding-left: 1rem; padding-right: 1rem;">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" 
                alt="immagine1.png" 
                class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
                referrerpolicy="no-referrer">
         </div>
         <div class="flex-1">
-          <div class="flex items-center gap-3 mb-2">
+          <div class="flex items-center gap-3" style="margin-bottom: 0.5rem;">
             <div class="text-2xl font-bold text-emerald-800">Bulbasaur</div>
             <span class="text-stone-400 font-mono font-bold">#0001</span>
           </div>
-          <div class="text-stone-600 leading-relaxed mb-4">
+          <div class="text-stone-600 leading-relaxed" style="margin-bottom: 1rem;">
             Per qualche tempo dopo la nascita, cresce assorbendo nutrimento dal seme piantato sul suo dorso.
           </div>
           <div class="flex gap-2">

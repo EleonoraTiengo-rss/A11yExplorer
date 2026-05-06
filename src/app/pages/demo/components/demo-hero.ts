@@ -7,13 +7,15 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatIconModule],
   host: { class: 'block' },
   template: `
-    <section class="bg-white p-8 rounded-3xl shadow-sm border border-stone-200 relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-50 rounded-full blur-3xl -mr-20 -mt-20 opacity-50 pointer-events-none"></div>
+    <section class="bg-white rounded-3xl shadow-sm border border-stone-200 relative overflow-hidden"
+             style="padding-block: 2rem; padding-inline: 2rem;">
+      <div class="absolute w-64 h-64 bg-emerald-50 rounded-full blur-3xl opacity-50 pointer-events-none"
+           style="inset-block-start: 0; inset-inline-end: 0; margin-inline-end: -5rem; margin-block-start: -5rem;"></div>
       
       <div class="flex flex-col md:flex-row gap-8 items-center relative z-10">
         <div class="flex-1">
-          <h2 class="text-3xl font-bold text-stone-800 mb-4">Laboratorio di Ricerca Pokémon</h2>
-          <p class="text-stone-600 leading-relaxed text-lg mb-6">
+          <h2 class="text-3xl font-bold text-stone-800" style="margin-block-end: 1rem;">Laboratorio di Ricerca Pokémon</h2>
+          <p class="text-stone-600 leading-relaxed text-lg" style="margin-block-end: 1.5rem;">
             Benvenuto nel laboratorio centrale, Allenatore! Da qui coordiniamo tutte le nostre spedizioni. 
             Oggi ci concentreremo sullo studio degli ecosistemi e sulla catalogazione di nuove specie. 
             Scegli un'attività per iniziare la tua ricerca sul campo.

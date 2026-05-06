@@ -8,28 +8,32 @@ import { MatIconModule } from '@angular/material/icon';
   template: `
     @if (showPopup()) {
       <!-- eslint-disable @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
-      <div class="fixed inset-0 bg-stone-900/80 backdrop-blur-sm flex items-center justify-center z-50 p-4" (click)="popupClosed.emit()">
+      <div class="fixed flex items-center justify-center z-50" 
+           style="inset-block: 0; inset-inline: 0; background-color: rgba(28, 25, 23, 0.8); backdrop-filter: blur(4px); padding-block: 1rem; padding-inline: 1rem;" 
+           (click)="popupClosed.emit()">
         <div 
           #accessiblePopup
           role="alertdialog" 
           aria-modal="true" 
           aria-labelledby="popup-title"
           aria-describedby="popup-desc"
-          class="bg-white p-8 rounded-3xl shadow-2xl max-w-md w-full border-2 border-red-100 outline-none"
+          class="bg-white rounded-3xl shadow-2xl max-w-md w-full border-2 border-red-100 outline-none"
+          style="padding-block: 2rem; padding-inline: 2rem;"
           (click)="$event.stopPropagation()"
           tabindex="-1">
           
-          <div class="flex items-center gap-3 mb-4 text-red-600">
+          <div class="flex items-center gap-3 text-red-600" style="margin-block-end: 1rem;">
             <mat-icon class="text-3xl">warning</mat-icon>
             <h2 id="popup-title" class="text-2xl font-bold text-stone-800">Disconnessione Imminente</h2>
           </div>
           
-          <p id="popup-desc" class="text-stone-600 mb-8 text-lg">
+          <p id="popup-desc" class="text-stone-600 text-lg" style="margin-block-end: 2rem;">
             La sessione del terminale terminerà presto se non confermi la tua presenza.
           </p>
           
-          <div class="mb-8 bg-stone-50 p-4 rounded-2xl border border-stone-100">
-            <div class="flex justify-between text-sm font-bold text-stone-700 mb-2">
+          <div class="bg-stone-50 rounded-2xl border border-stone-100" 
+               style="margin-block-end: 2rem; padding-block: 1rem; padding-inline: 1rem;">
+            <div class="flex justify-between text-sm font-bold text-stone-700" style="margin-block-end: 0.5rem;">
               <span>Tempo rimanente</span>
               <span aria-live="polite" aria-atomic="true" class="text-red-700">{{ timeLeft() }} secondi</span>
             </div>

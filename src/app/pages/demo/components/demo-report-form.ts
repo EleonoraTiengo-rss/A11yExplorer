@@ -7,26 +7,29 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatIconModule],
   host: { class: 'block' },
   template: `
-    <section id="report" class="scroll-mt-24 bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
-      <div class="flex items-start gap-4 mb-6">
+    <section id="report" class="scroll-mt-24 bg-white rounded-3xl shadow-sm border border-stone-200" 
+             style="padding-block: 2rem; padding-inline: 2rem;">
+      <div class="flex items-start gap-4" style="margin-block-end: 1.5rem;">
         <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center shrink-0 border border-red-200">
           <mat-icon class="text-red-700">smart_toy</mat-icon>
         </div>
         <div>
           <h2 class="text-2xl font-bold text-stone-800">Rotom-Dex: Segnala Avvistamento</h2>
-          <p class="text-stone-600 mt-1">Bzzzt! Hai visto un Pokémon raro? Compila il modulo per aggiornare il database dell'Atlante! Bzzzt!</p>
+          <p class="text-stone-600" style="margin-block-start: 0.25rem;">Bzzzt! Hai visto un Pokémon raro? Compila il modulo per aggiornare il database dell'Atlante! Bzzzt!</p>
         </div>
       </div>
 
-      <form class="space-y-5 max-w-xl bg-stone-50 p-6 rounded-2xl border border-stone-100" (submit)="$event.preventDefault(); formSubmitted.emit()">
+      <form class="space-y-5 max-w-xl bg-stone-50 rounded-2xl border border-stone-100" 
+            style="padding-block: 1.5rem; padding-inline: 1.5rem;"
+            (submit)="$event.preventDefault(); formSubmitted.emit()">
         <div>
-          <label for="pokemon-name" class="block text-sm font-semibold text-stone-700 mb-1">Specie Avvistata <span class="text-red-700" aria-hidden="true">*</span></label>
+          <label for="pokemon-name" class="block text-sm font-semibold text-stone-700" style="margin-block-end: 0.25rem;">Specie Avvistata <span class="text-red-700" aria-hidden="true">*</span></label>
           <input type="text" id="pokemon-name" required aria-required="true"
                  class="w-full px-4 py-2 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 invalid:focus:ring-red-500 invalid:focus:border-red-500 transition-shadow"
                  placeholder="es. Pikachu">
         </div>
         <div>
-          <label for="habitat-desc" class="block text-sm font-semibold text-stone-700 mb-1">Descrizione Habitat</label>
+          <label for="habitat-desc" class="block text-sm font-semibold text-stone-700" style="margin-block-end: 0.25rem;">Descrizione Habitat</label>
           <textarea id="habitat-desc" rows="3"
                     class="w-full px-4 py-2 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 invalid:focus:ring-red-500 invalid:focus:border-red-500 transition-shadow"
                  placeholder="Descrivi dove l'hai visto..."></textarea>
@@ -40,7 +43,9 @@ import { MatIconModule } from '@angular/material/icon';
         </button>
         
         @if (isSubmitted()) {
-          <div class="mt-4 p-4 bg-emerald-100 text-emerald-900 rounded-xl flex items-center gap-3 border border-emerald-200 animate-in fade-in slide-in-from-bottom-2" role="status" aria-live="polite">
+          <div class="bg-emerald-100 text-emerald-900 rounded-xl flex items-center gap-3 border border-emerald-200 animate-in fade-in slide-in-from-bottom-2" 
+               style="margin-block-start: 1rem; padding-block: 1rem; padding-inline: 1rem;"
+               role="status" aria-live="polite">
             <mat-icon class="text-emerald-700">check_circle</mat-icon>
             <span class="font-medium">Dati inviati con successo al Professor Oak!</span>
           </div>

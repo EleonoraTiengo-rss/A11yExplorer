@@ -7,11 +7,12 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatIconModule],
   host: { class: 'block' },
   template: `
-    <section id="habitat" class="scroll-mt-24 bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
-      <h2 class="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2">
+    <section id="habitat" class="scroll-mt-24 bg-white rounded-3xl shadow-sm border border-stone-200" 
+             style="padding-block: 2rem; padding-inline: 2rem;">
+      <h2 class="text-2xl font-bold text-stone-800 flex items-center gap-2" style="margin-block-end: 1.5rem;">
         <mat-icon class="text-emerald-700">park</mat-icon> L'Ecosistema
       </h2>
-      <div class="rounded-2xl overflow-hidden mb-6 border border-stone-200 shadow-sm">
+      <div class="rounded-2xl overflow-hidden border border-stone-200 shadow-sm" style="margin-block-end: 1.5rem;">
         <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80" 
              alt="Una fitta foresta con alberi alti e raggi di luce solare che filtrano a fatica tra le foglie verdi, creando un'atmosfera umida e ombrosa." 
              class="w-full h-64 object-cover"

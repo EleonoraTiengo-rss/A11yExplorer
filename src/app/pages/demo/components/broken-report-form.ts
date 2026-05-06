@@ -8,20 +8,23 @@ import { MatIconModule } from '@angular/material/icon';
   host: { class: 'block' },
   template: `
     <!-- eslint-disable @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
-    <section id="report" class="scroll-mt-24 bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
-      <div class="flex items-start gap-4 mb-6">
+    <section id="report" class="scroll-mt-24 bg-white rounded-3xl shadow-sm border border-stone-200"
+             style="padding-top: 2rem; padding-bottom: 2rem; padding-left: 2rem; padding-right: 2rem;">
+      <div class="flex items-start gap-4" style="margin-bottom: 1.5rem;">
         <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center shrink-0 border border-red-200">
           <mat-icon class="text-red-700">smart_toy</mat-icon>
         </div>
         <div>
           <div class="text-2xl font-bold text-stone-800">Rotom-Dex: Segnala Avvistamento</div>
-          <p class="text-stone-600 mt-1">Bzzzt! Hai visto un Pokémon raro? Compila il modulo per aggiornare il database dell'Atlante! Bzzzt!</p>
+          <p class="text-stone-600" style="margin-top: 0.25rem;">Bzzzt! Hai visto un Pokémon raro? Compila il modulo per aggiornare il database dell'Atlante! Bzzzt!</p>
         </div>
       </div>
 
-      <form class="space-y-5 max-w-xl bg-stone-50 p-6 rounded-2xl border border-stone-100" (submit)="$event.preventDefault()" role="menu">
+      <form class="space-y-5 max-w-xl bg-stone-50 rounded-2xl border border-stone-100" 
+            style="padding-top: 1.5rem; padding-bottom: 1.5rem; padding-left: 1.5rem; padding-right: 1.5rem;"
+            (submit)="$event.preventDefault()" role="menu">
         <div>
-          <span class="block text-sm font-semibold text-stone-700 mb-1">Specie Avvistata *</span>
+          <span class="block text-sm font-semibold text-stone-700" style="margin-bottom: 0.25rem;">Specie Avvistata *</span>
           <input type="text" role="menuitem" aria-expanded="false"
                  class="w-full px-4 py-2 rounded-xl border border-stone-300 outline-none transition-shadow">
         </div>
@@ -43,7 +46,8 @@ import { MatIconModule } from '@angular/material/icon';
         </div>
         
         @if (isSubmitted()) {
-          <div class="mt-4 p-4 bg-emerald-100 text-emerald-900 rounded-xl flex items-center gap-3 border border-emerald-200">
+          <div class="bg-emerald-100 text-emerald-900 rounded-xl flex items-center gap-3 border border-emerald-200"
+               style="margin-top: 1rem; padding-top: 1rem; padding-bottom: 1rem; padding-left: 1rem; padding-right: 1rem;">
             <mat-icon class="text-emerald-700">check_circle</mat-icon>
             <span class="font-medium">Dati inviati con successo al Professor Oak!</span>
           </div>

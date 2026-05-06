@@ -7,11 +7,12 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatIconModule],
   host: { class: 'block' },
   template: `
-    <section id="habitat" class="scroll-mt-24 bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
-      <div class="text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2">
+    <section id="habitat" class="scroll-mt-24 bg-white rounded-3xl shadow-sm border border-stone-200"
+             style="padding-top: 2rem; padding-bottom: 2rem; padding-left: 2rem; padding-right: 2rem;">
+      <div class="text-2xl font-bold text-stone-800 flex items-center gap-2" style="margin-bottom: 1.5rem;">
         <mat-icon class="text-emerald-700">park</mat-icon> L'Ecosistema
       </div>
-      <div class="rounded-2xl overflow-hidden mb-6 border border-stone-200 shadow-sm">
+      <div class="rounded-2xl overflow-hidden border border-stone-200 shadow-sm" style="margin-bottom: 1.5rem;">
         <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80" 
              alt="forest_bg_final_v2.jpg" 
              class="w-full h-64 object-cover"

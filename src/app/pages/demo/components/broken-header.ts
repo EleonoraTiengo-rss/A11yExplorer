@@ -6,13 +6,15 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [MatIconModule],
   template: `
-    <header class="bg-emerald-900 text-stone-50 p-4 flex flex-col sm:flex-row justify-between items-center shadow-md gap-4 sticky top-0 z-40">
+    <header class="bg-emerald-900 text-stone-50 flex flex-col sm:flex-row justify-between items-center shadow-md gap-4 sticky z-40"
+            style="padding-top: 1rem; padding-bottom: 1rem; padding-left: 1rem; padding-right: 1rem; top: 0;">
       <div class="flex items-center gap-3">
         <mat-icon class="text-amber-400">explore</mat-icon>
         <div class="text-2xl font-bold text-amber-50 tracking-wide">Atlante del Mondo Pokémon</div>
       </div>
       
-      <div class="flex items-center gap-3 bg-emerald-950/50 p-2 rounded-xl border border-emerald-800/50">
+      <div class="flex items-center gap-3 bg-emerald-950/50 rounded-xl border border-emerald-800/50"
+           style="padding-top: 0.5rem; padding-bottom: 0.5rem; padding-left: 0.5rem; padding-right: 0.5rem;">
         <span class="text-sm font-medium text-amber-400" aria-hidden="true">Non Accessibile</span>
         <button 
           (click)="accessibilityToggled.emit()"

@@ -7,22 +7,24 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatIconModule],
   host: { class: 'block' },
   template: `
-    <section class="space-y-6">
-      <h2 class="text-2xl font-bold text-stone-800 mb-6">Dati Pokédex</h2>
+    <section style="margin-block-start: 1.5rem; margin-block-end: 1.5rem;">
+      <h2 class="text-2xl font-bold text-stone-800" style="margin-block-end: 1.5rem;">Dati Pokédex</h2>
       
-      <article id="caterpie-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-3xl border border-stone-200 shadow-sm">
-        <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center p-4 shrink-0">
+      <article id="caterpie-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white rounded-3xl border border-stone-200 shadow-sm"
+               style="padding-block: 1.5rem; padding-inline: 1.5rem; margin-block-end: 1.5rem;">
+        <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center shrink-0" 
+             style="padding-block: 1rem; padding-inline: 1rem;">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png" 
-               alt="Caterpie, un piccolo Pokémon a forma di bruco verde with grandi occhi rotondi, ventre giallo e un'antenna rossa a forma di Y sulla testa." 
+               alt="Caterpie, un piccolo Pokémon a forma di bruco verde con grandi occhi rotondi, ventre giallo e un'antenna rossa a forma di Y sulla testa." 
                class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
                referrerpolicy="no-referrer">
         </div>
         <div class="flex-1">
-          <div class="flex items-center gap-3 mb-2">
+          <div class="flex items-center gap-3" style="margin-block-end: 0.5rem;">
             <h3 class="text-2xl font-bold text-emerald-800">Caterpie</h3>
             <span class="text-stone-600 font-mono font-bold">#0010</span>
           </div>
-          <p class="text-stone-600 leading-relaxed mb-4">
+          <p class="text-stone-600 leading-relaxed" style="margin-block-end: 1rem;">
             Per proteggersi rilascia un puzzo terribile dalle antenne con cui respinge i nemici. I suoi piedini a ventosa gli permettono di arrampicarsi ovunque.
           </p>
           <div class="flex gap-2">
@@ -31,19 +33,21 @@ import { MatIconModule } from '@angular/material/icon';
         </div>
       </article>
 
-      <article id="weedle-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-3xl border border-stone-200 shadow-sm">
-        <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center p-4 shrink-0">
+      <article id="weedle-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white rounded-3xl border border-stone-200 shadow-sm"
+               style="padding-block: 1.5rem; padding-inline: 1.5rem; margin-block-end: 1.5rem;">
+        <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center shrink-0"
+             style="padding-block: 1rem; padding-inline: 1rem;">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png" 
-               alt="Weedle, un Pokémon simile a un millepiedi marrone chiaro with un naso rosso a palla e un pungiglione velenoso sulla testa e sulla coda." 
+               alt="Weedle, un Pokémon simile a un millepiedi marrone chiaro con un naso rosso a palla e un pungiglione velenoso sulla testa e sulla coda." 
                class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
                referrerpolicy="no-referrer">
         </div>
         <div class="flex-1">
-          <div class="flex items-center gap-3 mb-2">
+          <div class="flex items-center gap-3" style="margin-block-end: 0.5rem;">
             <h3 class="text-2xl font-bold text-amber-800">Weedle</h3>
             <span class="text-stone-600 font-mono font-bold">#0013</span>
           </div>
-          <p class="text-stone-600 leading-relaxed mb-4">
+          <p class="text-stone-600 leading-relaxed" style="margin-block-end: 1rem;">
             Spesso si nasconde nell'erba alta o sotto le foglie. Ha un pungiglione velenoso sulla testa lungo circa 5 centimetri.
           </p>
           <div class="flex gap-2">
@@ -53,19 +57,21 @@ import { MatIconModule } from '@angular/material/icon';
         </div>
       </article>
 
-      <article id="bulbasaur-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-3xl border border-stone-200 shadow-sm">
-        <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center p-4 shrink-0">
+      <article id="bulbasaur-entry" class="scroll-mt-24 flex flex-col md:flex-row gap-6 items-center bg-white rounded-3xl border border-stone-200 shadow-sm"
+               style="padding-block: 1.5rem; padding-inline: 1.5rem;">
+        <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center shrink-0"
+             style="padding-block: 1rem; padding-inline: 1rem;">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" 
-               alt="Bulbasaur, un Pokémon quadrupede simile a un dinosauro di colore verde acqua with macchie più scure e un grande bulbo verde sulla schiena." 
+               alt="Bulbasaur, un Pokémon quadrupede simile a un dinosauro di colore verde acqua con macchie più scure e un grande bulbo verde sulla schiena." 
                class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
                referrerpolicy="no-referrer">
         </div>
         <div class="flex-1">
-          <div class="flex items-center gap-3 mb-2">
+          <div class="flex items-center gap-3" style="margin-block-end: 0.5rem;">
             <h3 class="text-2xl font-bold text-emerald-800">Bulbasaur</h3>
             <span class="text-stone-600 font-mono font-bold">#0001</span>
           </div>
-          <p class="text-stone-600 leading-relaxed mb-4">
+          <p class="text-stone-600 leading-relaxed" style="margin-block-end: 1rem;">
             Per qualche tempo dopo la nascita, cresce assorbendo nutrimento dal seme piantato sul suo dorso.
           </p>
           <div class="flex gap-2">

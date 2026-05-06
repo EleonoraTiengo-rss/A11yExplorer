@@ -8,20 +8,25 @@ import { MatIconModule } from '@angular/material/icon';
   template: `
     @if (showPopup()) {
       <!-- eslint-disable @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
-      <div class="fixed inset-0 bg-stone-900/80 backdrop-blur-sm flex items-center justify-center z-50 p-4" (click)="popupClosed.emit()">
-        <div class="bg-white p-8 rounded-3xl shadow-2xl max-w-md w-full border-2 border-red-100 outline-none" (click)="$event.stopPropagation()">
+      <div class="fixed flex items-center justify-center z-50 shadow-2xl" 
+           style="top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(28, 25, 23, 0.8); backdrop-filter: blur(4px); padding-top: 1rem; padding-bottom: 1rem; padding-left: 1rem; padding-right: 1rem;" 
+           (click)="popupClosed.emit()">
+        <div class="bg-white rounded-3xl max-w-md w-full border-2 border-red-100 outline-none shadow-xl" 
+             style="padding-top: 2rem; padding-bottom: 2rem; padding-left: 2rem; padding-right: 2rem;"
+             (click)="$event.stopPropagation()">
           
-          <div class="flex items-center gap-3 mb-4 text-red-600">
+          <div class="flex items-center gap-3 text-red-600" style="margin-bottom: 1rem;">
             <mat-icon class="text-3xl">warning</mat-icon>
             <div class="text-2xl font-bold text-stone-800">Disconnessione Imminente</div>
           </div>
           
-          <p class="text-stone-600 mb-8 text-lg">
+          <p class="text-stone-600 text-lg" style="margin-bottom: 2rem;">
             La sessione del terminale terminerà presto se non confermi la tua presenza.
           </p>
           
-          <div class="mb-8 bg-stone-50 p-4 rounded-2xl border border-stone-100">
-            <div class="flex justify-between text-sm font-bold text-stone-700 mb-2">
+          <div class="bg-stone-50 rounded-2xl border border-stone-100" 
+               style="margin-bottom: 2rem; padding-top: 1rem; padding-bottom: 1rem; padding-left: 1rem; padding-right: 1rem;">
+            <div class="flex justify-between text-sm font-bold text-stone-700" style="margin-bottom: 0.5rem;">
               <span>Tempo rimanente</span>
               <span class="text-red-700">{{ timeLeft() }} secondi</span>
             </div>
