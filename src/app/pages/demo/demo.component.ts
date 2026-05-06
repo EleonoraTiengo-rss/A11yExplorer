@@ -2,24 +2,24 @@ import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 
-import { DemoHeaderComponent } from './components/demo-header';
-import { BrokenHeaderComponent } from './components/broken-header';
-import { DemoHeroComponent } from './components/demo-hero';
-import { BrokenHeroComponent } from './components/broken-hero';
-import { DemoHabitatComponent } from './components/demo-habitat';
-import { BrokenHabitatComponent } from './components/broken-habitat';
-import { DemoSpeciesComponent } from './components/demo-species';
-import { BrokenSpeciesComponent } from './components/broken-species';
-import { DemoPokedexComponent } from './components/demo-pokedex';
-import { BrokenPokedexComponent } from './components/broken-pokedex';
-import { DemoReportFormComponent } from './components/demo-report-form';
-import { BrokenReportFormComponent } from './components/broken-report-form';
-import { DemoTerminalComponent } from './components/demo-terminal';
-import { BrokenTerminalComponent } from './components/broken-terminal';
-import { DemoPopupComponent } from './components/demo-popup';
-import { BrokenPopupComponent } from './components/broken-popup';
-import { DemoLanguageNotesComponent } from './components/demo-language-notes';
-import { BrokenLanguageNotesComponent } from './components/broken-language-notes';
+import { DemoHeaderComponent } from './components/demo-header.component';
+import { BrokenHeaderComponent } from './components/broken-header.component';
+import { DemoHeroComponent } from './components/demo-hero.component';
+import { BrokenHeroComponent } from './components/broken-hero.component';
+import { DemoHabitatComponent } from './components/demo-habitat.component';
+import { BrokenHabitatComponent } from './components/broken-habitat.component';
+import { DemoSpeciesComponent } from './components/demo-species.component';
+import { BrokenSpeciesComponent } from './components/broken-species.component';
+import { DemoPokedexComponent } from './components/demo-pokedex.component';
+import { BrokenPokedexComponent } from './components/broken-pokedex.component';
+import { DemoReportFormComponent } from './components/demo-report-form.component';
+import { BrokenReportFormComponent } from './components/broken-report-form.component';
+import { DemoTerminalComponent } from './components/demo-terminal.component';
+import { BrokenTerminalComponent } from './components/broken-terminal.component';
+import { DemoPopupComponent } from './components/demo-popup.component';
+import { BrokenPopupComponent } from './components/broken-popup.component';
+import { DemoLanguageNotesComponent } from './components/demo-language-notes.component';
+import { BrokenLanguageNotesComponent } from './components/broken-language-notes.component';
 
 @Component({
   selector: 'app-demo',
