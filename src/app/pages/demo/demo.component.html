@@ -37,6 +37,12 @@
     }
 
     @if (isAccessible()) {
+      <app-demo-language-notes></app-demo-language-notes>
+    } @else {
+      <app-broken-language-notes></app-broken-language-notes>
+    }
+
+    @if (isAccessible()) {
       <app-demo-report-form
         [isSubmitted]="isSubmitted()"
         (formSubmitted)="submitForm()">

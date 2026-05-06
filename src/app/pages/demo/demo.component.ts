@@ -18,6 +18,8 @@ import { DemoTerminalComponent } from './components/demo-terminal';
 import { BrokenTerminalComponent } from './components/broken-terminal';
 import { DemoPopupComponent } from './components/demo-popup';
 import { BrokenPopupComponent } from './components/broken-popup';
+import { DemoLanguageNotesComponent } from './components/demo-language-notes';
+import { BrokenLanguageNotesComponent } from './components/broken-language-notes';
 
 @Component({
   selector: 'app-demo',
@@ -40,7 +42,9 @@ import { BrokenPopupComponent } from './components/broken-popup';
     DemoTerminalComponent,
     BrokenTerminalComponent,
     DemoPopupComponent,
-    BrokenPopupComponent
+    BrokenPopupComponent,
+    DemoLanguageNotesComponent,
+    BrokenLanguageNotesComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './demo.component.html'
