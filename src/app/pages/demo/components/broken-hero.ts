@@ -38,10 +38,9 @@ import { MatIconModule } from '@angular/material/icon';
           </div>
         </div>
         <div class="w-full md:w-1/3 shrink-0">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png" 
+          <img src="assets/images/pokemon-133.png" 
                alt="Eevee, un simpatico Pokémon simile a una volpe con una folta criniera" 
-               class="w-full h-auto object-contain drop-shadow-xl"
-               referrerpolicy="no-referrer">
+               class="w-full h-auto object-contain drop-shadow-xl">
         </div>
       </div>
     </section>

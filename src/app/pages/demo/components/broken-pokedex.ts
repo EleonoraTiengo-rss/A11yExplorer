@@ -14,10 +14,9 @@ import { MatIconModule } from '@angular/material/icon';
            style="padding-top: 1.5rem; padding-bottom: 1.5rem; padding-left: 1.5rem; padding-right: 1.5rem; margin-bottom: 1.5rem;">
         <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center shrink-0"
              style="padding-top: 1rem; padding-bottom: 1rem; padding-left: 1rem; padding-right: 1rem;">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png" 
+          <img src="assets/images/pokemon-10.png" 
                alt="immagine10.png" 
-               class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
-               referrerpolicy="no-referrer">
+               class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform">
         </div>
         <div class="flex-1">
           <div class="flex items-center gap-3" style="margin-bottom: 0.5rem;">
@@ -37,10 +36,9 @@ import { MatIconModule } from '@angular/material/icon';
            style="padding-top: 1.5rem; padding-bottom: 1.5rem; padding-left: 1.5rem; padding-right: 1.5rem; margin-bottom: 1.5rem;">
         <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center shrink-0"
              style="padding-top: 1rem; padding-bottom: 1rem; padding-left: 1rem; padding-right: 1rem;">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png" 
+          <img src="assets/images/pokemon-13.png" 
                alt="" 
-               class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
-               referrerpolicy="no-referrer">
+               class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform">
         </div>
         <div class="flex-1">
           <div class="flex items-center gap-3" style="margin-bottom: 0.5rem;">
@@ -61,10 +59,9 @@ import { MatIconModule } from '@angular/material/icon';
            style="padding-top: 1.5rem; padding-bottom: 1.5rem; padding-left: 1.5rem; padding-right: 1.5rem;">
         <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center shrink-0"
              style="padding-top: 1rem; padding-bottom: 1rem; padding-left: 1rem; padding-right: 1rem;">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" 
+          <img src="assets/images/pokemon-1.png" 
                alt="immagine1.png" 
-               class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
-               referrerpolicy="no-referrer">
+               class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform">
         </div>
         <div class="flex-1">
           <div class="flex items-center gap-3" style="margin-bottom: 0.5rem;">

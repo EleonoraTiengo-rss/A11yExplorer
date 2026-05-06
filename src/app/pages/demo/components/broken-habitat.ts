@@ -13,10 +13,9 @@ import { MatIconModule } from '@angular/material/icon';
         <mat-icon class="text-emerald-700">park</mat-icon> L'Ecosistema
       </div>
       <div class="rounded-2xl overflow-hidden border border-stone-200 shadow-sm" style="margin-bottom: 1.5rem;">
-        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80" 
+        <img src="assets/images/background-forest.jpg" 
              alt="forest_bg_final_v2.jpg" 
-             class="w-full h-64 object-cover"
-             referrerpolicy="no-referrer">
+             class="w-full h-64 object-cover">
       </div>
       <p class="text-stone-600 leading-relaxed text-lg">
         La Foresta Smeraldo è un ecosistema chiuso. Gli alberi secolari sono così fitti da bloccare quasi completamente la luce del sole, mantenendo un'umidità costante dell'85%. Questo ambiente è il paradiso terrestre per i Pokémon di tipo Coleottero e Erba, che trovano riparo tra le radici giganti e nutrimento nelle bacche cadute.

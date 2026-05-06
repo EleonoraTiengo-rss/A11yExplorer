@@ -14,10 +14,9 @@ import { MatIconModule } from '@angular/material/icon';
                style="padding-block: 1.5rem; padding-inline: 1.5rem; margin-block-end: 1.5rem;">
         <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center shrink-0" 
              style="padding-block: 1rem; padding-inline: 1rem;">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png" 
+          <img src="assets/images/pokemon-10.png" 
                alt="Caterpie, un piccolo Pokémon a forma di bruco verde con grandi occhi rotondi, ventre giallo e un'antenna rossa a forma di Y sulla testa." 
-               class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
-               referrerpolicy="no-referrer">
+               class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform">
         </div>
         <div class="flex-1">
           <div class="flex items-center gap-3" style="margin-block-end: 0.5rem;">
@@ -37,10 +36,9 @@ import { MatIconModule } from '@angular/material/icon';
                style="padding-block: 1.5rem; padding-inline: 1.5rem; margin-block-end: 1.5rem;">
         <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center shrink-0"
              style="padding-block: 1rem; padding-inline: 1rem;">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png" 
+          <img src="assets/images/pokemon-13.png" 
                alt="Weedle, un Pokémon simile a un millepiedi marrone chiaro con un naso rosso a palla e un pungiglione velenoso sulla testa e sulla coda." 
-               class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
-               referrerpolicy="no-referrer">
+               class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform">
         </div>
         <div class="flex-1">
           <div class="flex items-center gap-3" style="margin-block-end: 0.5rem;">
@@ -61,10 +59,9 @@ import { MatIconModule } from '@angular/material/icon';
                style="padding-block: 1.5rem; padding-inline: 1.5rem;">
         <div class="w-48 h-48 bg-stone-50 rounded-2xl border border-stone-100 flex items-center justify-center shrink-0"
              style="padding-block: 1rem; padding-inline: 1rem;">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" 
+          <img src="assets/images/pokemon-1.png" 
                alt="Bulbasaur, un Pokémon quadrupede simile a un dinosauro di colore verde acqua con macchie più scure e un grande bulbo verde sulla schiena." 
-               class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform"
-               referrerpolicy="no-referrer">
+               class="w-full h-full object-contain drop-shadow-lg hover:scale-110 transition-transform">
         </div>
         <div class="flex-1">
           <div class="flex items-center gap-3" style="margin-block-end: 0.5rem;">

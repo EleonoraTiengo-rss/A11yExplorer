@@ -19,7 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
         <div class="bg-white rounded-xl border border-stone-200 shadow-sm" 
              style="writing-mode: vertical-rl; height: 16rem; padding-top: 1.5rem; padding-bottom: 1.5rem; padding-left: 1.5rem; padding-right: 1.5rem; width: fit-content;">
           
-          <img src="https://images.unsplash.com/photo-1613771404721-1f92d799e49f?auto=format&fit=crop&w=400&q=80" 
+          <img src="assets/images/background-cards.jpg" 
                alt="Collezione di creature" 
                class="w-32 h-24 object-cover rounded-lg block"
                style="margin-bottom: 1.5rem;">
