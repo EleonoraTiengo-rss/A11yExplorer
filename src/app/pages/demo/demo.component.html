@@ -1,52 +1,75 @@
 <div class="min-h-screen bg-stone-100 font-sans pb-20">
   
-  <app-demo-header
-    [isAccessible]="isAccessible()"
-    (accessibilityToggled)="toggleAccessibility()">
-  </app-demo-header>
+  @if (isAccessible()) {
+    <app-demo-header (accessibilityToggled)="toggleAccessibility()"></app-demo-header>
+  } @else {
+    <app-broken-header (accessibilityToggled)="toggleAccessibility()"></app-broken-header>
+  }
 
   <main class="max-w-4xl mx-auto p-6 mt-8 space-y-12">
     
-    <app-demo-hero
-      [isAccessible]="isAccessible()"
-      (scrollToRequested)="scrollTo($event)">
-    </app-demo-hero>
+    @if (isAccessible()) {
+      <app-demo-hero (scrollToRequested)="scrollTo($event)"></app-demo-hero>
+    } @else {
+      <app-broken-hero (scrollToRequested)="scrollTo($event)"></app-broken-hero>
+    }
 
-    <app-demo-habitat
-      [isAccessible]="isAccessible()">
-    </app-demo-habitat>
+    @if (isAccessible()) {
+      <app-demo-habitat></app-demo-habitat>
+    } @else {
+      <app-broken-habitat></app-broken-habitat>
+    }
 
-    <app-demo-species
-      [isAccessible]="isAccessible()"
-      [openPanel]="openPanel()"
-      (panelToggled)="togglePanel($event)"
-      (scrollToRequested)="scrollTo($event)">
-    </app-demo-species>
+    @if (isAccessible()) {
+      <app-demo-species (scrollToRequested)="scrollTo($event)"></app-demo-species>
+    } @else {
+      <app-broken-species
+        [openPanel]="openPanel()"
+        (panelToggled)="togglePanel($event)"
+        (scrollToRequested)="scrollTo($event)">
+      </app-broken-species>
+    }
 
-    <app-demo-pokedex
-      [isAccessible]="isAccessible()">
-    </app-demo-pokedex>
+    @if (isAccessible()) {
+      <app-demo-pokedex></app-demo-pokedex>
+    } @else {
+      <app-broken-pokedex></app-broken-pokedex>
+    }
 
-    <app-demo-report-form
-      [isAccessible]="isAccessible()"
-      [isSubmitted]="isSubmitted()"
-      [isUrgent]="isUrgent()"
-      (urgentToggled)="toggleUrgent()"
-      (formSubmitted)="submitForm()">
-    </app-demo-report-form>
+    @if (isAccessible()) {
+      <app-demo-report-form
+        [isSubmitted]="isSubmitted()"
+        (formSubmitted)="submitForm()">
+      </app-demo-report-form>
+    } @else {
+      <app-broken-report-form
+        [isSubmitted]="isSubmitted()"
+        [isUrgent]="isUrgent()"
+        (urgentToggled)="toggleUrgent()"
+        (formSubmitted)="submitForm()">
+      </app-broken-report-form>
+    }
 
-    <app-demo-terminal
-      [isAccessible]="isAccessible()"
-      (popupOpened)="openPopup()">
-    </app-demo-terminal>
+    @if (isAccessible()) {
+      <app-demo-terminal (popupOpened)="openPopup()"></app-demo-terminal>
+    } @else {
+      <app-broken-terminal (popupOpened)="openPopup()"></app-broken-terminal>
+    }
 
   </main>
 
-  <app-demo-popup
-    [showPopup]="showPopup()"
-    [isAccessible]="isAccessible()"
-    [timeLeft]="timeLeft()"
-    (popupClosed)="closePopup()">
-  </app-demo-popup>
+  @if (isAccessible()) {
+    <app-demo-popup
+      [showPopup]="showPopup()"
+      [timeLeft]="timeLeft()"
+      (popupClosed)="closePopup()">
+    </app-demo-popup>
+  } @else {
+    <app-broken-popup
+      [showPopup]="showPopup()"
+      [timeLeft]="timeLeft()"
+      (popupClosed)="closePopup()">
+    </app-broken-popup>
+  }
 
 </div>

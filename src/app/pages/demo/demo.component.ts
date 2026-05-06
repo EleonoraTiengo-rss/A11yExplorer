@@ -3,13 +3,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 
 import { DemoHeaderComponent } from './components/demo-header';
+import { BrokenHeaderComponent } from './components/broken-header';
 import { DemoHeroComponent } from './components/demo-hero';
+import { BrokenHeroComponent } from './components/broken-hero';
 import { DemoHabitatComponent } from './components/demo-habitat';
+import { BrokenHabitatComponent } from './components/broken-habitat';
 import { DemoSpeciesComponent } from './components/demo-species';
+import { BrokenSpeciesComponent } from './components/broken-species';
 import { DemoPokedexComponent } from './components/demo-pokedex';
+import { BrokenPokedexComponent } from './components/broken-pokedex';
 import { DemoReportFormComponent } from './components/demo-report-form';
+import { BrokenReportFormComponent } from './components/broken-report-form';
 import { DemoTerminalComponent } from './components/demo-terminal';
+import { BrokenTerminalComponent } from './components/broken-terminal';
 import { DemoPopupComponent } from './components/demo-popup';
+import { BrokenPopupComponent } from './components/broken-popup';
 
 @Component({
   selector: 'app-demo',
@@ -18,13 +26,21 @@ import { DemoPopupComponent } from './components/demo-popup';
     MatIconModule, 
     CommonModule,
     DemoHeaderComponent,
+    BrokenHeaderComponent,
     DemoHeroComponent,
+    BrokenHeroComponent,
     DemoHabitatComponent,
+    BrokenHabitatComponent,
     DemoSpeciesComponent,
+    BrokenSpeciesComponent,
     DemoPokedexComponent,
+    BrokenPokedexComponent,
     DemoReportFormComponent,
+    BrokenReportFormComponent,
     DemoTerminalComponent,
-    DemoPopupComponent
+    BrokenTerminalComponent,
+    DemoPopupComponent,
+    BrokenPopupComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './demo.component.html'
