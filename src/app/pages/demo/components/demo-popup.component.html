@@ -20,14 +20,15 @@
       </div>
       
       <p id="popup-desc" class="text-stone-600 text-lg" style="margin-block-end: 2rem;">
-        La sessione del terminale terminerà presto se non confermi la tua presenza.
+        La sessione del terminale terminerà 60 secondi se non confermi la tua presenza.
       </p>
       
       <div class="bg-stone-50 rounded-2xl border border-stone-100" 
            style="margin-block-end: 2rem; padding-block: 1rem; padding-inline: 1rem;">
         <div class="flex justify-between text-sm font-bold text-stone-700" style="margin-block-end: 0.5rem;">
           <span>Tempo rimanente</span>
-          <span aria-live="polite" aria-atomic="true" class="text-red-700">{{ timeLeft() }} secondi</span>
+          <span class="text-red-700">{{ timeLeft() }} secondi</span>
+          <span aria-live="polite" aria-atomic="true" class="sr-only">{{ announcementText() }}</span>
         </div>
         <div class="w-full bg-stone-200 rounded-full h-3 overflow-hidden" role="progressbar" [attr.aria-valuenow]="timeLeft()" aria-valuemin="0" aria-valuemax="60">
           <div class="bg-red-500 h-full rounded-full transition-all duration-1000 ease-linear" [style.width.%]="(timeLeft() / 60) * 100"></div>

@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class DemoPopupComponent {
   showPopup = input.required<boolean>();
   timeLeft = input.required<number>();
+  announcementText = input.required<string>();
   popupClosed = output<void>();
 
   popupElement = viewChild<ElementRef>('accessiblePopup');

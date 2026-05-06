@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, computed } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 
@@ -58,6 +58,13 @@ export class DemoComponent {
   showPopup = signal(false);
   timeLeft = signal(60);
   timer: ReturnType<typeof setInterval> | undefined;
+
+  announcementText = computed(() => {
+    const t = this.timeLeft();
+    if (t === 0) return 'disconnessione in corso';
+    const rounded = Math.ceil(t / 10) * 10;
+    return `${rounded} secondi rimanenti`;
+  });
 
   toggleAccessibility() {
     this.isAccessible.update(v => !v);
