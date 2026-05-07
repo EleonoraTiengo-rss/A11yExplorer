@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, HostBinding } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -7,6 +7,12 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [RouterLink, RouterLinkActive, MatIconModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  selectedPage = signal('learn');
+  @HostBinding('attr.aria-hidden')
+  get ariaHidden(): boolean {
+    return this.selectedPage() === 'learn';
+  }
+}
