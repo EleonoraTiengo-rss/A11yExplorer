@@ -6,7 +6,10 @@
     "schematicCollections": [
       "angular-eslint"
     ],
-    "analytics": false
+    "analytics": false,
+    "cache": {
+      "enabled": false
+    }
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -71,9 +74,6 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
-          "options": {
-            "allowedHosts": ["*"]
-          },
           "configurations": {
             "production": {
               "buildTarget": "app:build:production"

@@ -1,33 +1,43 @@
-<header class="bg-red-600 text-white shadow-md sticky top-0 z-50">
+<header class="bg-red-700 text-white shadow-md sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center border-4 border-slate-800 shadow-inner">
+        <div
+          class="w-10 h-10 bg-white rounded-full flex items-center justify-center border-4 border-slate-800 shadow-inner"
+        >
           <div class="w-4 h-4 bg-slate-800 rounded-full"></div>
         </div>
-        <h1 class="text-xl font-bold tracking-tight">Pokémon Explorer <span class="font-normal opacity-80 text-sm ml-1">RED Edition</span></h1>
+        <h1 class="text-xl font-bold tracking-tight">
+          Pokémon Explorer
+          <span
+            class="font-semibold text-white text-xs ml-2 bg-red-800/90 px-2 py-0.5 rounded border border-red-500/30"
+            >RED Edition</span
+          >
+        </h1>
       </div>
-      
+
       <nav aria-label="Navigazione principale">
         <ul class="flex space-x-1 sm:space-x-4">
           <li>
-            <a 
-              routerLink="/learn" 
-              routerLinkActive="bg-red-700 font-semibold" 
+            <a
+              routerLink="/learn"
+              routerLinkActive="active-nav-link"
               class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-red-700 transition-colors"
               [attr.aria-current]="selectedPage() === 'learn' ? 'page' : null"
-              (click)="selectedPage.set('learn')">
+              (click)="selectedPage.set('learn')"
+            >
               <mat-icon aria-hidden="true">school</mat-icon>
               <span class="hidden sm:inline">Accademia</span>
             </a>
           </li>
           <li>
-            <a 
-              routerLink="/demo" 
-              routerLinkActive="bg-red-700 font-semibold" 
+            <a
+              routerLink="/demo"
+              routerLinkActive="active-nav-link"
               class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-red-700 transition-colors"
               [attr.aria-current]="selectedPage() === 'demo' ? 'page' : null"
-              (click)="selectedPage.set('demo')">
+              (click)="selectedPage.set('demo')"
+            >
               <mat-icon aria-hidden="true">science</mat-icon>
               <span class="hidden sm:inline">Laboratorio</span>
             </a>

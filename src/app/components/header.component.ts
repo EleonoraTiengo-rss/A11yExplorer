@@ -11,8 +11,4 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class HeaderComponent {
   selectedPage = signal('learn');
-  @HostBinding('attr.aria-hidden')
-  get ariaHidden(): boolean {
-    return this.selectedPage() === 'learn';
-  }
 }

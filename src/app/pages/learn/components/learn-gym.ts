@@ -10,4 +10,8 @@ import { DittoChallengeComponent } from './ditto-challenge';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LearnGymComponent {
+
+  onClickButton(): void {
+    console.warn("Button clicked");
+  }
 }

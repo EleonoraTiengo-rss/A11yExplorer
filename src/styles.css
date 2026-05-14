@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "tailwindcss";
 
 @theme {
@@ -8,9 +8,90 @@
   --color-red-600: #e3350d;
   --color-red-700: #c92c0a;
 }
+app-header,
+app-demo-header,
+app-demo-hero,
+app-demo-habitat,
+app-demo-species,
+app-demo-pokedex,
+app-demo-language-notes,
+app-demo-report-form,
+app-demo-terminal,
+app-demo-popup,
+app-ditto-challenge {
+  *:focus-visible,
+  div[role="combobox"]:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+    box-shadow:
+      0 0 0 4px #ffffff,
+      0 0 0 6px #000000;
+    border-radius: inherit;
+  }
 
-/* Custom focus styles for accessibility */
-*:focus-visible {
-  outline: 3px solid var(--color-red-600);
-  outline-offset: 2px;
+  summary:focus-visible {
+    border-radius: 1rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  @media (forced-colors: active) {
+    *:focus-visible {
+      outline: 2px solid Highlight;
+      outline-offset: 2px;
+      box-shadow: none;
+    }
+
+    summary:focus-visible {
+      position: relative;
+      z-index: 10;
+    }
+  }
+  details {
+    position: relative;
+  }
+
+  summary {
+    position: relative;
+  }
+}
+.active-nav-link {
+  background-color: #ffffff;
+  color: #c92c0a;
+  font-weight: 600;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+#countdown-progressbar {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+@media (forced-colors: active) {
+  .active-nav-link {
+    background-color: Highlight;
+    color: HighlightText;
+    border: 1px solid HighlightText;
+    forced-color-adjust: none;
+  }
+
+  .demo-accessibility-thumb {
+    background-color: Highlight;
+    border-color: HighlightText;
+  }
+
+  #countdown-progressbar {
+    border: 2px solid ButtonText !important;
+    background-color: Canvas !important;
+    .progress-bar-fill {
+      forced-color-adjust: none;
+      background-color: Highlight !important;
+    }
+  }
+
+  button,
+  [role="button"] {
+    border: 2px solid ButtonBorder;
+  }
 }

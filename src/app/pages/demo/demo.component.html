@@ -1,82 +1,78 @@
 <div class="min-h-screen bg-stone-100 font-sans pb-20">
-  
-  @if (isAccessible()) {
-    <app-demo-header (accessibilityToggled)="toggleAccessibility()"></app-demo-header>
-  } @else {
-    <app-broken-header (accessibilityToggled)="toggleAccessibility()"></app-broken-header>
-  }
+  <main>
+    <app-demo-header
+      (accessibilityToggled)="toggleAccessibility($event)"
+    ></app-demo-header>
 
-  <main class="max-w-4xl mx-auto p-6 mt-8 space-y-12">
-    
-    @if (isAccessible()) {
-      <app-demo-hero (scrollToRequested)="scrollTo($event)"></app-demo-hero>
-    } @else {
-      <app-broken-hero (scrollToRequested)="scrollTo($event)"></app-broken-hero>
-    }
+    <div class="max-w-4xl mx-auto p-6 mt-8 space-y-12">
+      @if (isAccessible()) {
+        <app-demo-hero (scrollToRequested)="scrollTo($event)"></app-demo-hero>
+      } @else {
+        <app-broken-hero
+          (scrollToRequested)="scrollTo($event)"
+        ></app-broken-hero>
+      }
 
-    @if (isAccessible()) {
-      <app-demo-habitat></app-demo-habitat>
-    } @else {
-      <app-broken-habitat></app-broken-habitat>
-    }
+      @if (isAccessible()) {
+        <app-demo-habitat></app-demo-habitat>
+      } @else {
+        <app-broken-habitat></app-broken-habitat>
+      }
 
-    @if (isAccessible()) {
-      <app-demo-species (scrollToRequested)="scrollTo($event)"></app-demo-species>
-    } @else {
-      <app-broken-species
-        [openPanel]="openPanel()"
-        (panelToggled)="togglePanel($event)"
-        (scrollToRequested)="scrollTo($event)">
-      </app-broken-species>
-    }
+      @if (isAccessible()) {
+        <app-demo-species
+          (scrollToRequested)="scrollTo($event)"
+        ></app-demo-species>
+      } @else {
+        <app-broken-species
+          [openPanel]="openPanel()"
+          (panelToggled)="togglePanel($event)"
+          (scrollToRequested)="scrollTo($event)"
+        >
+        </app-broken-species>
+      }
 
-    @if (isAccessible()) {
-      <app-demo-pokedex></app-demo-pokedex>
-    } @else {
-      <app-broken-pokedex></app-broken-pokedex>
-    }
+      @if (isAccessible()) {
+        <app-demo-pokedex></app-demo-pokedex>
+      } @else {
+        <app-broken-pokedex></app-broken-pokedex>
+      }
 
-    @if (isAccessible()) {
-      <app-demo-language-notes></app-demo-language-notes>
-    } @else {
-      <app-broken-language-notes></app-broken-language-notes>
-    }
+      @if (isAccessible()) {
+        <app-demo-language-notes></app-demo-language-notes>
+      } @else {
+        <app-broken-language-notes></app-broken-language-notes>
+      }
 
-    @if (isAccessible()) {
-      <app-demo-report-form
-        [isSubmitted]="isSubmitted()"
-        (formSubmitted)="submitForm()">
-      </app-demo-report-form>
-    } @else {
-      <app-broken-report-form
-        [isSubmitted]="isSubmitted()"
-        [isUrgent]="isUrgent()"
-        (urgentToggled)="toggleUrgent()"
-        (formSubmitted)="submitForm()">
-      </app-broken-report-form>
-    }
+      @if (isAccessible()) {
+        <app-demo-report-form
+          [isSubmitted]="isSubmitted()"
+          (formSubmitted)="submitForm()"
+        >
+        </app-demo-report-form>
+      } @else {
+        <app-broken-report-form
+          [isSubmitted]="isSubmitted()"
+          [isUrgent]="isUrgent()"
+          (urgentToggled)="toggleUrgent()"
+          (formSubmitted)="submitForm()"
+        >
+        </app-broken-report-form>
+      }
 
-    @if (isAccessible()) {
-      <app-demo-terminal (popupOpened)="openPopup()"></app-demo-terminal>
-    } @else {
-      <app-broken-terminal (popupOpened)="openPopup()"></app-broken-terminal>
-    }
-
+      @if (isAccessible()) {
+        <app-demo-terminal (popupOpened)="openPopup()"></app-demo-terminal>
+      } @else {
+        <app-broken-terminal (popupOpened)="openPopup()"></app-broken-terminal>
+      }
+    </div>
   </main>
 
   @if (isAccessible()) {
-    <app-demo-popup
-      [showPopup]="showPopup()"
-      [timeLeft]="timeLeft()"
-      [announcementText]="announcementText()"
-      (popupClosed)="closePopup()">
+    <app-demo-popup [showPopup]="showPopup()" (popupClosed)="closePopup()">
     </app-demo-popup>
   } @else {
-    <app-broken-popup
-      [showPopup]="showPopup()"
-      [timeLeft]="timeLeft()"
-      (popupClosed)="closePopup()">
+    <app-broken-popup [showPopup]="showPopup()" (popupClosed)="closePopup()">
     </app-broken-popup>
   }
-
 </div>

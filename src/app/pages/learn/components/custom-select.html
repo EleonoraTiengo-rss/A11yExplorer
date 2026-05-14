@@ -1,49 +1,55 @@
 <div class="flex flex-col gap-2 relative" #dittoContainer>
-  <span id="ditto-label" class="text-sm font-medium text-slate-700">Scegli il tuo Pokémon:</span>
-  
+  <span id="ditto-label" class="text-sm font-medium text-slate-700"
+    >Scegli il tuo Pokémon:</span
+  >
+
   <div class="relative">
-    <div 
+    <div
       id="ditto-combobox"
       role="combobox"
       aria-haspopup="listbox"
       [attr.aria-expanded]="isDittoOpen()"
       aria-controls="ditto-listbox"
       aria-labelledby="ditto-label"
+      [attr.aria-activedescendant]="highlightedOptionId()"
       tabindex="0"
       (click)="toggleDitto()"
       (keydown)="onKeyDown($event)"
-      class="w-full h-10 px-3 pr-10 bg-white border border-slate-300 rounded-none flex items-center cursor-default transition-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none"
+      class="w-full h-10 px-3 pr-10 bg-white border border-slate-300 rounded-none flex items-center cursor-default transition-none"
       [class.border-blue-500]="isDittoOpen()"
-      [class.ring-2]="isDittoOpen()"
-      [class.ring-blue-500/20]="isDittoOpen()"
     >
-      <span class="text-slate-900 text-sm">{{ selectedPoke().name }} ({{ selectedPoke().type }})</span>
-      <mat-icon class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-600 text-lg">expand_more</mat-icon>
-    </div>
-    @if (isDittoOpen()) {
-      <ul 
-        id="ditto-listbox"
-        role="listbox"
-        aria-labelledby="ditto-label"
-        class="absolute top-full left-0 right-0 mt-0 bg-white border border-slate-300 shadow-lg z-[100] overflow-hidden py-0 animate-in fade-in duration-75"
+      <span class="text-slate-900 text-sm truncate"
+        >{{ selectedPoke().name }} ({{ selectedPoke().type }})</span
       >
-        @for (poke of pokes(); track poke.id; let i = $index) {
-          <li 
-            role="option"
-            [attr.aria-selected]="i === selectedPokeIdx()"
-            tabindex="0"
-            (click)="selectPoke(i)"
-            (keydown.enter)="selectPoke(i)"
-            (keydown.space)="selectPoke(i); $event.preventDefault()"
-            (mouseenter)="highlightedIdx.set(i)"
-            class="px-3 py-1 cursor-default transition-none text-slate-900 text-sm select-none outline-none focus:bg-gray-600 focus:text-white"
-            [class.bg-gray-600]="i === highlightedIdx()"
-            [class.text-white]="i === highlightedIdx()"
-          >
-            <span>{{ poke.name }} ({{ poke.type }})</span>
-          </li>
-        }
-      </ul>
+      <mat-icon
+        class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-600 pointer-events-none text-lg"
+        >expand_more</mat-icon
+      >
+    </div>
+
+    @if (isDittoOpen()) {
+    <ul
+      id="ditto-listbox"
+      role="listbox"
+      tabindex="-1"
+      class="absolute top-full left-0 right-0 mt-0 bg-white border focus:bg-gray-600 border-slate-300 shadow-lg z-[100] overflow-hidden py-0 animate-in fade-in duration-75"
+    >
+      @for (poke of pokes(); track poke.id; let i = $index) {
+      <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
+      <li
+        role="option"
+        id="option-{{i}}"
+        [attr.aria-selected]="i === selectedPokeIdx()"
+        (click)="selectPoke(i)"
+        (mouseenter)="highlightedIdx.set(i)"
+        class="px-3 py-1 cursor-default transition-none text-slate-900 text-sm select-none outline-none focus:bg-gray-600 focus:text-white"
+        [class.bg-blue-600]="i === highlightedIdx()"
+        [class.text-white]="i === highlightedIdx()"
+      >
+        <span>{{ poke?.name }} ({{ poke?.type }})</span>
+      </li>
+      }
+    </ul>
     }
   </div>
 </div>
