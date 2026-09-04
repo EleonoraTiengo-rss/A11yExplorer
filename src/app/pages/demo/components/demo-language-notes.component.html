@@ -1,14 +1,14 @@
-<section id="language" class="language-section">
-  <h2 class="section-title">
+<section id="language" class="language-section rounded-none md:rounded-3xl p-2 sm:p-4 md:p-8 my-2 sm:my-4 md:my-8">
+  <h2 class="section-title mb-2 sm:mb-4 md:mb-6 gap-2">
     <mat-icon class="section-icon">translate</mat-icon> Note di Ricerca
     (Giappone)
   </h2>
 
-  <div class="content-wrapper">
+  <div class="content-wrapper gap-2 sm:gap-4 md:gap-6">
     @for (card of cards; track card.id) {
-      <section [id]="card.id" class="card">
-        <h3 class="card-title">{{ card.title }}</h3>
-        <div class="note" [lang]="card.lang">
+      <section [id]="card.id" class="card rounded-none md:rounded-2xl p-2 sm:p-4 md:p-5 mb-2 sm:mb-0">
+        <h3 class="card-title mb-2 sm:mb-4 pb-2">{{ card.title }}</h3>
+        <div class="note p-2 sm:p-3 md:p-4 gap-2 sm:gap-4" [lang]="card.lang">
           <p class="note-text">
             {{ card.text }}
           </p>

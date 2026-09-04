@@ -1,172 +1,172 @@
 <section class="mb-16">
   <div class="flex items-center gap-3 mb-8">
-    <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold text-lg font-mono">3</div>
-    <h3 class="text-3xl font-bold text-slate-900 tracking-tight">L'Evoluzione Semantica: HTML vs ARIA 🧬</h3>
+    <div class="w-10 h-10 bg-slate-900 dark:bg-stone-800 text-white rounded-xl flex items-center justify-center font-bold text-lg font-mono">3</div>
+    <h3 class="text-3xl font-bold text-slate-900 dark:text-stone-100 tracking-tight">L'Evoluzione Semantica: HTML vs ARIA 🧬</h3>
   </div>
   
-  <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+  <p class="text-lg text-slate-600 dark:text-stone-300 mb-8 leading-relaxed">
     Proprio come un Pokémon si evolve, l'HTML si è arricchito nel tempo con tag semantici (HTML5) che portano con sé ruoli e significati nativi. 
     La prima regola di ARIA è fondamentale: <strong>se puoi usare un elemento HTML nativo con la semantica già integrata, allora usalo!</strong> 
     Ecco un "Pokédex" delle equivalenze per orientarti:
   </p>
 
-  <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-    <div class="grid grid-cols-2 bg-slate-50 border-b border-slate-200 p-4 font-bold text-slate-700">
+  <div class="bg-white dark:bg-stone-900 rounded-2xl border border-slate-200 dark:border-stone-800 shadow-sm overflow-hidden">
+    <div class="grid grid-cols-2 bg-slate-50 dark:bg-stone-950 border-b border-slate-200 dark:border-stone-800 p-4 font-bold text-slate-700 dark:text-stone-300">
       <div>Elemento HTML Nativo</div>
       <div>Ruolo ARIA Equivalente</div>
     </div>
-    <div class="divide-y divide-slate-100">
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;main&gt;</div>
-        <div class="font-mono text-slate-600">role="main"</div>
+    <div class="divide-y divide-slate-100 dark:divide-stone-800">
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;main&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="main"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;nav&gt;</div>
-        <div class="font-mono text-slate-600">role="navigation"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;nav&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="navigation"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;header&gt;</div>
-        <div class="font-mono text-slate-600">role="banner"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;header&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="banner"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;footer&gt;</div>
-        <div class="font-mono text-slate-600">role="contentinfo"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;footer&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="contentinfo"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;aside&gt;</div>
-        <div class="font-mono text-slate-600">role="complementary"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;aside&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="complementary"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;section&gt;</div>
-        <div class="font-mono text-slate-600">role="region" <span class="text-xs text-slate-400 ml-1">(se ha un nome accessibile)</span></div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;section&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="region" <span class="text-xs text-slate-400 dark:text-stone-500 ml-1">(se ha un nome accessibile)</span></div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;article&gt;</div>
-        <div class="font-mono text-slate-600">role="article"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;article&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="article"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;form&gt;</div>
-        <div class="font-mono text-slate-600">role="form"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;form&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="form"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;button&gt;</div>
-        <div class="font-mono text-slate-600">role="button"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;button&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="button"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;a href="..."&gt;</div>
-        <div class="font-mono text-slate-600">role="link"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;a href="..."&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="link"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;td&gt;</div>
-        <div class="font-mono text-slate-600">role="cell"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;td&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="cell"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;input type="checkbox"&gt;</div>
-        <div class="font-mono text-slate-600">role="checkbox"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;input type="checkbox"&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="checkbox"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;figure&gt;</div>
-        <div class="font-mono text-slate-600">role="figure"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;figure&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="figure"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;h1&gt;...&lt;h6&gt;</div>
-        <div class="font-mono text-slate-600">role="heading"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;h1&gt;...&lt;h6&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="heading"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;ul&gt;, &lt;ol&gt;</div>
-        <div class="font-mono text-slate-600">role="list"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;ul&gt;, &lt;ol&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="list"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;select&gt;</div>
-        <div class="font-mono text-slate-600">role="combobox" <span class="text-xs text-slate-400 ml-1">(combinato con role="listbox")</span> </div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;select&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="combobox" <span class="text-xs text-slate-400 dark:text-stone-500 ml-1">(combinato con role="listbox")</span> </div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;li&gt;</div>
-        <div class="font-mono text-slate-600">role="listitem"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;li&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="listitem"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;progress&gt;</div>
-        <div class="font-mono text-slate-600">role="progressbar"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;progress&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="progressbar"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;input type="radio"&gt;</div>
-        <div class="font-mono text-slate-600">role="radio"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;input type="radio"&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="radio"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;table&gt;</div>
-        <div class="font-mono text-slate-600">role="table"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;table&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="table"</div>
       </div>
-      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 transition-colors">
-        <div class="font-mono text-pink-600 font-semibold">&lt;textarea&gt;</div>
-        <div class="font-mono text-slate-600">role="textbox"</div>
+      <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
+        <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;textarea&gt;</div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="textbox"</div>
       </div>
     </div>
   </div>
 
-  <div class="mt-8 p-6 bg-amber-50 border border-amber-200 rounded-2xl flex gap-4">
+  <div class="mt-8 p-6 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/50 rounded-2xl flex gap-4">
     <mat-icon class="text-amber-500 shrink-0">warning</mat-icon>
-    <p class="text-slate-700 leading-relaxed">
+    <p class="text-slate-700 dark:text-stone-200 leading-relaxed">
       <strong>Attenzione:</strong> Sostituire un elemento nativo con un ruolo ARIA (es. usare un <code>&lt;div&gt;</code> con <code>role="button"</code>) comporta una grande responsabilità. 
       Dovrai implementare manualmente ogni comportamento nativo: la gestione del <strong>focus</strong>, i <strong>comandi da tastiera</strong> (es. Invio o Spazio) e gli <strong>eventi di interazione</strong>. 
       Per farlo correttamente, consulta i 
-      <a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank" class="text-pink-600 font-semibold hover:underline">W3C ARIA Patterns</a>: 
+      <a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank" class="text-pink-600 dark:text-pink-400 font-semibold hover:underline">W3C ARIA Patterns</a>: 
       veri e propri manuali di istruzioni che definiscono i requisiti minimi di accessibilità per ogni <strong>widget</strong> custom.
     </p>
   </div>
 
   <div class="mt-12">
-    <h4 class="text-2xl font-bold text-slate-900 mb-4">Quando ha senso usare i ruoli al posto dei tag nativi?</h4>
-    <p class="text-lg text-slate-600 leading-relaxed">
+    <h4 class="text-2xl font-bold text-slate-900 dark:text-stone-100 mb-4">Quando ha senso usare i ruoli al posto dei tag nativi?</h4>
+    <p class="text-lg text-slate-600 dark:text-stone-300 leading-relaxed">
       Ha senso quando occorre un'implementazione custom o quando non esiste l'elemento HTML corrispettivo. 
       Ad esempio, non esiste un elemento HTML per le <strong>tab</strong> o per i <strong>menu</strong> (intesi come widget complessi), 
       questi vanno per forza implementati "a mano" seguendo i pattern di accessibilità.
     </p>
   </div>
 
-  <div class="mt-16 bg-slate-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden">
+  <div class="mt-16 bg-slate-900 dark:bg-stone-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden border border-slate-800 dark:border-stone-800">
     <!-- Pokeball-like background effect -->
     <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
     <div class="absolute bottom-0 left-0 w-48 h-48 bg-indigo-500/10 rounded-full -ml-24 -mb-24 blur-2xl"></div>
     
     <div class="relative z-10">
-      <h4 class="text-2xl font-bold mb-8 flex items-center gap-3">
+      <h4 class="text-2xl font-bold mb-8 flex items-center gap-3 text-white dark:text-stone-100">
         <mat-icon class="text-indigo-400">catching_pokemon</mat-icon>
         L'Albero dell'Accessibilità: La tua Mappa Regionale! 🗺️
       </h4>
 
       <div class="grid lg:grid-cols-2 gap-12 items-start">
         <div class="space-y-6">
-          <p class="text-indigo-100 text-lg leading-relaxed">
+          <p class="text-indigo-100 dark:text-stone-300 text-lg leading-relaxed">
             Il browser non si limita a disegnare pixel: interpreta il codice HTML e lo traduce nell'<strong>Accessibility Tree</strong>. 
             Questo "albero" è lo strumento fondamentale usato dalle tecnologie assistive, come gli <strong>Screen Reader</strong>, per navigare e comprendere il mondo digitale.
           </p>
 
-          <div class="bg-indigo-950/50 p-6 rounded-2xl border border-indigo-400/20 italic">
-            <p class="text-indigo-200 text-xl font-medium mb-4">
+          <div class="bg-indigo-950/50 dark:bg-stone-950/70 p-6 rounded-2xl border border-indigo-400/20 dark:border-stone-700 italic">
+            <p class="text-indigo-200 dark:text-stone-200 text-xl font-medium mb-4">
               "Ehi, Allenatore! Davvero pensi che i tuoi utenti vogliano fare una maratona di tasto Tab solo per trovare il Footer? Non è un videogioco dove più tasti premi e più punti fai!"
             </p>
             
             <!-- Tired Tab Key - Moved here as requested -->
-            <div class="flex items-center gap-4 bg-red-900/20 p-4 rounded-xl border border-red-500/20">
+            <div class="flex items-center gap-4 bg-red-900/20 dark:bg-red-950/40 p-4 rounded-xl border border-red-500/20 dark:border-red-900/40">
               <div class="relative h-16 w-16 bg-slate-200 rounded-lg shadow-inner flex items-center justify-center border-b-4 border-slate-400 shrink-0">
                 <span class="absolute top-1 left-1 text-[8px] text-slate-500 font-mono font-bold text-black">Tab</span>
                 <mat-icon class="text-slate-600 scale-125">sentiment_very_dissatisfied</mat-icon>
                 <mat-icon class="absolute -top-1 -right-1 text-blue-400 text-[10px] translate-x-1 -translate-y-1">water_drop</mat-icon>
               </div>
-              <p class="text-sm text-red-100 italic">
+              <p class="text-sm text-red-100 dark:text-red-200 italic">
                 Senza semantica, il povero tasto Tab è esausto, sudato e pronto al KO tecnico! 
                 L'utente è costretto a una noiosissima maratona di clic infiniti.
               </p>
             </div>
           </div>
 
-          <p class="text-indigo-100 text-lg leading-relaxed">
+          <p class="text-indigo-100 dark:text-stone-300 text-lg leading-relaxed">
             Una struttura fatta bene (Heading corrette, Landmark come <code>main</code> e <code>nav</code>) e <strong>funzionale</strong> (supporto per tastiera e coerenza con gli standard) agisce come una mossa <em>Volo</em>: consente di usare <strong>shortcut</strong> per saltare direttamente alla sezione desiderata...
           </p>
         </div>
 
         <div class="space-y-6">
-          <div class="bg-indigo-800/40 p-6 rounded-2xl border border-indigo-400/20 backdrop-blur-sm">
+          <div class="bg-indigo-800/40 dark:bg-stone-950/60 p-6 rounded-2xl border border-indigo-400/20 dark:border-stone-700 backdrop-blur-sm">
             <h5 class="text-emerald-400 font-bold text-xl mb-4 flex items-center gap-2">
               <mat-icon>auto_awesome</mat-icon>
               Lieto fine: Il riposo del Campione
@@ -180,7 +180,7 @@
                  <mat-icon class="absolute -top-2 -right-1 text-yellow-400 text-lg animate-pulse">wb_sunny</mat-icon>
               </div>
               <div>
-                <p class="text-indigo-100 leading-relaxed">
+                <p class="text-indigo-100 dark:text-stone-300 leading-relaxed">
                   Con la semantica corretta, il tasto Tab è sereno e si gode la meritata vacanza. 
                   L'utente può navigare per "punti di interesse" e saltare da un Landmark all'altro senza fatica.
                 </p>

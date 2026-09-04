@@ -1,14 +1,14 @@
-<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-8 border-l-purple-400">
+<div class="bg-white dark:bg-stone-900 p-6 rounded-2xl border border-slate-200 dark:border-stone-800 shadow-sm border-l-8 border-l-purple-400 dark:border-l-purple-500">
   <div class="flex justify-between items-start mb-6">
     <div>
-      <h4 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+      <h4 class="text-2xl font-bold text-slate-900 dark:text-stone-100 mb-2 flex items-center gap-2">
         <mat-icon class="text-indigo-500">auto_fix_high</mat-icon> Sfida DITTO: Il Duplicato accessibile
       </h4>
-      <p class="text-slate-600">Un Pikachu nativo contro un Ditto che imita le funzionalità. Riuscirai a distinguerli?</p>
+      <p class="text-slate-600 dark:text-stone-300">Un Pikachu nativo contro un Ditto che imita le funzionalità. Riuscirai a distinguerli?</p>
     </div>
   </div>
 
-  <div class="grid md:grid-cols-2 gap-12 p-8 bg-slate-50 rounded-2xl border border-slate-100 relative italic">
+  <div class="grid md:grid-cols-2 gap-12 p-8 bg-slate-50 dark:bg-stone-950 rounded-2xl border border-slate-100 dark:border-stone-800 relative italic">
     <!-- Watermarks container -->
     <div class="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
       <mat-icon class="absolute -bottom-4 -left-4 text-yellow-200/30 text-9xl rotate-12">bolt</mat-icon>
@@ -25,10 +25,10 @@
       <app-custom-select [pokes]="pokes"></app-custom-select>
     </div>
   </div>  <!-- Unified Solutions Panel -->
-  <div class="mt-4 border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm">
+  <div class="mt-4 border border-slate-200 dark:border-stone-800 rounded-xl overflow-hidden bg-white dark:bg-stone-900 shadow-sm">
     <button 
       (click)="toggleSolutions()" 
-      class="w-full px-4 py-3 flex items-center justify-between text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors"
+      class="w-full px-4 py-3 flex items-center justify-between text-sm font-bold text-slate-700 dark:text-stone-200 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors"
     >
       <div class="flex items-center gap-2">
         <mat-icon class="text-indigo-500">lightbulb</mat-icon>
@@ -38,18 +38,18 @@
     </button>
     
     @if (showSolutions()) {
-      <div class="p-6 bg-slate-50 border-t border-slate-100 animate-in slide-in-from-top-1 duration-200">
+      <div class="p-6 bg-slate-50 dark:bg-stone-950 border-t border-slate-100 dark:border-stone-800 animate-in slide-in-from-top-1 duration-200">
         <div class="grid sm:grid-cols-2 gap-8">
           <!-- Soluzione Nativa -->
-          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <div class="bg-white dark:bg-stone-900 p-4 rounded-xl border border-slate-200 dark:border-stone-800 shadow-sm">
             <div class="flex items-center gap-2 mb-3">
               <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
-              <p class="text-[10px] uppercase tracking-wider font-bold text-slate-500">Implementazione Nativa (Pikachu)</p>
+              <p class="text-[10px] uppercase tracking-wider font-bold text-slate-500 dark:text-stone-400">Implementazione Nativa (Pikachu)</p>
             </div>
-            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+            <p class="text-xs text-slate-600 dark:text-stone-300 mb-4 leading-relaxed">
               Usa l'elemento HTML nativo <code>&lt;select&gt;</code>. È la scelta migliore per l'accessibilità perché il browser gestisce "gratis" la navigazione tastiera e la comunicazione con gli screen reader.
             </p>
-            <code class="block bg-slate-800 text-indigo-300 p-3 rounded text-[11px] overflow-x-auto">
+            <code class="block bg-slate-800 dark:bg-stone-950 text-indigo-300 dark:text-indigo-300 p-3 rounded text-[11px] overflow-x-auto border border-transparent dark:border-stone-800">
               &lt;select id="poke-select"&gt;<br>
               &nbsp;&nbsp;&lt;option&gt;Pikachu&lt;/option&gt;<br>
               &lt;/select&gt;
@@ -57,15 +57,15 @@
           </div>
 
           <!-- Soluzione Custom -->
-          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <div class="bg-white dark:bg-stone-900 p-4 rounded-xl border border-slate-200 dark:border-stone-800 shadow-sm">
             <div class="flex items-center gap-2 mb-3">
               <div class="w-2 h-2 rounded-full bg-purple-400"></div>
-              <p class="text-[10px] uppercase tracking-wider font-bold text-slate-500">Implementazione Custom (Ditto)</p>
+              <p class="text-[10px] uppercase tracking-wider font-bold text-slate-500 dark:text-stone-400">Implementazione Custom (Ditto)</p>
             </div>
-            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+            <p class="text-xs text-slate-600 dark:text-stone-300 mb-4 leading-relaxed">
               Costruita con <code>&lt;div&gt;</code>. Per renderla accessibile abbiamo combinato attributi <strong>ARIA</strong> (<code>role="combobox"</code>) e implementato manualmente il supporto alla tastiera.
             </p>
-            <code class="block bg-slate-800 text-indigo-300 p-3 rounded text-[11px] overflow-x-auto">
+            <code class="block bg-slate-800 dark:bg-stone-950 text-indigo-300 dark:text-indigo-300 p-3 rounded text-[11px] overflow-x-auto border border-transparent dark:border-stone-800">
               &lt;div role="combobox" aria-haspopup="listbox" aria-activedescendant="option-N"&gt;...&lt;/div&gt;<br>
               &lt;ul role="listbox"&gt;<br>
               &nbsp;&nbsp;&lt;li role="option"&gt;...&lt;/li&gt;<br>
@@ -78,7 +78,7 @@
   </div>
 
   <!-- Footer Info with CSS-reconstructed Ditto face -->
-  <div class="mt-8 p-6 bg-purple-50 rounded-xl flex flex-col md:flex-row gap-6 items-center">
+  <div class="mt-8 p-6 bg-purple-50 dark:bg-purple-950/30 rounded-xl flex flex-col md:flex-row gap-6 items-center border border-transparent dark:border-purple-900/40">
     <div class="flex items-center gap-4 shrink-0">
       <img src="assets/images/pokemon-25.png" alt="Pikachu Vero" class="w-20 h-20 object-contain drop-shadow-md">
       <mat-icon class="text-purple-400 text-4xl">arrow_forward</mat-icon>
@@ -86,7 +86,7 @@
     </div>
     <div class="flex gap-4 items-start">
       <mat-icon class="text-purple-500 shrink-0 mt-1">info</mat-icon>
-      <p class="text-sm text-slate-700 leading-relaxed">
+      <p class="text-sm text-slate-700 dark:text-stone-200 leading-relaxed">
         <strong>Perché Ditto è accessibile?</strong> Perché nonostante usi dei semplici <code>div</code>, comunica correttamente il suo stato tramite ARIA e risponde agli input da tastiera permettendo la selezione dell'opzione voluta.
       </p>
     </div>

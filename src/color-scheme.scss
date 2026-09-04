@@ -1,0 +1,327 @@
+/* ==========================================================================
+   color-scheme.scss - Color Scheme Media Queries (Light & Dark Mode)
+   Pure semantic tokens, native inputs, and component IDs.
+   Does NOT overwrite Tailwind CSS utility classes.
+   ========================================================================== */
+
+/* Base Default Semantic Tokens */
+:root {
+  color-scheme: light;
+  --app-bg: #f8fafc;
+  --app-surface: #ffffff;
+  --app-surface-subtle: #fafaf9;
+  --app-border: #e2e8f0;
+  --app-text-primary: #0f172a;
+  --app-text-secondary: #475569;
+  --app-text-muted: #64748b;
+}
+
+/* ==========================================================================
+   Media Query: prefers-color-scheme: light
+   ========================================================================== */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --app-bg: #f8fafc;
+    --app-surface: #ffffff;
+    --app-surface-subtle: #fafaf9;
+    --app-border: #e2e8f0;
+    --app-text-primary: #0f172a;
+    --app-text-secondary: #475569;
+    --app-text-muted: #64748b;
+
+    .active-nav-link {
+      background-color: #ffffff;
+      color: #c92c0a;
+    }
+
+    #countdown-progressbar {
+      background-color: #e5e7eb;
+      border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    /* Component specific: app-demo-language-notes */
+    app-demo-language-notes {
+      .language-section {
+        background-color: #ffffff;
+        border-color: #e7e5e4;
+      }
+      .section-title {
+        color: #292524;
+      }
+      .section-icon {
+        color: #047857;
+      }
+      .card {
+        background-color: #ffffff;
+        border-color: #e5e7eb;
+      }
+      .card-title {
+        color: #1f2937;
+        border-block-end-color: #f3f4f6;
+      }
+      .note-text,
+      .note[lang="ja"] .note-text,
+      .note[lang="it"] .note-text {
+        color: #292524 !important;
+      }
+      .note-img {
+        border-color: #e5e7eb;
+        background-color: #f5f5f4;
+      }
+    }
+
+    /* Component specific: app-broken-language-notes */
+    app-broken-language-notes {
+      .card {
+        background: white;
+        border-color: #e5e7eb;
+      }
+      .translation {
+        color: #6b7280;
+      }
+      .caption {
+        border-top-color: #e5e7eb;
+        color: #6b7280;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   Media Query: prefers-color-scheme: dark
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --app-bg: #0c0a09;
+    --app-surface: #1c1917;
+    --app-surface-subtle: #171514;
+    --app-border: #292524;
+    --app-text-primary: #fafaf9;
+    --app-text-secondary: #d6d3d1;
+    --app-text-muted: #a8a29e;
+
+    /* Active Nav Link */
+    .active-nav-link {
+      background-color: #1c1917;
+      color: #fca5a5;
+      border: 1px solid rgba(254, 202, 202, 0.3);
+    }
+
+    /* Interactive Elements, Forms, Inputs (Accessible components) */
+    app-demo-report-form input[type="text"],
+    app-demo-report-form input[type="email"],
+    app-demo-report-form input[type="search"],
+    app-demo-report-form textarea,
+    app-demo-report-form select,
+    app-native-select select,
+    app-custom-select select {
+      background-color: #171514;
+      color: #fafaf9;
+      border-color: #44403c;
+
+      &::placeholder {
+        color: #78716c;
+      }
+
+      &:focus {
+        border-color: #10b981;
+        outline: none;
+      }
+    }
+
+    /* Details / Summary */
+    details summary {
+      &:hover {
+        background-color: #292524;
+      }
+    }
+
+    details[open] summary {
+      background-color: #1c1917;
+    }
+
+    /* Popups & Dialogs */
+    #accessible-alert-popup {
+      background-color: #1c1917;
+      border-color: #292524;
+      color: #fafaf9;
+    }
+
+    #alertdialog-backdrop {
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    #countdown-progressbar {
+      background-color: #292524;
+      border-color: #44403c;
+    }
+
+    /* Custom combobox (Ditto challenge) */
+    #ditto-combobox {
+      background-color: #171514;
+      border-color: #44403c;
+    }
+
+    #ditto-listbox {
+      background-color: #1c1917;
+      border-color: #44403c;
+    }
+
+    /* Component specific: app-demo-language-notes */
+    app-demo-language-notes {
+      .language-section {
+        background-color: #1c1917;
+        border-color: #292524;
+        box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.4);
+      }
+
+      .section-title {
+        color: #fafaf9;
+      }
+
+      .section-icon {
+        color: #34d399;
+      }
+
+      .card {
+        background-color: #171514;
+        border-color: #292524;
+        box-shadow: 0 0.25rem 0.875rem rgba(0, 0, 0, 0.3);
+      }
+
+      .card-title {
+        color: #fafaf9;
+        border-block-end-color: #292524;
+      }
+
+      .note-text,
+      .note[lang="ja"] .note-text,
+      .note[lang="it"] .note-text {
+        color: #fafaf9 !important;
+      }
+
+      .note-img {
+        border-color: #44403c;
+        background-color: #292524;
+      }
+    }
+  }
+
+  /* High contrast dark focus ring across accessible components */
+  app-header,
+  app-demo-header,
+  app-demo-hero,
+  app-demo-habitat,
+  app-demo-species,
+  app-demo-pokedex,
+  app-demo-language-notes,
+  app-demo-report-form,
+  app-demo-terminal,
+  app-demo-popup {
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    details summary:focus-visible,
+    div[role="combobox"]:focus-visible,
+    div[tabindex]:focus-visible {
+      outline: 3px solid #67e8f9;
+      outline-offset: 3px;
+      box-shadow: 0 0 0 5px rgba(103, 232, 249, 0.35);
+    }
+  }
+
+  /* Root canvas & layout */
+  html,
+  body {
+    background-color: #0c0a09;
+    color: #fafaf9;
+  }
+}
+
+/* ==========================================================================
+   Broken Demo Isolation:
+   Completely isolate all app-broken-* components and .not-accessible-mode
+   from dark theme styles.
+   ========================================================================== */
+.not-accessible-mode,
+app-broken-hero,
+app-broken-habitat,
+app-broken-species,
+app-broken-pokedex,
+app-broken-language-notes,
+app-broken-report-form,
+app-broken-terminal,
+app-broken-popup {
+  color-scheme: light !important;
+  --app-bg: #f8fafc;
+  --app-surface: #ffffff;
+  --app-surface-subtle: #fafaf9;
+  --app-border: #e2e8f0;
+  --app-text-primary: #0f172a;
+  --app-text-secondary: #475569;
+  --app-text-muted: #64748b;
+  color: #1c1917;
+
+  /* Inputs and form controls inside broken components remain in light mode */
+  input[type="text"],
+  input[type="email"],
+  input[type="search"],
+  textarea,
+  select {
+    background-color: #ffffff !important;
+    color: #1c1917 !important;
+    border-color: #d6d3d1 !important;
+
+    &::placeholder {
+      color: #78716c !important;
+    }
+
+    &:focus {
+      border-color: #d6d3d1 !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  /* Prevent accessible focus rings inside broken components */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  details summary:focus-visible,
+  div[role="combobox"]:focus-visible,
+  div[tabindex]:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ==========================================================================
+   High-Contrast (Windows High Contrast / forced-colors)
+   ========================================================================== */
+@media (forced-colors: active) {
+  .active-nav-link {
+    outline: 2px solid Highlight;
+    forced-color-adjust: none;
+  }
+
+  #countdown-progressbar {
+    border: 2px solid ButtonText;
+
+    .progress-bar-fill {
+      background-color: Highlight !important;
+    }
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    border: 1px solid ButtonText;
+  }
+}

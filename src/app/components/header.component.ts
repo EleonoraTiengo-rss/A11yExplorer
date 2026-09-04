@@ -1,14 +1,14 @@
-import { Component, ChangeDetectionStrategy, signal, HostBinding } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
+import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
+import { RouterLink, RouterLinkActive } from "@angular/router";
+import { MatIconModule } from "@angular/material/icon";
 
 @Component({
-  selector: 'app-header',
+  selector: "app-header",
   standalone: true,
   imports: [RouterLink, RouterLinkActive, MatIconModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './header.component.html',
+  templateUrl: "./header.component.html",
 })
 export class HeaderComponent {
-  selectedPage = signal('learn');
+  selectedPage = signal("learn");
 }

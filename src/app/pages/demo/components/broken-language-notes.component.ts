@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './broken-language-notes.component.html',
   styles: [`
     .language-section { padding-block: 2rem; padding-inline: 2rem; }
-    .card { background: white; border-radius: 1rem; padding: 1.25rem; box-shadow: 0 4px 14px rgba(0,0,0,.08); border: 1px solid #e5e7eb; }
+    .card { background: #ffffff; border-radius: 1rem; padding: 1.25rem; box-shadow: 0 4px 14px rgba(0,0,0,.08); border: 1px solid #e5e7eb; color: #1f2937; }
     h2 { margin-top: 0; font-size: 1.125rem; }
     .content-wrapper { display: flex; gap: 1.5rem; align-items: flex-start; }
     .note { writing-mode: vertical-rl; direction: rtl; height: 16rem; padding: 1.5rem; width: fit-content; }

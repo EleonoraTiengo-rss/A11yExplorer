@@ -1,57 +1,53 @@
 <section
   id="report"
-  class="scroll-mt-24 bg-white rounded-3xl shadow-sm border border-stone-200"
-  style="padding-block: 2rem; padding-inline: 2rem"
+  class="scroll-mt-24 bg-white dark:bg-stone-900 rounded-none md:rounded-3xl shadow-sm border border-stone-200 dark:border-stone-800 p-2 sm:p-4 md:p-8"
 >
-  <div class="flex items-start gap-4" style="margin-block-end: 1.5rem">
+  <div class="flex flex-col sm:flex-row items-start gap-2 sm:gap-4 mb-2 sm:mb-4 md:mb-6">
     <div
-      class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center shrink-0 border border-red-200"
+      class="w-10 h-10 sm:w-12 sm:h-12 bg-red-100 dark:bg-red-950/40 rounded-full flex items-center justify-center shrink-0 border border-red-200 dark:border-red-800/40"
     >
-      <mat-icon class="text-red-700">smart_toy</mat-icon>
+      <mat-icon class="text-red-700 dark:text-red-400">smart_toy</mat-icon>
     </div>
-    <div>
-      <h2 class="text-2xl font-bold text-stone-800">
+    <div class="min-w-0 flex-1">
+      <h2 class="text-xl sm:text-2xl font-bold text-stone-800 dark:text-stone-100">
         Rotom-Dex: Segnala Avvistamento
       </h2>
-      <p class="text-stone-600" style="margin-block-start: 0.25rem">
+      <p class="text-stone-600 dark:text-stone-400 text-sm sm:text-base mt-1">
         Bzzzt! Hai visto un Pokémon raro? Compila il modulo per aggiornare il
         database dell'Atlante! Bzzzt!
       </p>
     </div>
   </div>
   <form
-    class="space-y-5 max-w-xl bg-stone-50 rounded-2xl border border-stone-100"
-    style="padding-block: 1.5rem; padding-inline: 1.5rem"
+    class="space-y-2 sm:space-y-4 md:space-y-5 max-w-xl bg-stone-50 dark:bg-stone-950 rounded-xl sm:rounded-2xl border border-stone-100 dark:border-stone-800 p-2 sm:p-4 md:p-6"
     (submit)="$event.preventDefault(); formSubmitted.emit()"
   >
     <div>
       <label
         for="pokemon-name"
-        class="block text-sm font-semibold text-stone-700"
-        style="margin-block-end: 0.25rem"
+        class="block text-sm font-semibold text-stone-700 dark:text-stone-300 mb-1"
         >Specie Avvistata
-        <span class="text-red-700" aria-hidden="true">*</span></label
+        <span class="text-red-700 dark:text-red-400" aria-hidden="true">*</span></label
       >
       <input
         type="text"
         id="pokemon-name"
         required
         aria-required="true"
-        class="w-full px-4 py-2 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 invalid:focus:ring-red-500 invalid:focus:border-red-500 transition-shadow"
+        class="w-full px-2 py-2 sm:px-4 sm:py-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 invalid:focus:ring-red-500 invalid:focus:border-red-500 transition-shadow"
         placeholder="es. Pikachu"
       />
     </div>
     <div>
       <label
         for="habitat-desc"
-        class="block text-sm font-semibold text-stone-700"
-        style="margin-block-end: 0.25rem"
+        class="block text-sm font-semibold text-stone-700 dark:text-stone-300 mb-1"
         >Descrizione Habitat</label
       >
       <textarea
         id="habitat-desc"
         rows="3"
-        class="w-full px-4 py-2 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 invalid:focus:ring-red-500 invalid:focus:border-red-500 transition-shadow"
+        class="w-full px-2 py-2 sm:px-4 sm:py-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 invalid:focus:ring-red-500 invalid:focus:border-red-500 transition-shadow"
         placeholder="Descrivi dove l'hai visto..."
       ></textarea>
     </div>
@@ -59,31 +55,26 @@
       <input
         type="checkbox"
         id="urgent"
-        class="w-5 h-5 text-emerald-600 rounded border-stone-300 focus:ring-emerald-500 cursor-pointer"
+        class="w-5 h-5 text-emerald-600 rounded border-stone-300 dark:border-stone-700 focus:ring-emerald-500 cursor-pointer"
       />
-      <label for="urgent" class="text-sm text-stone-700 cursor-pointer"
+      <label for="urgent" class="text-sm text-stone-700 dark:text-stone-300 cursor-pointer"
         >Segnala come urgente (es. Pokémon ferito)</label
       >
     </div>
     <button
       type="submit"
-      class="px-6 py-3 bg-emerald-700 text-white rounded-xl font-medium cursor-pointer hover:bg-emerald-800 focus:outline-none transition-all shadow-sm flex items-center gap-2"
+      class="w-full sm:w-auto justify-center sm:justify-start px-2 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 bg-emerald-700 text-white rounded-xl font-medium cursor-pointer hover:bg-emerald-800 focus:outline-none transition-all shadow-sm flex items-center gap-2"
     >
       <mat-icon class="text-sm w-5 h-5">send</mat-icon> Invia Dati
     </button>
 
     @if (isSubmitted()) {
       <div
-        class="bg-emerald-100 text-emerald-900 rounded-xl flex items-center gap-3 border border-emerald-200 animate-in fade-in slide-in-from-bottom-2"
-        style="
-          margin-block-start: 1rem;
-          padding-block: 1rem;
-          padding-inline: 1rem;
-        "
+        class="bg-emerald-100 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-200 rounded-xl flex items-center gap-2 sm:gap-3 border border-emerald-200 dark:border-emerald-700/40 animate-in fade-in slide-in-from-bottom-2 p-2 sm:p-4 mt-2 sm:mt-4"
         role="status"
         aria-live="polite"
       >
-        <mat-icon class="text-emerald-700">check_circle</mat-icon>
+        <mat-icon class="text-emerald-700 dark:text-emerald-400">check_circle</mat-icon>
         <span class="font-medium"
           >Dati inviati con successo al Professor Oak!</span
         >

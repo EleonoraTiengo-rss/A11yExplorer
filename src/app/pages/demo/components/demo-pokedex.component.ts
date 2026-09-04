@@ -35,7 +35,7 @@ export class DemoPokedexComponent {
       name: "Caterpie",
       pokedexNumber: 10,
       formattedNumber: "#0010",
-      nameColorClass: "text-emerald-800",
+      nameColorClass: "text-emerald-800 dark:text-emerald-400",
       image: "assets/images/pokemon-10.png",
       alt: "Caterpie, un piccolo Pokémon a forma di bruco verde con grandi occhi rotondi, ventre giallo e un'antenna rossa a forma di Y sulla testa.",
       description:
@@ -43,9 +43,9 @@ export class DemoPokedexComponent {
       types: [
         {
           name: "Coleottero",
-          bgClass: "bg-lime-100",
-          textClass: "text-lime-800",
-          borderClass: "border-lime-200",
+          bgClass: "bg-lime-100 dark:bg-lime-950/60",
+          textClass: "text-lime-800 dark:text-lime-300",
+          borderClass: "border-lime-200 dark:border-lime-700/40",
         },
       ],
     },
@@ -54,7 +54,7 @@ export class DemoPokedexComponent {
       name: "Weedle",
       pokedexNumber: 13,
       formattedNumber: "#0013",
-      nameColorClass: "text-amber-800",
+      nameColorClass: "text-amber-800 dark:text-amber-400",
       image: "assets/images/pokemon-13.png",
       alt: "Weedle, un Pokémon simile a un millepiedi marrone chiaro con un naso rosso a palla e un pungiglione velenoso sulla testa e sulla coda.",
       description:
@@ -62,15 +62,15 @@ export class DemoPokedexComponent {
       types: [
         {
           name: "Coleottero",
-          bgClass: "bg-lime-100",
-          textClass: "text-lime-800",
-          borderClass: "border-lime-200",
+          bgClass: "bg-lime-100 dark:bg-lime-950/60",
+          textClass: "text-lime-800 dark:text-lime-300",
+          borderClass: "border-lime-200 dark:border-lime-700/40",
         },
         {
           name: "Veleno",
-          bgClass: "bg-purple-100",
-          textClass: "text-purple-800",
-          borderClass: "border-purple-200",
+          bgClass: "bg-purple-100 dark:bg-purple-950/60",
+          textClass: "text-purple-800 dark:text-purple-300",
+          borderClass: "border-purple-200 dark:border-purple-700/40",
         },
       ],
     },
@@ -79,7 +79,7 @@ export class DemoPokedexComponent {
       name: "Bulbasaur",
       pokedexNumber: 1,
       formattedNumber: "#0001",
-      nameColorClass: "text-emerald-800",
+      nameColorClass: "text-emerald-800 dark:text-emerald-400",
       image: "assets/images/pokemon-1.png",
       alt: "Bulbasaur, un Pokémon quadrupede simile a un dinosauro di colore verde acqua con macchie più scure e un grande bulbo verde sulla schiena.",
       description:
@@ -87,15 +87,15 @@ export class DemoPokedexComponent {
       types: [
         {
           name: "Erba",
-          bgClass: "bg-emerald-100",
-          textClass: "text-emerald-800",
-          borderClass: "border-emerald-200",
+          bgClass: "bg-emerald-100 dark:bg-emerald-950/60",
+          textClass: "text-emerald-800 dark:text-emerald-300",
+          borderClass: "border-emerald-200 dark:border-emerald-700/40",
         },
         {
           name: "Veleno",
-          bgClass: "bg-purple-100",
-          textClass: "text-purple-800",
-          borderClass: "border-purple-200",
+          bgClass: "bg-purple-100 dark:bg-purple-950/60",
+          textClass: "text-purple-800 dark:text-purple-300",
+          borderClass: "border-purple-200 dark:border-purple-700/40",
         },
       ],
     },

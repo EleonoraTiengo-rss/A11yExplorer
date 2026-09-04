@@ -16,21 +16,21 @@ import { MatIconModule } from "@angular/material/icon";
       .language-section {
         max-inline-size: 64rem;
         margin-inline: auto;
-        margin-block: 2rem;
-        padding-block: 2rem;
-        padding-inline: 2rem;
-        background-color: #ffffff;
-        border-radius: 1.5rem;
+        margin-block: 0.5rem;
+        padding-block: 0.5rem;
+        padding-inline: 0.5rem;
+        background-color: var(--app-surface, #ffffff);
+        border-radius: 0;
         box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.05);
-        border: 0.0625rem solid #e7e5e4;
+        border: 0.0625rem solid var(--app-border, #e7e5e4);
       }
 
       .section-title {
         margin-block-start: 0;
-        margin-block-end: 1.5rem;
+        margin-block-end: 0.5rem;
         font-size: 1.5rem;
         font-weight: 700;
-        color: #292524;
+        color: var(--app-text-primary, #292524);
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -46,36 +46,31 @@ import { MatIconModule } from "@angular/material/icon";
       .content-wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 0.5rem;
         align-items: stretch;
       }
 
-      @media (min-width: 48rem) {
-        .content-wrapper {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
       .card {
-        background-color: #ffffff;
-        border-radius: 1rem;
-        padding-block: 1.25rem;
-        padding-inline: 1.25rem;
+        background-color: var(--app-surface, #ffffff);
+        color: var(--app-text-primary, #1f2937);
+        border-radius: 0;
+        padding-block: 0.5rem;
+        padding-inline: 0.5rem;
         box-shadow: 0 0.25rem 0.875rem rgba(0, 0, 0, 0.06);
-        border: 0.0625rem solid #e5e7eb;
+        border: 0.0625rem solid var(--app-border, #e5e7eb);
         display: flex;
         flex-direction: column;
-        min-block-size: 20rem;
+        min-block-size: auto;
       }
 
       .card-title {
         margin-block-start: 0;
-        margin-block-end: 1rem;
+        margin-block-end: 0.5rem;
         font-size: 1.125rem;
         font-weight: 700;
-        color: #1f2937;
+        color: var(--app-text-primary, #1f2937);
         padding-block-end: 0.5rem;
-        border-block-end: 0.0625rem solid #f3f4f6;
+        border-block-end: 0.0625rem solid var(--app-border, #f3f4f6);
       }
 
       .note {
@@ -84,50 +79,54 @@ import { MatIconModule } from "@angular/material/icon";
         padding-inline: 0.5rem;
         min-block-size: 16rem;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1.25rem;
-        overflow: hidden;
-      }
-
-      .note[lang="ja"] {
-        writing-mode: vertical-rl;
-        font-family: "Noto Serif JP", serif;
-        text-orientation: mixed;
-        flex-direction: column;
-        inline-size: 100%;
-        block-size: 100%;
+        align-items: stretch;
+        gap: 0.5rem;
+        overflow: visible;
       }
 
       .note[lang="it"] {
         writing-mode: horizontal-tb;
         font-family: "Plus Jakarta Sans", sans-serif;
-        flex-direction: row;
+        flex-direction: column;
         inline-size: 100%;
-        block-size: 100%;
+        block-size: auto;
+      }
+
+      .note[lang="ja"] {
+        writing-mode: horizontal-tb;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        inline-size: 100%;
+        block-size: auto;
       }
 
       .note-img {
         object-fit: cover;
         border-radius: 0.5rem;
-        border: 0.0625rem solid #e5e7eb;
+        border: 0.0625rem solid var(--app-border, #e5e7eb);
         flex-shrink: 0;
         box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.05);
-        background-color: #f5f5f4;
+        background-color: var(--app-surface-subtle, #f5f5f4);
       }
 
       .note[lang="it"] .note-img {
-        inline-size: clamp(6rem, 28%, 8.5rem);
-        block-size: clamp(5rem, 22%, 7.5rem);
-        max-inline-size: 35%;
-        max-block-size: 8rem;
+        inline-size: 100%;
+        max-inline-size: 100%;
+        block-size: auto;
+        max-block-size: 9rem;
+        aspect-ratio: 16 / 9;
+        align-self: center;
       }
 
       .note[lang="ja"] .note-img {
-        inline-size: clamp(5rem, 22%, 7.5rem);
-        block-size: clamp(6rem, 28%, 8.5rem);
-        max-inline-size: 8rem;
-        max-block-size: 35%;
+        inline-size: 100%;
+        max-inline-size: 100%;
+        block-size: auto;
+        max-block-size: 9rem;
+        aspect-ratio: 16 / 9;
+        align-self: center;
       }
 
       .note-text {
@@ -138,8 +137,120 @@ import { MatIconModule } from "@angular/material/icon";
         margin-inline: 0;
         font-size: 1.05rem;
         line-height: 1.85;
-        color: #292524;
+        color: var(--app-text-primary, #292524);
         text-align: start;
+      }
+
+      .note[lang="ja"] .note-text {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
+        font-size: 1.05rem;
+        line-height: 1.85;
+        letter-spacing: 0.03em;
+        display: block;
+        visibility: visible;
+        opacity: 1;
+        flex: none;
+        inline-size: 13.5rem;
+        height: 13.5rem;
+        min-inline-size: 11rem;
+        min-height: 11rem;
+        block-size: 100%;
+        width: 100%;
+        max-block-size: 100%;
+        max-width: 100%;
+        margin-block: 0;
+        margin-inline: 0;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      @media (min-width: 48rem) {
+        .language-section {
+          border-radius: 1.5rem;
+          margin-block: 2rem;
+          padding-block: 2rem;
+          padding-inline: 2rem;
+        }
+
+        .section-title {
+          margin-block-end: 1.5rem;
+        }
+
+        .content-wrapper {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+
+        .card {
+          border-radius: 1rem;
+          padding-block: 1.25rem;
+          padding-inline: 1.25rem;
+          min-block-size: 20rem;
+        }
+
+        .card-title {
+          margin-block-end: 1rem;
+        }
+
+        .note {
+          min-block-size: 16rem;
+          gap: 1.25rem;
+          overflow: visible;
+        }
+
+        .note[lang="it"] {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          block-size: 100%;
+        }
+
+        .note[lang="it"] .note-img {
+          inline-size: clamp(6rem, 28%, 8.5rem);
+          block-size: clamp(5rem, 22%, 7.5rem);
+          max-inline-size: 35%;
+          max-block-size: 8rem;
+        }
+
+        .note[lang="ja"] {
+          writing-mode: vertical-rl;
+          font-family: "Noto Serif JP", serif;
+          text-orientation: mixed;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          inline-size: 100%;
+          block-size: 100%;
+        }
+
+        .note[lang="ja"] .note-text {
+          writing-mode: inherit;
+          inline-size: auto;
+          height: auto;
+          block-size: auto;
+          width: auto;
+          max-inline-size: none;
+          max-block-size: none;
+          min-inline-size: 0;
+          min-height: 0;
+          flex: 1 1 auto;
+          overflow: visible;
+          align-self: stretch;
+          margin-block: 0;
+          margin-inline: 0;
+        }
+
+        .note[lang="ja"] .note-img {
+          inline-size: clamp(5rem, 22%, 7.5rem);
+          block-size: clamp(6rem, 28%, 8.5rem);
+          max-inline-size: 8rem;
+          max-block-size: 35%;
+          align-self: center;
+          flex-shrink: 0;
+        }
       }
     `,
   ],

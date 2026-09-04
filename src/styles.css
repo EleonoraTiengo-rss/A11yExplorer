@@ -1,13 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "tailwindcss";
+@import "./rendering.scss";
+@import "./color-scheme.scss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
   --color-red-600: #e3350d;
   --color-red-700: #c92c0a;
+
+  --color-app-bg: var(--app-bg);
+  --color-app-surface: var(--app-surface);
+  --color-app-surface-subtle: var(--app-surface-subtle);
+  --color-app-border: var(--app-border);
+  --color-app-text-primary: var(--app-text-primary);
+  --color-app-text-secondary: var(--app-text-secondary);
+  --color-app-text-muted: var(--app-text-muted);
 }
+
+/* ==========================================================================
+   Color Scheme Support & Focus Ring Tokens
+   ========================================================================== */
 app-header,
 app-demo-header,
 app-demo-hero,
@@ -25,49 +39,40 @@ app-ditto-challenge {
     outline-offset: 2px;
     box-shadow:
       0 0 0 4px #ffffff,
-      0 0 0 6px #000000;
+      0 0 0 6px #2563eb;
     border-radius: inherit;
   }
-
-  summary:focus-visible {
-    border-radius: 1rem;
-    position: relative;
-    z-index: 10;
-  }
-
-  @media (forced-colors: active) {
-    *:focus-visible {
-      outline: 2px solid Highlight;
-      outline-offset: 2px;
-      box-shadow: none;
-    }
-
-    summary:focus-visible {
-      position: relative;
-      z-index: 10;
-    }
-  }
-  details {
-    position: relative;
-  }
-
-  summary {
-    position: relative;
-  }
 }
+
 .active-nav-link {
+  position: relative;
   background-color: #ffffff;
   color: #c92c0a;
-  font-weight: 600;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+}
+
+.header-roundel {
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  flex-shrink: 0;
+}
+
+.header-roundel-dot {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
 }
 
 #countdown-progressbar {
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+/* ==========================================================================
+   Media Query: forced-colors active
+   ========================================================================== */
 @media (forced-colors: active) {
   .active-nav-link {
     background-color: Highlight;
@@ -82,11 +87,11 @@ app-ditto-challenge {
   }
 
   #countdown-progressbar {
-    border: 2px solid ButtonText !important;
-    background-color: Canvas !important;
+    border: 2px solid ButtonText;
+    background-color: Canvas;
     .progress-bar-fill {
       forced-color-adjust: none;
-      background-color: Highlight !important;
+      background-color: Highlight;
     }
   }
 

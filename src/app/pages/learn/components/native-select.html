@@ -1,18 +1,18 @@
 <div class="flex flex-col gap-2 relative">
-  <label for="poke-select" class="text-sm font-medium text-slate-700"
+  <label for="poke-select" class="text-sm font-medium text-slate-700 dark:text-stone-300"
     >Scegli il tuo Pokémon:</label
   >
   <div class="relative">
     <select
       id="poke-select"
-      class="w-full h-10 px-3 pr-10 bg-white border border-slate-300 rounded-none cursor-default appearance-none text-slate-900 text-sm transition-none"
+      class="w-full h-10 px-3 pr-10 bg-white dark:bg-stone-900 border border-slate-300 dark:border-stone-700 rounded-none cursor-default appearance-none text-slate-900 dark:text-stone-100 text-sm transition-none"
     >
       @for (poke of pokes(); track poke.id) {
-      <option [value]="poke.id">{{ poke.name }} ({{ poke.type }})</option>
+      <option [value]="poke.id" class="bg-white dark:bg-stone-900 text-slate-900 dark:text-stone-100">{{ poke.name }} ({{ poke.type }})</option>
       }
     </select>
     <mat-icon
-      class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-600 pointer-events-none text-lg"
+      class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-600 dark:text-stone-400 pointer-events-none text-lg"
       >expand_more</mat-icon
     >
   </div>
