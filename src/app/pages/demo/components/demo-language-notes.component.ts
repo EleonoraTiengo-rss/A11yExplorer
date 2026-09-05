@@ -1,10 +1,8 @@
 import { Component, ChangeDetectionStrategy } from "@angular/core";
-import { MatIconModule } from "@angular/material/icon";
 
 @Component({
   selector: "app-demo-language-notes",
   standalone: true,
-  imports: [MatIconModule],
   host: { class: "block" },
   templateUrl: "./demo-language-notes.component.html",
   styles: [
@@ -31,16 +29,6 @@ import { MatIconModule } from "@angular/material/icon";
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--app-text-primary, #292524);
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .section-icon {
-        color: #047857;
-        font-size: 1.75rem;
-        inline-size: 1.75rem;
-        block-size: 1.75rem;
       }
 
       .content-wrapper {

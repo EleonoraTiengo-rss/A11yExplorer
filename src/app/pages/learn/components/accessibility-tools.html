@@ -183,7 +183,7 @@
                <mat-icon class="text-indigo-500 text-lg">account_tree</mat-icon> Interpretazione del DOM
             </h5>
             <p class="text-slate-600 dark:text-stone-300 text-sm leading-relaxed">
-              Lo screen reader non legge direttamente il codice HTML, ma interpreta l'<strong>albero dell'accessibilità</strong> (Accessibility Tree). Questa è una rappresentazione filtrata che il browser fornisce al software assistivo.
+              Lo screen reader non legge direttamente i tag nel DOM: il browser trasforma il codice nell'<strong>albero dell'accessibilità</strong> (Accessibility Tree), una rappresentazione filtrata e ripulita per le tecnologie assistive. NVDA lo interroga in tempo reale attraverso le API di accessibilità del sistema operativo, come IAccessible2 o Microsoft UI Automation.
             </p>
           </div>
 
@@ -192,7 +192,7 @@
                <mat-icon class="text-indigo-500 text-lg">keyboard</mat-icon> Intercettazione tasti (Keydowns)
             </h5>
             <p class="text-slate-600 dark:text-stone-300 text-sm leading-relaxed">
-              NVDA intercetta tutti gli eventi <code>keydown</code>. È importante capire che <strong>non permette di usare i tasti come si vuole</strong>: il software decide quali tasti lasciare al browser e quali tenere per sé, filtrando costantemente l'input dell'utente.
+              Quando NVDA è in esecuzione, intercetta le pressioni dei tasti prima che arrivino al browser. Per ogni <code>keydown</code> decide se tenere il comando per sé, ad esempio <kbd class="px-2 py-0.5 bg-white dark:bg-stone-800 border border-slate-200 dark:border-stone-700 rounded text-xs shadow-sm text-slate-800 dark:text-stone-200">H</kbd> per raggiungere l'intestazione successiva, oppure lasciarlo passare alla pagina.
             </p>
           </div>
 
@@ -201,11 +201,11 @@
                <mat-icon class="text-indigo-500 text-lg">mouse</mat-icon> Synthetic Clicks
             </h5>
             <p class="text-slate-600 dark:text-stone-300 text-sm leading-relaxed mb-2">
-              Quando un utente preme <kbd class="px-2 py-0.5 bg-white dark:bg-stone-800 border border-slate-200 dark:border-stone-700 rounded text-xs shadow-sm text-slate-800 dark:text-stone-200">Enter</kbd> o <kbd class="px-2 py-0.5 bg-white dark:bg-stone-800 border border-slate-200 dark:border-stone-700 rounded text-xs shadow-sm text-slate-800 dark:text-stone-200">Space</kbd>, lo screen reader traduce spesso l'azione in un <strong>"synthetic click"</strong>.
+              In modalità di lettura, quando l'utente preme <kbd class="px-2 py-0.5 bg-white dark:bg-stone-800 border border-slate-200 dark:border-stone-700 rounded text-xs shadow-sm text-slate-800 dark:text-stone-200">Enter</kbd> o <kbd class="px-2 py-0.5 bg-white dark:bg-stone-800 border border-slate-200 dark:border-stone-700 rounded text-xs shadow-sm text-slate-800 dark:text-stone-200">Space</kbd>, NVDA spesso non invia un normale evento tastiera al browser. Chiede invece all'API di attivare l'elemento e il browser traduce la richiesta simulando un click del mouse: un <strong>"synthetic click"</strong>.
             </p>
             <div class="bg-amber-50 dark:bg-amber-950/40 border-l-4 border-amber-400 dark:border-amber-500 p-3">
               <p class="text-xs text-amber-900 dark:text-amber-200 m-0 leading-relaxed italic">
-                <strong>Regola d'oro:</strong> È per questo motivo che click, spazio e invio sullo stesso elemento devono intraprendere <strong>sempre la stessa azione</strong>. In caso contrario, lo screen reader potrebbe generare risultati differenti e imprevedibili per l'utente.
+                <strong>Regola d'oro:</strong> È per questo motivo che, ad esempio, click, spazio e invio negli elementi <code>button</code> devono intraprendere <strong>sempre la stessa azione</strong>. In caso contrario, lo screen reader potrebbe generare risultati differenti e imprevedibili per l'utente.
               </p>
             </div>
           </div>
@@ -221,21 +221,21 @@
               <div class="p-4 bg-slate-50 dark:bg-stone-900 rounded-xl border border-slate-100 dark:border-stone-800">
                 <strong class="text-slate-900 dark:text-stone-100 block mb-1">1. Virtual Cursor (Browse Mode)</strong>
                 <p class="text-slate-600 dark:text-stone-300 text-sm m-0 leading-relaxed">
-                  È la modalità di lettura. Navighiamo con le frecce attraverso il <strong>cursore virtuale</strong>: questo è uno strato software interno che non sta "lavorando" direttamente sugli elementi HTML fisici, ma su una rappresentazione testuale.
+                  È la modalità di lettura predefinita. NVDA costruisce un <strong>buffer virtuale</strong>, una rappresentazione testuale piatta delle informazioni esposte dalle API. Navigando con le frecce muoviamo un cursore invisibile in questo strato, senza spostare necessariamente il focus reale della pagina.
                 </p>
               </div>
 
               <div class="p-4 bg-indigo-600 dark:bg-indigo-700 rounded-xl text-white shadow-md shadow-indigo-100 dark:shadow-none">
                 <strong class="block mb-1">2. Focus Programmatico (Focus Mode)</strong>
                 <p class="text-indigo-100 text-sm m-0 leading-relaxed">
-                  Si attiva interagendo con i form. Questa modalità utilizza lo stesso <strong>focus programmatico JavaScript</strong> (<code>activeElement</code>). Qui lo screen reader "libera" i tasti passandoli al browser.
+                  Si attiva quando è necessario interagire con un elemento, ad esempio un pulsante o un link. Il cursore virtuale si fa da parte e il focus coincide con quello nativo gestito da JavaScript, (<code>activeElement</code>): NVDA "libera" i tasti e li passa al browser.
                 </p>
               </div>
             </div>
 
             <div class="mt-4 p-4 border-t border-slate-100 dark:border-stone-800">
               <p class="text-xs text-slate-500 dark:text-stone-400 italic m-0">
-                <strong>Esempio pratico:</strong> In <em>Browse Mode</em>, le frecce navigano la pagina. Appena si interagisce con una <code>select</code> (pattern listbox), NVDA passa in <em>Focus Mode</em> e "libera" le frecce per permettere all'utente di muoversi tra le varie opzioni.
+                <strong>Esempio pratico:</strong> mentre leggi un articolo in <em>Browse Mode</em>, le frecce attraversano il contenuto. Quando raggiungi una <code>select</code> o un pattern <code>listbox</code>, NVDA passa in <em>Focus Mode</em> e "restituisce" le frecce al browser, permettendoti di muoverti tra le opzioni.
               </p>
             </div>
           </div>

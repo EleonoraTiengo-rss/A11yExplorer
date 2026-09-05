@@ -1,0 +1,21 @@
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
+<div class="bg-white rounded-3xl shadow-sm border border-stone-200"
+     style="padding: 1.5rem;">
+  <div class="flex flex-wrap gap-4">
+    <!-- span with tabindex: scroll and focus on click and enter only -->
+    <span tabindex="0" (click)="scrollToRequested.emit({id: 'habitat'})" (keydown.enter)="scrollToRequested.emit({id: 'habitat'})" class="px-6 py-3 bg-[#34d399] text-[#ecfdf5] rounded-xl font-medium cursor-pointer flex items-center gap-2 shadow-sm">
+      <mat-icon class="text-sm w-5 h-5">landscape</mat-icon>
+      Esplora Habitat
+    </span>
+    <!-- href="#" link: scrolls but does not move focus to the destination -->
+    <a href="#" (click)="navigateWithoutFocus($event)" class="px-6 py-3 bg-[#a3e635] text-white rounded-xl font-medium cursor-pointer flex items-center gap-2 shadow-sm no-underline">
+      <mat-icon class="text-sm w-5 h-5">menu_book</mat-icon>
+      Consulta Appunti
+    </a>
+    <!-- div: only mouse click, no keyboard, vague text -->
+    <div (click)="scrollToRequested.emit({id: 'report', focusOnly: true})" class="px-6 py-3 bg-[#8B0000] text-[#006400] rounded-xl font-medium cursor-pointer flex items-center gap-2 shadow-sm">
+      <mat-icon class="text-sm w-5 h-5">campaign</mat-icon>
+      Clicca qui
+    </div>
+  </div>
+</div>

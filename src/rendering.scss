@@ -70,7 +70,7 @@ input[type="radio"] {
   flex-shrink: 0;
 }
 
-@media screen and (max-width: 49.125rem), screen and (max-width: 786px) {
+@media screen and (max-width: 786px) {
   /* Mobile accessible nav link layout with max 0.5rem padding */
   app-header nav ul li a {
     min-inline-size: 2.75rem;
@@ -80,6 +80,8 @@ input[type="radio"] {
   }
 
   app-header header {
+    position: relative; /* Release sticky to avoid covering viewport at 200% zoom */
+    top: auto;
     padding-inline: 0.5rem !important;
     padding-block: 0.5rem !important;
 
@@ -87,6 +89,22 @@ input[type="radio"] {
       padding-inline: 0.5rem !important;
       padding-block: 0.25rem !important;
     }
+  }
+
+  app-header .header-roundel {
+    inline-size: 2rem;
+    block-size: 2rem;
+    max-inline-size: 2rem;
+    max-block-size: 2rem;
+    min-inline-size: 1.5rem;
+    min-block-size: 1.5rem;
+  }
+
+  app-header .header-roundel-dot {
+    inline-size: 0.75rem;
+    block-size: 0.75rem;
+    max-inline-size: 0.75rem;
+    max-block-size: 0.75rem;
   }
 
   /* Cap padding and margins to max 0.5rem across learn page on small screens */
@@ -137,17 +155,19 @@ input[type="radio"] {
     }
 
     button[role="switch"] {
-      inline-size: 100%;
+      inline-size: auto;
       max-inline-size: 100%;
       min-block-size: 2.75rem;
+      flex-shrink: 0;
 
       .demo-accessibility-thumb {
         flex-shrink: 0;
       }
 
       span {
-        white-space: normal;
-        overflow-wrap: anywhere;
+        white-space: nowrap;
+        overflow-wrap: normal;
+        word-break: normal;
       }
     }
   }
@@ -405,6 +425,46 @@ input[type="radio"] {
     }
   }
 
+  /* Broken Language Notes */
+  app-broken-language-notes {
+    display: block;
+    inline-size: 100%;
+
+    .content-wrapper {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.5rem !important;
+      inline-size: 100% !important;
+    }
+
+    .note {
+      padding: 0.5rem !important;
+      max-inline-size: 100% !important;
+      box-sizing: border-box;
+
+      img {
+        max-inline-size: 7rem;
+        margin-inline-end: 0.5rem !important;
+        margin-block-end: 0.5rem !important;
+      }
+    }
+
+    .translation {
+      inline-size: 100% !important;
+      min-block-size: auto !important;
+      padding-block: 0.5rem !important;
+      padding-inline: 0 !important;
+
+      p {
+        inline-size: 100%;
+      }
+
+      img {
+        max-inline-size: 7rem;
+      }
+    }
+  }
+
   /* Ensure broken demo components also adhere to max 0.5rem on small screens */
   app-broken-hero,
   app-broken-habitat,
@@ -422,6 +482,24 @@ input[type="radio"] {
     form {
       padding: 0.5rem !important;
       margin-block: 0.5rem !important;
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  /* Accessible mode only: let demo cards use the full viewport width */
+  app-demo > div:not(.not-accessible-mode) > main > div {
+    padding-inline: 0;
+  }
+
+  /* Pokédex cards go edge-to-edge, so drop the rounded corners */
+  app-demo-pokedex {
+    h2 {
+      padding-inline: 0.5rem;
+    }
+
+    article {
+      border-radius: 0;
     }
   }
 }

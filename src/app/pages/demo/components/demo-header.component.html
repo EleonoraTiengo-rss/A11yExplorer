@@ -2,9 +2,9 @@
   <section
     class="bg-emerald-900 text-stone-50 flex flex-col sm:flex-row justify-between items-center shadow-md gap-2 sm:gap-4 sticky top-0 z-40 p-2 sm:p-4"
   >
-    <div class="flex items-center gap-2 sm:gap-3">
-      <mat-icon class="text-amber-400">explore</mat-icon>
-      <h1 class="text-xl sm:text-2xl font-bold text-amber-50 tracking-wide">
+    <div class="flex items-center justify-center sm:justify-start gap-2 sm:gap-3 w-full sm:w-auto min-w-0">
+      <mat-icon class="text-amber-400 shrink-0" aria-hidden="true">explore</mat-icon>
+      <h1 class="text-base sm:text-xl md:text-2xl font-bold text-amber-50 tracking-wide text-center sm:text-left min-w-0">
         Atlante del Mondo Pokémon
       </h1>
     </div>
@@ -14,9 +14,9 @@
   <header
     class="bg-emerald-900 text-stone-50 flex flex-col sm:flex-row justify-between items-center shadow-md gap-2 sm:gap-4 sticky top-0 z-40 p-2 sm:p-4"
   >
-    <div class="flex items-center gap-2 sm:gap-3">
-      <mat-icon class="text-amber-400">explore</mat-icon>
-      <div class="text-2xl font-bold text-amber-50 tracking-wide">
+    <div class="flex items-center justify-center sm:justify-start gap-2 sm:gap-3 w-full sm:w-auto min-w-0">
+      <mat-icon class="text-amber-400 shrink-0" aria-hidden="true">explore</mat-icon>
+      <div class="text-base sm:text-xl md:text-2xl font-bold text-amber-50 tracking-wide text-center sm:text-left min-w-0">
         Atlante del Mondo Pokémon
       </div>
     </div>
@@ -33,11 +33,11 @@
     role="switch"
     [attr.aria-checked]="isAccessible()"
     aria-label="Modalità accessibile"
-    class="flex items-center gap-2 sm:gap-3 rounded-xl border border-emerald-800/50 bg-emerald-950/50 px-2 py-1 cursor-pointer"
+    class="w-fit max-w-full flex flex-wrap items-center justify-center gap-2 sm:gap-3 rounded-xl border border-emerald-800/50 bg-emerald-950/50 px-2.5 py-1 cursor-pointer shrink-0"
   >
-    <span class="text-sm font-medium text-stone-300">Accessibilità</span>
+    <span class="text-sm font-medium text-stone-300 whitespace-nowrap shrink-0">Accessibilità</span>
     <span
-      class="demo-accessibility-thumb relative inline-flex h-7 w-14 flex-shrink-0 items-center rounded-full px-1 transition-colors"
+      class="demo-accessibility-thumb relative inline-flex h-7 w-14 shrink-0 items-center rounded-full px-1 transition-colors"
       [class.bg-amber-500]="isAccessible()"
       [class.bg-stone-700]="!isAccessible()"
     >
@@ -47,7 +47,7 @@
         [class.translate-x-0]="!isAccessible()"
       ></span>
     </span>
-    <span class="text-sm font-medium text-amber-400 w-16">
+    <span class="text-sm font-medium text-amber-400 whitespace-nowrap shrink-0">
       @if (isAccessible()) {
         On
       } @else {

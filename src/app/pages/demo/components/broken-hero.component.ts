@@ -1,14 +1,12 @@
-import { Component, ChangeDetectionStrategy, output } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { BrokenHeroButtonComponent } from './broken-hero-button.component';
 
 @Component({
   selector: 'app-broken-hero',
   standalone: true,
-  imports: [MatIconModule],
+  imports: [BrokenHeroButtonComponent],
   host: { class: 'block' },
   templateUrl: './broken-hero.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BrokenHeroComponent {
-  scrollToRequested = output<{id: string, focusOnly?: boolean, noFocus?: boolean}>();
-}
+export class BrokenHeroComponent {}

@@ -1,13 +1,13 @@
 <header class="bg-red-700 text-white shadow-md sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-wrap justify-between items-center min-h-16 py-2 sm:py-0 gap-3">
-      <div class="flex items-center gap-3 min-w-0 flex-1">
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap justify-between items-center min-h-12 sm:min-h-16 py-2 sm:py-0 gap-2 sm:gap-3">
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0">
         <div
-          class="header-roundel bg-white rounded-full flex items-center justify-center border-4 border-slate-800 shadow-inner shrink-0"
+          class="header-roundel w-8 h-8 sm:w-10 sm:h-10 max-w-8 max-h-8 sm:max-w-10 sm:max-h-10 bg-white rounded-full flex items-center justify-center border-2 sm:border-4 border-slate-800 shadow-inner shrink-0"
         >
-          <div class="header-roundel-dot bg-slate-800 rounded-full"></div>
+          <div class="header-roundel-dot w-3 h-3 sm:w-4 sm:h-4 max-w-3 max-h-3 sm:max-w-4 sm:max-h-4 bg-slate-800 rounded-full"></div>
         </div>
-        <h1 class="text-lg sm:text-xl font-bold tracking-tight flex items-center flex-wrap gap-2 min-w-0">
+        <h1 class="text-base sm:text-xl font-bold tracking-tight flex items-center flex-wrap gap-1.5 sm:gap-2 min-w-0">
           <span>Pokémon Explorer</span>
           <span
             class="font-semibold text-white text-xs bg-red-800/90 px-2 py-0.5 rounded border border-red-500/30 whitespace-nowrap"
@@ -16,13 +16,13 @@
         </h1>
       </div>
 
-      <nav aria-label="Navigazione principale" class="shrink-0">
-        <ul class="flex space-x-1 sm:space-x-4">
+      <nav aria-label="Navigazione principale" class="shrink-0 flex justify-end">
+        <ul class="flex gap-1 sm:gap-4 p-0 m-0 list-none">
           <li>
             <a
               routerLink="/learn"
               routerLinkActive="active-nav-link"
-              class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-red-700 transition-colors"
+              class="flex items-center justify-center gap-2 px-2 py-1.5 sm:px-3 sm:py-2 rounded-md hover:bg-red-700 transition-colors"
               [attr.aria-current]="selectedPage() === 'learn' ? 'page' : null"
               (click)="selectedPage.set('learn')"
             >
@@ -34,7 +34,7 @@
             <a
               routerLink="/demo"
               routerLinkActive="active-nav-link"
-              class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-red-700 transition-colors"
+              class="flex items-center justify-center gap-2 px-2 py-1.5 sm:px-3 sm:py-2 rounded-md hover:bg-red-700 transition-colors"
               [attr.aria-current]="selectedPage() === 'demo' ? 'page' : null"
               (click)="selectedPage.set('demo')"
             >

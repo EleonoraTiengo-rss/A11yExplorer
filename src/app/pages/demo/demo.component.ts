@@ -5,6 +5,8 @@ import { CommonModule } from "@angular/common";
 import { DemoHeaderComponent } from "./components/demo-header.component";
 import { DemoHeroComponent } from "./components/demo-hero.component";
 import { BrokenHeroComponent } from "./components/broken-hero.component";
+import { DemoHeroNavComponent } from "./components/demo-hero-nav.component";
+import { BrokenHeroNavComponent } from "./components/broken-hero-nav.component";
 import { DemoHabitatComponent } from "./components/demo-habitat.component";
 import { BrokenHabitatComponent } from "./components/broken-habitat.component";
 import { DemoSpeciesComponent } from "./components/demo-species.component";
@@ -30,6 +32,8 @@ import { fromEvent, take } from "rxjs";
     DemoHeaderComponent,
     DemoHeroComponent,
     BrokenHeroComponent,
+    DemoHeroNavComponent,
+    BrokenHeroNavComponent,
     DemoHabitatComponent,
     BrokenHabitatComponent,
     DemoSpeciesComponent,
@@ -84,7 +88,7 @@ export class DemoComponent {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
       if (!noFocus) {
-        const heading = element.querySelector("h2, h3");
+        const heading = element.querySelector("h1, h2, h3, h4, h5, h6");
         if (heading) {
           if (!heading.hasAttribute("tabindex")) {
             heading.setAttribute("tabindex", "-1");

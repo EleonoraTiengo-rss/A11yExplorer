@@ -6,7 +6,7 @@
       <mat-icon class="text-red-700">smart_toy</mat-icon>
     </div>
     <div>
-      <div class="text-2xl font-bold text-stone-800">Rotom-Dex: Segnala Avvistamento</div>
+      <h3 class="text-2xl font-bold text-stone-800">Rotom-Dex: Segnala Avvistamento</h3>
       <p class="text-stone-600" style="margin-top: 0.25rem;">Bzzzt! Hai visto un Pokémon raro? Compila il modulo per aggiornare il database dell'Atlante! Bzzzt!</p>
     </div>
   </div>
@@ -31,9 +31,9 @@
       </div>
       <span class="text-sm text-stone-700">Segnala come urgente (es. Pokémon ferito)</span>
     </div>
-    <div (click)="formSubmitted.emit()" role="heading" aria-level="4" class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-700 text-white rounded-xl font-medium cursor-pointer outline-none shadow-sm">
+    <button (click)="formSubmitted.emit()" aria-disabled="true" class="disabled-style inline-flex items-center gap-2 px-6 py-3 bg-emerald-700 text-white rounded-xl font-medium cursor-pointer shadow-sm">
       <mat-icon class="text-sm w-5 h-5">send</mat-icon> Invia Dati
-    </div>
+    </button>
     
     @if (isSubmitted()) {
       <div class="bg-emerald-100 text-emerald-900 rounded-xl flex items-center gap-3 border border-emerald-200"

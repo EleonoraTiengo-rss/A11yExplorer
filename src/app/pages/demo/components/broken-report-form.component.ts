@@ -11,6 +11,14 @@ import { MatIconModule } from "@angular/material/icon";
   standalone: true,
   imports: [MatIconModule],
   host: { class: "block" },
+  styles: [
+  `
+    .disabled-style {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  `,
+],
   templateUrl: "./broken-report-form.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

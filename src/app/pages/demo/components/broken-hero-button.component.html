@@ -1,0 +1,8 @@
+<div class="flex flex-wrap items-center gap-4">
+  <!-- click and enter throw the ball, space does something different -->
+  <div tabindex="0" role="button" (click)="throwBall()" (keydown.enter)="throwBall()" (keydown.space)="flee($event)" class="px-6 py-3 bg-[#8B0000] text-[#006400] rounded-xl font-medium cursor-pointer flex items-center gap-2 shadow-sm">
+    <mat-icon class="text-sm w-5 h-5">catching_pokemon</mat-icon>
+    Lancia una Poké Ball
+  </div>
+  <p class="text-stone-600 text-lg" style="margin: 0;">{{ message() }}</p>
+</div>

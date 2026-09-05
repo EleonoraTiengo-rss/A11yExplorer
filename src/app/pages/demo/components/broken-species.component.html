@@ -1,11 +1,11 @@
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
 <section id="species" class="scroll-mt-24 bg-white rounded-3xl shadow-sm border border-stone-200"
          style="padding-top: 2rem; padding-bottom: 2rem; padding-left: 2rem; padding-right: 2rem;">
-  <div class="text-2xl font-bold text-stone-800" style="margin-bottom: 1.5rem;">Appunti di Campo: Specie Endemiche</div>
+  <h5 class="text-2xl font-bold text-stone-800" style="margin-bottom: 1.5rem;">Appunti di Campo: Specie Endemiche</h5>
   <div class="space-y-4">
     <div class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden">
       <!-- focusable not keyboard -->
-      <div tabindex="0" (click)="panelToggled.emit(1)" class="font-semibold text-lg text-stone-800 cursor-pointer hover:bg-stone-100 outline-none flex justify-between items-center"
+      <div tabindex="0" (click)="panelToggled.emit(1)" class="font-semibold text-lg text-stone-800 cursor-pointer hover:bg-stone-100  flex justify-between items-center"
            style="padding-top: 1.25rem; padding-bottom: 1.25rem; padding-left: 1.25rem; padding-right: 1.25rem;">
         Caterpie (Comportamento)
         <mat-icon class="text-stone-400 transition-transform" [class.rotate-180]="openPanel() === 1">expand_more</mat-icon>
@@ -15,7 +15,7 @@
         <div class="leading-relaxed" style="padding-top: 1.25rem; padding-bottom: 1.25rem; padding-left: 1.25rem; padding-right: 1.25rem;">
           Caterpie si nutre prevalentemente di foglie di Baccapesca. Il suo odore respinge i predatori alati come Pidgey. È molto docile e facile da catturare per i giovani allenatori.
           <div style="margin-top: 1rem;">
-            <button type="button" (click)="scrollToRequested.emit({id: 'caterpie-entry', focusOnly: false, noFocus: false})" class="inline-flex items-center gap-1 text-emerald-700 font-medium cursor-pointer outline-none">
+            <button type="button" (click)="scrollToRequested.emit({id: 'caterpie-entry', focusOnly: false, noFocus: false})" class="inline-flex items-center gap-1 text-emerald-700 font-medium cursor-pointer ">
               <mat-icon class="text-sm w-4 h-4">menu_book</mat-icon> Apri scheda Pokédex
             </button>
           </div>
@@ -24,7 +24,7 @@
     </div>
     <div class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden">
       <!-- clickable not keyboard -->
-      <div (click)="panelToggled.emit(2)" class="font-semibold text-lg text-stone-800 cursor-pointer hover:bg-stone-100 outline-none flex justify-between items-center"
+      <div (click)="panelToggled.emit(2)" class="font-semibold text-lg text-stone-800 cursor-pointer hover:bg-stone-100  flex justify-between items-center"
            style="padding-top: 1.25rem; padding-bottom: 1.25rem; padding-left: 1.25rem; padding-right: 1.25rem;">
         Weedle (Tossicologia)
         <mat-icon class="text-stone-400 transition-transform" [class.rotate-180]="openPanel() === 2">expand_more</mat-icon>
@@ -34,7 +34,7 @@
         <div class="leading-relaxed" style="padding-top: 1.25rem; padding-bottom: 1.25rem; padding-left: 1.25rem; padding-right: 1.25rem;">
           Il veleno del pungiglione di Weedle è un neurotossico leggero. Viene studiato per applicazioni mediche nella regione di Kanto. Attenzione a dove metti i piedi!
           <div style="margin-top: 1rem;">
-            <button type="button" (click)="scrollToRequested.emit({id: 'weedle-entry', focusOnly: false, noFocus: false})" class="inline-flex items-center gap-1 text-emerald-700 font-medium cursor-pointer outline-none">
+            <button type="button" (click)="scrollToRequested.emit({id: 'weedle-entry', focusOnly: false, noFocus: false})" class="inline-flex items-center gap-1 text-emerald-700 font-medium cursor-pointer ">
               <mat-icon class="text-sm w-4 h-4">menu_book</mat-icon> Apri scheda Pokédex
             </button>
           </div>
@@ -43,7 +43,7 @@
     </div>
     <div class="bg-stone-50 rounded-2xl border border-stone-200 overflow-hidden">
       <!-- Not clickable -->
-      <div tabindex="0" (keydown.enter)="panelToggled.emit(3)" class="font-semibold text-lg text-stone-800 cursor-pointer hover:bg-stone-100 outline-none flex justify-between items-center"
+      <div tabindex="0" (keydown.enter)="panelToggled.emit(3)" class="font-semibold text-lg text-stone-800 cursor-pointer hover:bg-stone-100  flex justify-between items-center"
            style="padding-top: 1.25rem; padding-bottom: 1.25rem; padding-left: 1.25rem; padding-right: 1.25rem;">
         Bulbasaur (Simbiosi)
         <mat-icon class="text-stone-400 transition-transform" [class.rotate-180]="openPanel() === 3">expand_more</mat-icon>
@@ -53,7 +53,7 @@
         <div class="leading-relaxed" style="padding-top: 1.25rem; padding-bottom: 1.25rem; padding-left: 1.25rem; padding-right: 1.25rem;">
           Il bulbo sulla schiena di Bulbasaur è piantato alla nascita. Cresce in simbiosi con il Pokémon, fornendogli energia attraverso la fotosintesi. Spesso si crogiola al sole nelle radure della foresta.
           <div style="margin-top: 1rem;">
-            <button type="button" (click)="scrollToRequested.emit({id: 'bulbasaur-entry', focusOnly: false, noFocus: false})" class="inline-flex items-center gap-1 text-emerald-700 font-medium cursor-pointer outline-none">
+            <button type="button" (click)="scrollToRequested.emit({id: 'bulbasaur-entry', focusOnly: false, noFocus: false})" class="inline-flex items-center gap-1 text-emerald-700 font-medium cursor-pointer ">
               <mat-icon class="text-sm w-4 h-4">menu_book</mat-icon> Apri scheda Pokédex
             </button>
           </div>

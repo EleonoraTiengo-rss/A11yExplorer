@@ -1,18 +1,12 @@
-import { Component, ChangeDetectionStrategy, output } from "@angular/core";
-import { MatIconModule } from "@angular/material/icon";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
+import { DemoHeroButtonComponent } from "./demo-hero-button.component";
 
 @Component({
   selector: "app-demo-hero",
   standalone: true,
-  imports: [MatIconModule],
+  imports: [DemoHeroButtonComponent],
   host: { class: "block" },
   templateUrl: "./demo-hero.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DemoHeroComponent {
-  scrollToRequested = output<{
-    id: string;
-    focusOnly?: boolean;
-    noFocus?: boolean;
-  }>();
-}
+export class DemoHeroComponent {}

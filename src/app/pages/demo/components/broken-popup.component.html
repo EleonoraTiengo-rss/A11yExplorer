@@ -23,16 +23,16 @@
           <span class="text-red-700">{{ timeLeft() }} secondi</span>
         </div>
         <div class="w-full bg-stone-200 rounded-full h-3 overflow-hidden">
-          <div class="bg-red-500 h-full rounded-full transition-all duration-1000 ease-linear" [style.width.%]="(timeLeft() / 10) * 100"></div>
+          <div class="bg-red-500 h-full rounded-full transition-all duration-1000 ease-linear" [style.width.%]="(timeLeft() / 15) * 100"></div>
         </div>
       </div>
       <div class="flex justify-end gap-3">
-        <div (click)="popupClosed.emit()" class="px-6 py-3 text-stone-600 hover:bg-stone-100 rounded-xl font-bold cursor-pointer transition-colors">
+        <button (click)="popupClosed.emit()" class="px-6 py-3 text-stone-600 hover:bg-stone-100 rounded-xl font-bold cursor-pointer transition-colors">
           Esci
-        </div>
-        <div (click)="popupClosed.emit()" class="px-6 py-3 bg-red-700 text-white rounded-xl font-bold cursor-pointer hover:bg-red-800 transition-colors shadow-md">
+        </button>
+        <button (click)="popupClosed.emit()" class="px-6 py-3 bg-red-700 text-white rounded-xl font-bold cursor-pointer hover:bg-red-800 transition-colors shadow-md">
           Resta connesso
-        </div>
+        </button>
       </div>
     </div>
   </div>

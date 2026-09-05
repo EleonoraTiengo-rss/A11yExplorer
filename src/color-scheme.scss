@@ -49,9 +49,6 @@
       .section-title {
         color: #292524;
       }
-      .section-icon {
-        color: #047857;
-      }
       .card {
         background-color: #ffffff;
         border-color: #e5e7eb;
@@ -181,10 +178,6 @@
         color: #fafaf9;
       }
 
-      .section-icon {
-        color: #34d399;
-      }
-
       .card {
         background-color: #171514;
         border-color: #292524;
@@ -213,6 +206,7 @@
   app-header,
   app-demo-header,
   app-demo-hero,
+  app-demo-hero-nav,
   app-demo-habitat,
   app-demo-species,
   app-demo-pokedex,
@@ -249,6 +243,7 @@
    ========================================================================== */
 .not-accessible-mode,
 app-broken-hero,
+app-broken-hero-nav,
 app-broken-habitat,
 app-broken-species,
 app-broken-pokedex,
@@ -287,41 +282,5 @@ app-broken-popup {
     }
   }
 
-  /* Prevent accessible focus rings inside broken components */
-  button:focus-visible,
-  a:focus-visible,
-  input:focus-visible,
-  select:focus-visible,
-  textarea:focus-visible,
-  details summary:focus-visible,
-  div[role="combobox"]:focus-visible,
-  div[tabindex]:focus-visible {
-    outline: none !important;
-    box-shadow: none !important;
-  }
 }
 
-/* ==========================================================================
-   High-Contrast (Windows High Contrast / forced-colors)
-   ========================================================================== */
-@media (forced-colors: active) {
-  .active-nav-link {
-    outline: 2px solid Highlight;
-    forced-color-adjust: none;
-  }
-
-  #countdown-progressbar {
-    border: 2px solid ButtonText;
-
-    .progress-bar-fill {
-      background-color: Highlight !important;
-    }
-  }
-
-  input,
-  select,
-  textarea,
-  button {
-    border: 1px solid ButtonText;
-  }
-}
