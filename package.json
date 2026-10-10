@@ -1,11 +1,12 @@
 {
-  "name": "ai-studio-angular-app",
+  "name": "a11y-explorer",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "dev": "cross-env NG_ALLOWED_HOSTS=* ng serve --port=3000 --host=0.0.0.0 --define=\"GEMINI_API_KEY=\\'${GEMINI_API_KEY}\\'\" ${DISABLE_HMR:+--live-reload=false}",
     "build": "ng build",
+    "deploy": "ng build --configuration production --base-href /A11yExplorer/ && node scripts/prepare-pages.mjs && gh-pages -d dist/app/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
@@ -39,6 +40,7 @@
     "angular-eslint": "21.1.0",
     "cross-env": "^10.1.0",
     "eslint": "^9.39.1",
+    "gh-pages": "^6.3.0",
     "jsdom": "^27.0.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.12",

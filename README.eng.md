@@ -4,6 +4,8 @@ An educational site about **web accessibility**, with a touch of Pokémon explor
 
 The project aims to go beyond the usual approach of providing a list of rules and requirements. The focus shifts right from the start to the concept of empathy: accessibility is not a feature for a small group of users with disabilities, but the quality that allows *everyone* to use a website, including people who are tired, distracted, on a slow connection, who use a screen reader, the keyboard, a voice assistant, or who simply browse in a different way. Accessibility is also what lets my mother-in-law use the computer with the zoom at 150%, because she wants to buy a dishwasher while lounging on the sofa and without using her reading glasses.
 
+Click [here](https://eleonoratiengo-rss.github.io/A11yExplorer/) to open the live site!
+
 > The interface text is in Italian. This README is in English.
 
 ---
@@ -15,7 +17,9 @@ The project aims to go beyond the usual approach of providing a list of rules an
 - [What it contains](#what-it-contains)
 - [Project structure](#project-structure)
 - [Getting started](#getting-started)
+- [Publishing to GitHub Pages](#publishing-to-github-pages)
 - [Tech stack](#tech-stack)
+- [Contributors](#contributors)
 
 ---
 
@@ -159,6 +163,37 @@ npm run build
 
 The output is generated in `dist/`. The build is configured for server output (`outputMode: "server"`) and produces a static browser bundle plus a server bundle for SSR.
 
+### Publishing to GitHub Pages
+
+The site is published on GitHub Pages from the `gh-pages` branch, at `https://eleonoratiengo-rss.github.io/A11yExplorer/`. The `main` branch is not published directly.
+
+**Publishing with a single command**
+
+```bash
+npm run deploy
+```
+
+The `deploy` script in `package.json` runs the build, the file preparation and the push to `gh-pages` in sequence.
+
+**Publishing by hand, step by step**
+
+1. Make sure all your changes are saved and that you are in the project folder.
+2. Build the site with the base path:
+   ```bash
+   npm run build -- --configuration production --base-href /A11yExplorer/
+   ```
+   On Windows, if you use Git Bash, prefix the command with `MSYS_NO_PATHCONV=1`: otherwise `/A11yExplorer/` is rewritten into a system path and the build goes wrong.
+3. Copy `index.csr.html` to `index.html` and `404.html` inside `dist/app/browser/`. GitHub Pages looks for `index.html`, and `404.html` serves routes that are not pre-rendered. The script `scripts/prepare-pages.mjs` does exactly this:
+   ```bash
+   node scripts/prepare-pages.mjs
+   ```
+4. Publish the contents of `dist/app/browser/` to the `gh-pages` branch:
+   ```bash
+   npx gh-pages -d dist/app/browser
+   ```
+5. Wait a minute or two and check the site. The deploy updates the `gh-pages` branch, not `main`.
+
+**Note:** `gh-pages` does not remove dotfiles (names starting with a dot, such as `.gitignore` or `.env.example`) that were already on the branch. If you notice them, remove them from the branch by hand.
 
 ## Tech stack
 
@@ -167,6 +202,12 @@ The output is generated in `dist/`. The build is configured for server output (`
 - **Tailwind CSS 4** (via PostCSS)
 - **Angular SSR** with Express 5
 - **TypeScript 5.9**, **ESLint 9** with `angular-eslint`, **Vitest**
+
+## Contributors
+
+- [DanielaOrtenzi](https://github.com/DanielaOrtenzi)
+- [EleonoraTiengo-rss](https://github.com/EleonoraTiengo-rss)
+
 
 ---
 
