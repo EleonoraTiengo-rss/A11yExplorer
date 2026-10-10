@@ -24,6 +24,7 @@
               routerLinkActive="active-nav-link"
               class="flex items-center justify-center gap-2 px-2 py-1.5 sm:px-3 sm:py-2 rounded-md hover:bg-red-700 transition-colors"
               [attr.aria-current]="selectedPage() === 'learn' ? 'page' : null"
+              aria-label="Accademia"
               (click)="selectedPage.set('learn')"
             >
               <mat-icon aria-hidden="true">school</mat-icon>
@@ -36,6 +37,7 @@
               routerLinkActive="active-nav-link"
               class="flex items-center justify-center gap-2 px-2 py-1.5 sm:px-3 sm:py-2 rounded-md hover:bg-red-700 transition-colors"
               [attr.aria-current]="selectedPage() === 'demo' ? 'page' : null"
+              aria-label="Laboratorio"
               (click)="selectedPage.set('demo')"
             >
               <mat-icon aria-hidden="true">science</mat-icon>
