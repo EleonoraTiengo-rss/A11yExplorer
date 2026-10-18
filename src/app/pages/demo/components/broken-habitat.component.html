@@ -8,7 +8,11 @@
          alt="forest_bg_final_v2.jpg" 
          class="w-full h-64 object-cover">
   </div>
-  <p class="text-stone-600 leading-relaxed text-lg">
+  <p id="habitat-text" class="text-stone-600 leading-relaxed text-lg" [class.line-clamp-2]="!expanded()">
     La Foresta Smeraldo è un ecosistema chiuso. Gli alberi secolari sono così fitti da bloccare quasi completamente la luce del sole, mantenendo un'umidità costante dell'85%. Questo ambiente è il paradiso terrestre per i Pokémon di tipo Coleottero e Erba, che trovano riparo tra le radici giganti e nutrimento nelle bacche cadute.
   </p>
+  <button type="button" (click)="expanded.set(!expanded())" [attr.aria-expanded]="expanded()" aria-controls="habitat-text"
+          class="text-emerald-700 font-medium cursor-pointer" style="margin-top: 0.75rem;">
+    {{ expanded() ? 'Mostra meno' : 'Leggi tutto' }}
+  </button>
 </section>

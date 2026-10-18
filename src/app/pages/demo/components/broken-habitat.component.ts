@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from "@angular/core";
+import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
 
 @Component({
@@ -9,4 +9,6 @@ import { MatIconModule } from "@angular/material/icon";
   templateUrl: "./broken-habitat.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BrokenHabitatComponent {}
+export class BrokenHabitatComponent {
+  expanded = signal(false);
+}

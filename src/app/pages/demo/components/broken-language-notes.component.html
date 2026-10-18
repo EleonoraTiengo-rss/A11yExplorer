@@ -1,42 +1,40 @@
 <section
   id="language"
-  class="language-section bg-white rounded-none md:rounded-3xl shadow-sm border border-stone-200 p-2 sm:p-4 md:p-8"
+  class="@container scroll-mt-24 bg-white rounded-none md:rounded-3xl shadow-sm border border-stone-200 p-2 sm:p-4 md:p-8"
 >
-  <h6
-    class="text-xl sm:text-2xl font-bold text-stone-800 flex items-center gap-2 mb-2 md:mb-6"
+  <h2
+    class="text-xl sm:text-2xl font-bold text-stone-800 mb-2 sm:mb-4 md:mb-6"
   >
-    <mat-icon class="text-emerald-700 shrink-0" aria-hidden="true"
-      >translate</mat-icon
-    >
-    Note di Ricerca
-  </h6>
+    Note di Ricerca (Giappone)
+  </h2>
 
-  <article class="card rounded-none md:rounded-2xl p-2 sm:p-4 md:p-5">
-    <div
-      class="content-wrapper flex flex-col lg:flex-row gap-2 md:gap-4 lg:gap-6 items-start w-full"
-    >
-      <div class="note w-full lg:flex-1 min-w-0">
-        <img
-          src="assets/images/background-cards.jpg"
-          class="rounded-lg w-32 float-left me-2 mb-2 md:me-4 md:mb-3"
-          alt="Collezione di creature"
-        />
-        <p class="text-base sm:text-lg text-stone-800 leading-relaxed italic">
-          「ポケットモンスター」は、たくさんの謎を秘めた不思議な生き物。空に、海に、森に、街に、世界中の至る所でその姿を見ることができる。
-        </p>
-      </div>
-      <div class="translation w-full lg:flex-1 min-w-0 flex flex-col">
-        <p class="text-base sm:text-lg text-stone-800 leading-relaxed flex-1">
-          Al tramonto, le vecchie strade si illuminano delicatamente e i passi
-          della gente risuonano piano. Il vento muove le strisce di carta sacra
-          e l'aria della città è umida.
-        </p>
-        <img
-          src="assets/images/background-cards.jpg"
-          class="rounded-lg w-32 self-end mt-2"
-          alt="Collezione di creature"
-        />
-      </div>
-    </div>
-  </article>
+  <div class="grid grid-cols-1 sm:grid-cols-2 items-start gap-2 sm:gap-4 md:gap-6">
+    @for (card of cards; track card.id) {
+      <section
+        [id]="card.id"
+        class="@container flex flex-col bg-white rounded-none md:rounded-2xl shadow-sm border border-stone-200 p-2 sm:p-4 md:p-5"
+      >
+        <h3
+          class="text-lg font-bold text-stone-800 pb-2 mb-3 sm:mb-4 border-b border-stone-200"
+        >
+          {{ card.title }}
+        </h3>
+        <div
+          class="flex flex-col flex-wrap gap-3 sm:gap-4 overflow-x-auto"
+          [class]="card.isRightToLeft ? '[writing-mode:vertical-rl]' : ''"
+        >
+          <p
+            class="m-0 text-base leading-7 text-left text-stone-700 border-l-4 border-emerald-600 pl-3 shrink-0 max-w-80 max-h-80"
+          >
+            {{ card.text }}
+          </p>
+          <img
+            src="assets/images/background-cards.jpg"
+            [alt]="card.imageAlt"
+            class="max-w-[min(100%,18rem)] max-h-36 min-h-16 self-start rounded-lg border border-stone-200 bg-stone-50"
+          />
+        </div>
+      </section>
+    }
+  </div>
 </section>

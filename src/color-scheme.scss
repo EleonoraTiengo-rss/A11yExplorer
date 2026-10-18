@@ -39,49 +39,6 @@
       background-color: #e5e7eb;
       border-color: rgba(0, 0, 0, 0.15);
     }
-
-    /* Component specific: app-demo-language-notes */
-    app-demo-language-notes {
-      .language-section {
-        background-color: #ffffff;
-        border-color: #e7e5e4;
-      }
-      .section-title {
-        color: #292524;
-      }
-      .card {
-        background-color: #ffffff;
-        border-color: #e5e7eb;
-      }
-      .card-title {
-        color: #1f2937;
-        border-block-end-color: #f3f4f6;
-      }
-      .note-text,
-      .note[lang="ja"] .note-text,
-      .note[lang="it"] .note-text {
-        color: #292524 !important;
-      }
-      .note-img {
-        border-color: #e5e7eb;
-        background-color: #f5f5f4;
-      }
-    }
-
-    /* Component specific: app-broken-language-notes */
-    app-broken-language-notes {
-      .card {
-        background: white;
-        border-color: #e5e7eb;
-      }
-      .translation {
-        color: #6b7280;
-      }
-      .caption {
-        border-top-color: #e5e7eb;
-        color: #6b7280;
-      }
-    }
   }
 }
 
@@ -164,41 +121,6 @@
     #ditto-listbox {
       background-color: #1c1917;
       border-color: #44403c;
-    }
-
-    /* Component specific: app-demo-language-notes */
-    app-demo-language-notes {
-      .language-section {
-        background-color: #1c1917;
-        border-color: #292524;
-        box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.4);
-      }
-
-      .section-title {
-        color: #fafaf9;
-      }
-
-      .card {
-        background-color: #171514;
-        border-color: #292524;
-        box-shadow: 0 0.25rem 0.875rem rgba(0, 0, 0, 0.3);
-      }
-
-      .card-title {
-        color: #fafaf9;
-        border-block-end-color: #292524;
-      }
-
-      .note-text,
-      .note[lang="ja"] .note-text,
-      .note[lang="it"] .note-text {
-        color: #fafaf9 !important;
-      }
-
-      .note-img {
-        border-color: #44403c;
-        background-color: #292524;
-      }
     }
   }
 
