@@ -1,4 +1,13 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="src/assets/images/logo_white.svg">
+    <img src="src/assets/images/logo_red.svg" alt="RED Software Systems" height="90">
+  </picture>
+</p>
+
 # Pokémon Explorer – RED Edition
+
+Powered by **RED Software Systems**.
 
 An educational site about **web accessibility**, with a touch of Pokémon exploration.
 
@@ -20,6 +29,7 @@ Click [here](https://eleonoratiengo-rss.github.io/A11yExplorer/) to open the liv
 - [Publishing to GitHub Pages](#publishing-to-github-pages)
 - [Tech stack](#tech-stack)
 - [Contributors](#contributors)
+- [Credits](#credits)
 
 ---
 
@@ -207,6 +217,10 @@ The `deploy` script in `package.json` runs the build, the file preparation and t
 
 - [DanielaOrtenzi](https://github.com/DanielaOrtenzi)
 - [EleonoraTiengo-rss](https://github.com/EleonoraTiengo-rss)
+
+## Credits
+
+Project developed by **RED Software Systems**, whose official logo is used in this README and in the site footer. The RED Software Systems logo and trademark are the property of the company.
 
 
 ---

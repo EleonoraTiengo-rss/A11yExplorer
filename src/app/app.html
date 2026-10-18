@@ -3,8 +3,19 @@
   <div class="flex-1">
     <router-outlet></router-outlet>
   </div>
-  <footer class="bg-slate-900 dark:bg-[#090807] text-slate-400 py-8 text-center text-sm border-t border-slate-800 dark:border-stone-900">
-    <p>Pokémon Explorer - RED Edition &copy; {{ currentYear }}</p>
-    <p class="mt-2">Progettato per essere accessibile a tutti gli allenatori.</p>
+  <footer class="flex flex-col items-center bg-slate-900 dark:bg-[#090807] text-slate-400 py-4 text-center text-sm border-t border-slate-800 dark:border-stone-900">
+    <p class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-2 py-2">     
+      <span>Pokémon Explorer</span>
+      <span>&copy; {{ currentYear }}</span>
+    </p>
+    <a class="flex flex-col items-center gap-1 px-2" aria-label="Powered by RED Software Systems. Clicca per navigare al sito web." href="https://red.software.systems/" target="_blank" rel="noopener noreferrer">
+      <span lang="eng">Powered by:</span>
+      <img
+        src="assets/images/logo_white.svg"
+        alt=""
+        class="footer-edition-logo block w-auto max-w-full object-contain"
+      />
+    </a>
+    <p class="mt-2">Progettato per essere una guida per tutti gli allenatori.</p>
   </footer>
 </div>

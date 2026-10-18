@@ -71,3 +71,10 @@ h1,h2,h3,h4,h5,h6, #alert-btn-cancel {
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+
+/* Official edition logo: sized in em so it scales with the footer text and never overflows */
+.footer-edition-logo {
+  height: 3em;
+  min-width: 0;
+  aspect-ratio: 254.545 / 140.573;
+}
