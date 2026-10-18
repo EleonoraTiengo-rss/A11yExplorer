@@ -1,6 +1,6 @@
 @if (isAccessible()) {
   <section
-    class="bg-emerald-900 text-stone-50 flex flex-col sm:flex-row justify-between items-center shadow-md gap-2 sm:gap-4 sticky top-0 z-40 p-2 sm:p-4"
+    class="bg-emerald-900 text-stone-50 flex flex-col sm:flex-row justify-between items-center shadow-md gap-2 sm:gap-4 relative [@media(min-height:36rem)]:sticky top-0 z-40 p-2 sm:p-4"
   >
     <div class="flex items-center justify-center sm:justify-start gap-2 sm:gap-3 w-full sm:w-auto min-w-0">
       <mat-icon class="text-amber-400 shrink-0" aria-hidden="true">explore</mat-icon>
@@ -12,7 +12,7 @@
   </section>
 } @else {
   <header
-    class="bg-emerald-900 text-stone-50 flex flex-col sm:flex-row justify-between items-center shadow-md gap-2 sm:gap-4 sticky top-0 z-40 p-2 sm:p-4"
+    class="bg-emerald-900 text-stone-50 flex flex-col sm:flex-row justify-between items-center shadow-md gap-2 sm:gap-4 relative [@media(min-height:36rem)]:sticky top-0 z-40 p-2 sm:p-4"
   >
     <div class="flex items-center justify-center sm:justify-start gap-2 sm:gap-3 w-full sm:w-auto min-w-0">
       <mat-icon class="text-amber-400 shrink-0" aria-hidden="true">explore</mat-icon>
