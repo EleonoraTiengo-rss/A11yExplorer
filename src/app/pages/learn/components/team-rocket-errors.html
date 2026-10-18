@@ -10,44 +10,44 @@
 
   <div class="grid sm:grid-cols-2 gap-4">
     <div class="bg-red-50 dark:bg-red-950/40 p-5 rounded-xl border border-red-100 dark:border-red-900/50">
-      <h5 class="font-mono text-red-700 dark:text-red-300 font-bold mb-2">pointer-events: none</h5>
+      <h4 class="font-mono text-red-700 dark:text-red-300 font-bold mb-2">pointer-events: none</h4>
       <p class="text-sm text-red-900 dark:text-red-200">Può rendere gli elementi inutilizzabili con il mouse pur restando nel flusso della tastiera.</p>
     </div>
     <div class="bg-red-50 dark:bg-red-950/40 p-5 rounded-xl border border-red-100 dark:border-red-900/50">
-      <h5 class="font-mono text-red-700 dark:text-red-300 font-bold mb-2">flex order</h5>
+      <h4 class="font-mono text-red-700 dark:text-red-300 font-bold mb-2">flex order</h4>
       <p class="text-sm text-red-900 dark:text-red-200">Modifica l'ordine visivo ma non quello nel DOM, creando incoerenze per gli screen reader.</p>
     </div>
     <div class="bg-red-50 dark:bg-red-950/40 p-5 rounded-xl border border-red-100 dark:border-red-900/50">
-      <h5 class="font-mono text-red-700 dark:text-red-300 font-bold mb-2">position: absolute</h5>
+      <h4 class="font-mono text-red-700 dark:text-red-300 font-bold mb-2">position: absolute</h4>
       <p class="text-sm text-red-900 dark:text-red-200">Se usato per spostare contenuti importanti può rompere l'ordine logico di lettura.</p>
     </div>
     <div class="bg-red-50 dark:bg-red-950/40 p-5 rounded-xl border border-red-100 dark:border-red-900/50">
-      <h5 class="font-mono text-red-700 dark:text-red-300 font-bold mb-2">line-clamp</h5>
+      <h4 class="font-mono text-red-700 dark:text-red-300 font-bold mb-2">line-clamp</h4>
       <p class="text-sm text-red-900 dark:text-red-200">Taglia visivamente il testo ma il contenuto resta nel DOM.</p>
     </div>
     <div class="bg-red-50 dark:bg-red-950/40 p-5 rounded-xl border border-red-100 dark:border-red-900/50">
-      <h5 class="font-bold text-red-700 dark:text-red-300 mb-2">Assenza di focus ring</h5>
+      <h4 class="font-bold text-red-700 dark:text-red-300 mb-2">Assenza di focus ring</h4>
       <p class="text-sm text-red-900 dark:text-red-200">Rimuovere l'outline del focus rende difficile capire dove si trova il cursore della tastiera.</p>
     </div>
     <div class="bg-red-50 dark:bg-red-950/40 p-5 rounded-xl border border-red-100 dark:border-red-900/50">
-      <h5 class="font-bold text-red-700 dark:text-red-300 mb-2">Dimensioni fisse</h5>
+      <h4 class="font-bold text-red-700 dark:text-red-300 mb-2">Dimensioni fisse</h4>
       <p class="text-sm text-red-900 dark:text-red-200">Testi ed elementi impostati in pixel possono causare problemi quando si utilizza lo zoom.</p>
     </div>
     <div class="bg-red-50 dark:bg-red-950/40 p-5 rounded-xl border border-red-100 dark:border-red-900/50">
-      <h5 class="font-bold text-red-700 dark:text-red-300 mb-2">Font poco leggibili</h5>
+      <h4 class="font-bold text-red-700 dark:text-red-300 mb-2">Font poco leggibili</h4>
       <p class="text-sm text-red-900 dark:text-red-200">Font decorativi o testi lunghi completamente in maiuscolo riducono la leggibilità.</p>
     </div>
     
     <div class="bg-red-50 dark:bg-red-950/40 p-5 rounded-xl border border-red-100 dark:border-red-900/50">
-      <h5 class="font-mono text-red-700 dark:text-red-300 font-bold mb-2">aria-disabled="true"</h5>
+      <h4 class="font-mono text-red-700 dark:text-red-300 font-bold mb-2">aria-disabled="true"</h4>
       <p class="text-sm text-red-900 dark:text-red-200">Usare solo l'attributo ARIA senza disabilitare realmente l'elemento (elemento operabile e visivamente disabilitato) o combinare <code>aria-disabled</code> e <code>disabled</code></p>
     </div>
     <div class="bg-red-50 dark:bg-red-950/40 p-5 rounded-xl border border-red-100 dark:border-red-900/50">
-      <h5 class="font-bold text-red-700 dark:text-red-300 mb-2">Minestrone di semantica</h5>
+      <h4 class="font-bold text-red-700 dark:text-red-300 mb-2">Minestrone di semantica</h4>
       <p class="text-sm text-red-900 dark:text-red-200">Mischiare semantiche native o abusare degli attributi <code>aria-*</code> e <code>role</code> (es. <code>&lt;a role="button"&gt;</code> invece di un vero bottone). <i>Se puoi usare un elemento nativo, usalo!</i></p>
     </div>
     <div class="bg-red-50 dark:bg-red-950/40 p-5 rounded-xl border border-red-100 dark:border-red-900/50">
-      <h5 class="font-bold text-red-700 dark:text-red-300 mb-2">Ignorare i pattern ufficiali</h5>
+      <h4 class="font-bold text-red-700 dark:text-red-300 mb-2">Ignorare i pattern ufficiali</h4>
       <p class="text-sm text-red-900 dark:text-red-200">Inventare soluzioni "comode" per lo sviluppatore ma che violano la prevedibilità per l'utente. <i>Segui sempre i pattern WAI-ARIA ufficiali per componenti complessi come tab, modali, tooltip, menu innestati.</i></p>
     </div>
   </div>

@@ -23,11 +23,25 @@
 /* ==========================================================================
    Color Scheme Support & Focus Ring Tokens
    ========================================================================== */
+
 *,
 [tabindex="0"],
 [tabindex="-1"],
-[role="combobox"] {
+[role="combobox"],
+select {
     &:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+    box-shadow:
+      0 0 0 4px #ffffff,
+      0 0 0 6px #2563eb;
+    border-radius: inherit;
+  }
+}
+
+/* Custom combobox: same behavior as native <select>, ring also on mouse click (in addition to :focus-visible above) */
+@media not (forced-colors: active) {
+  [role="combobox"]:focus {
     outline: 2px solid #ffffff;
     outline-offset: 2px;
     box-shadow:

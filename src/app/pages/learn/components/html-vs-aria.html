@@ -38,7 +38,7 @@
       </div>
       <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
         <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;section&gt;</div>
-        <div class="font-mono text-slate-600 dark:text-stone-300">role="region" <span class="text-xs text-slate-400 dark:text-stone-500 ml-1">(se ha un nome accessibile)</span></div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="region" <span class="text-xs text-slate-500 dark:text-stone-400 ml-1">(se ha un nome accessibile)</span></div>
       </div>
       <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
         <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;article&gt;</div>
@@ -78,7 +78,7 @@
       </div>
       <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
         <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;select&gt;</div>
-        <div class="font-mono text-slate-600 dark:text-stone-300">role="combobox" <span class="text-xs text-slate-400 dark:text-stone-500 ml-1">(combinato con role="listbox")</span> </div>
+        <div class="font-mono text-slate-600 dark:text-stone-300">role="combobox" <span class="text-xs text-slate-500 dark:text-stone-400 ml-1">(combinato con role="listbox")</span> </div>
       </div>
       <div class="grid grid-cols-2 p-4 items-center hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors">
         <div class="font-mono text-pink-600 dark:text-pink-400 font-semibold">&lt;li&gt;</div>
@@ -109,7 +109,7 @@
       <strong>Attenzione:</strong> Sostituire un elemento nativo con un ruolo ARIA (es. usare un <code>&lt;div&gt;</code> con <code>role="button"</code>) comporta una grande responsabilità. 
       Dovrai implementare manualmente ogni comportamento nativo: la gestione del <strong>focus</strong>, i <strong>comandi da tastiera</strong> (es. Invio o Spazio) e gli <strong>eventi di interazione</strong>. 
       Per farlo correttamente, consulta i 
-      <a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank" class="text-pink-600 dark:text-pink-400 font-semibold hover:underline">W3C ARIA Patterns</a>: 
+      <a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank" class="text-pink-700 dark:text-pink-300 font-semibold hover:underline">W3C ARIA Patterns</a>:
       veri e propri manuali di istruzioni che definiscono i requisiti minimi di accessibilità per ogni <strong>widget</strong> custom.
     </p>
   </div>
@@ -149,7 +149,7 @@
             <!-- Tired Tab Key - Moved here as requested -->
             <div class="flex items-center gap-4 bg-red-900/20 dark:bg-red-950/40 p-4 rounded-xl border border-red-500/20 dark:border-red-900/40">
               <div class="relative h-16 w-16 bg-slate-200 rounded-lg shadow-inner flex items-center justify-center border-b-4 border-slate-400 shrink-0">
-                <span class="absolute top-1 left-1 text-[8px] text-slate-500 font-mono font-bold text-black">Tab</span>
+                <span class="absolute top-1 left-1 rounded bg-white px-1 text-xs leading-4 text-slate-900 font-mono font-bold">Tab</span>
                 <mat-icon class="text-slate-600 scale-125">sentiment_very_dissatisfied</mat-icon>
                 <mat-icon class="absolute -top-1 -right-1 text-blue-400 text-[10px] translate-x-1 -translate-y-1">water_drop</mat-icon>
               </div>
@@ -174,10 +174,17 @@
             
             <!-- Relaxed Tab Key -->
             <div class="flex items-center gap-6">
-              <div class="h-20 w-20 bg-white rounded-lg shadow-lg flex items-center justify-center border-b-4 border-indigo-400 shrink-0 transform -rotate-3">
-                 <span class="absolute top-1 left-1 text-[8px] text-indigo-600 font-mono font-bold">Tab</span>
-                 <mat-icon class="text-indigo-500 scale-125">sentiment_very_satisfied</mat-icon>
-                 <mat-icon class="absolute -top-2 -right-1 text-yellow-400 text-lg animate-pulse">wb_sunny</mat-icon>
+                <div class="relative h-20 w-20 bg-white rounded-lg shadow-lg flex items-center justify-center border-b-4 border-indigo-400 shrink-0 transform -rotate-3">
+                  <span class="absolute top-1 left-1 rounded bg-indigo-50 px-1 text-xs leading-4 text-indigo-950 font-mono font-bold">Tab</span>
+                 <svg aria-hidden="true" viewBox="0 0 48 48" class="h-10 w-10 text-indigo-700 opacity-50" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                   <circle cx="24" cy="24" r="19" />
+                   <circle cx="19" cy="20" r="1.5" fill="currentColor" stroke="none" />
+                   <circle cx="29" cy="20" r="1.5" fill="currentColor" stroke="none" />
+                   <path d="M19 29c1.5 2 3.2 3 5 3s3.5-1 5-3" />
+                 </svg>
+                 <span aria-hidden="true" class="absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-amber-100">
+                   <mat-icon class="text-amber-700">wb_sunny</mat-icon>
+                 </span>
               </div>
               <div>
                 <p class="text-indigo-100 dark:text-stone-300 leading-relaxed">

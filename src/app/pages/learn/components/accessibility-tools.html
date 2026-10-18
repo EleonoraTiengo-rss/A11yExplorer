@@ -12,93 +12,25 @@
       </h4>
       <div class="bg-white dark:bg-stone-900 rounded-2xl border border-slate-200 dark:border-stone-800 overflow-hidden shadow-sm">
         <ul class="divide-y divide-slate-100 dark:divide-stone-800">
-          <li class="p-4 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors flex items-start gap-4">
-            <mat-icon class="text-slate-400 dark:text-stone-500 mt-0.5 flex-shrink-0">format_list_numbered</mat-icon>
-            <div class="flex-1">
-              <div class="flex items-center gap-2 mb-1">
-                <strong class="text-slate-900 dark:text-stone-100">h①②③ – Accessibility HTML5 Outliner</strong>
-                <a href="https://hinderlingvolkart.github.io/h123/#1" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-[10px] font-bold uppercase tracking-tight flex items-center gap-1 shrink-0">
-                  <mat-icon class="text-[14px] w-[14px] h-[14px]">open_in_new</mat-icon>
-                </a>
+          @for (tool of browserExtensions; track tool.name) {
+            <li class="p-4 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors flex items-start gap-4">
+              <mat-icon class="mt-0.5 flex-shrink-0" [class]="tool.highlighted ? 'text-indigo-500' : 'text-slate-400 dark:text-stone-500'" aria-hidden="true">{{ tool.icon }}</mat-icon>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                  <h5 class="text-slate-900 dark:text-stone-100 font-bold m-0">{{ tool.name }}</h5>
+                  <a [href]="tool.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'Apri ' + tool.name + ' (si apre in una nuova scheda)'" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-[10px] font-bold uppercase tracking-tight flex items-center gap-1 shrink-0">
+                    <mat-icon class="text-[14px] w-[14px] h-[14px]" aria-hidden="true">open_in_new</mat-icon>
+                  </a>
+                </div>
+                <span class="text-slate-600 dark:text-stone-300 text-sm" [class]="tool.note ? 'mb-2 block' : ''">{{ tool.description }}</span>
+                @if (tool.note) {
+                  <div class="bg-amber-50 dark:bg-amber-950/40 p-2 rounded-lg border border-amber-100 dark:border-amber-900/50 italic text-[10px] text-amber-800 dark:text-amber-300 leading-tight">
+                    <strong>Attenzione:</strong> {{ tool.note }}
+                  </div>
+                }
               </div>
-              <span class="text-slate-600 dark:text-stone-300 text-sm">Permette di vedere immediatamente la struttura gerarchica degli headings (H1-H6) della pagina.</span>
-            </div>
-          </li>
-          <li class="p-4 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors flex items-start gap-4">
-            <mat-icon class="text-slate-400 dark:text-stone-500 mt-0.5 flex-shrink-0">keyboard_tab</mat-icon>
-            <div class="flex-1">
-              <div class="flex items-center gap-2 mb-1">
-                <strong class="text-slate-900 dark:text-stone-100">taba11y - tab order accessibility tool</strong>
-                <a href="https://chromewebstore.google.com/detail/taba11y-tab-order-accessi/aocppmckdocdjkphmofnklcjhdidgmga" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-[10px] font-bold uppercase tracking-tight flex items-center gap-1 shrink-0">
-                  <mat-icon class="text-[14px] w-[14px] h-[14px]">open_in_new</mat-icon>
-                </a>
-              </div>
-              <span class="text-slate-600 dark:text-stone-300 text-sm">Disegna visivamente il percorso che il focus della tastiera compie saltando da un elemento all'altro.</span>
-            </div>
-          </li>
-          <li class="p-4 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors flex items-start gap-4">
-            <mat-icon class="text-slate-400 dark:text-stone-500 mt-0.5 flex-shrink-0">contrast</mat-icon>
-            <div class="flex-1">
-              <div class="flex items-center gap-2 mb-1">
-                <strong class="text-slate-900 dark:text-stone-100">Colour Contrast Checker</strong>
-                <a href="https://chromewebstore.google.com/detail/colour-contrast-checker/nmmjeclfkgjdomacpcflgdkgpphpmnfe" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-[10px] font-bold uppercase tracking-tight flex items-center gap-1 shrink-0">
-                  <mat-icon class="text-[14px] w-[14px] h-[14px]">open_in_new</mat-icon>
-                </a>
-              </div>
-              <span class="text-slate-600 dark:text-stone-300 text-sm">Verifica rapida della conformità del rapporto di contrasto tra testo e sfondo secondo le WCAG.</span>
-            </div>
-          </li>
-          <li class="p-4 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors flex items-start gap-4">
-            <mat-icon class="text-slate-400 dark:text-stone-500 mt-0.5 flex-shrink-0">visibility</mat-icon>
-            <div class="flex-1">
-              <div class="flex items-center gap-2 mb-1">
-                <strong class="text-slate-900 dark:text-stone-100">Focus indicator</strong>
-                <a href="https://chromewebstore.google.com/detail/focus-indicator/ieandfkgbncmapkpgchnffbodegkemea" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-[10px] font-bold uppercase tracking-tight flex items-center gap-1 shrink-0">
-                  <mat-icon class="text-[14px] w-[14px] h-[14px]">open_in_new</mat-icon>
-                </a>
-              </div>
-              <span class="text-slate-600 dark:text-stone-300 text-sm">Aiuta a localizzare visivamente dove si trova il focus sulla pagina durante la navigazione da tastiera.</span>
-            </div>
-          </li>
-          <li class="p-4 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors flex items-start gap-4">
-            <mat-icon class="text-slate-400 dark:text-stone-500 mt-0.5 flex-shrink-0">masks</mat-icon>
-            <div class="flex-1">
-              <div class="flex items-center gap-2 mb-1">
-                <strong class="text-slate-900 dark:text-stone-100">Web Disability Simulator</strong>
-                <a href="https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-[10px] font-bold uppercase tracking-tight flex items-center gap-1 shrink-0">
-                  <mat-icon class="text-[14px] w-[14px] h-[14px]">open_in_new</mat-icon>
-                </a>
-              </div>
-              <span class="text-slate-600 dark:text-stone-300 text-sm mb-2 block">Simula diverse disabilità (visive, motorie) per capire come l'interfaccia reagisce.</span>
-              <div class="bg-amber-50 dark:bg-amber-950/40 p-2 rounded-lg border border-amber-100 dark:border-amber-900/50 italic text-[10px] text-amber-800 dark:text-amber-300 leading-tight">
-                <strong>Attenzione:</strong> Ricorda sempre che nessuna disabilità potrà mai essere veramente simulata da un utente che non le vive. Questo strumento ha come scopo quello di dare un'idea delle problematiche degli utenti.
-              </div>
-            </div>
-          </li>
-          <li class="p-4 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors flex items-start gap-4">
-            <mat-icon class="text-indigo-500 mt-0.5 flex-shrink-0">build</mat-icon>
-            <div class="flex-1">
-              <div class="flex items-center gap-2 mb-1">
-                <strong class="text-slate-900 dark:text-stone-100">axe DevTools - Web Accessibility Testing</strong>
-                <a href="https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-[10px] font-bold uppercase tracking-tight flex items-center gap-1 shrink-0">
-                  <mat-icon class="text-[14px] w-[14px] h-[14px]">open_in_new</mat-icon>
-                </a>
-              </div>
-              <span class="text-slate-600 dark:text-stone-300 text-sm">Lo standard dei test automatici. Scova errori nel codice durante lo sviluppo con spiegazioni dettagliate.</span>
-            </div>
-          </li>
-          <li class="p-4 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors flex items-start gap-4">
-            <mat-icon class="text-slate-400 dark:text-stone-500 mt-0.5 flex-shrink-0">insights</mat-icon>
-            <div class="flex-1">
-              <div class="flex items-center gap-2 mb-1">
-                <strong class="text-slate-900 dark:text-stone-100">Accessibility Insights for Web</strong>
-                <a href="https://chromewebstore.google.com/detail/accessibility-insights-fo/pbjjkligggfmakdaogkfomddhfmpjeni" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-[10px] font-bold uppercase tracking-tight flex items-center gap-1 shrink-0">
-                  <mat-icon class="text-[14px] w-[14px] h-[14px]">open_in_new</mat-icon>
-                </a>
-              </div>
-              <span class="text-slate-600 dark:text-stone-300 text-sm">Suite di Microsoft per test rapidi e guidati (FastPass) estremamente completi.</span>
-            </div>
-          </li>
+            </li>
+          }
         </ul>
       </div>
     </div>
@@ -132,34 +64,15 @@
       </h4>
       <div class="bg-white dark:bg-stone-900 rounded-2xl border border-slate-200 dark:border-stone-800 overflow-hidden shadow-sm">
         <ul class="divide-y divide-slate-100 dark:divide-stone-800">
-          <li class="p-4 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors flex items-start gap-4">
-            <mat-icon class="text-indigo-500 mt-0.5 flex-shrink-0">star</mat-icon>
-            <div>
-              <strong class="text-slate-900 dark:text-stone-100 block">NVDA (NonVisual Desktop Access)</strong>
-              <span class="text-slate-600 dark:text-stone-300 text-sm">Il più consigliato per i test su Windows: gratuito, open-source e completo. Vedi approfondimento sotto.</span>
-            </div>
-          </li>
-          <li class="p-4 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors flex items-start gap-4">
-            <mat-icon class="text-slate-400 dark:text-stone-500 mt-0.5 flex-shrink-0">laptop</mat-icon>
-            <div>
-              <strong class="text-slate-900 dark:text-stone-100 block">JAWS</strong>
-              <span class="text-slate-600 dark:text-stone-300 text-sm">Lo standard professionale nel mondo Windows (a pagamento).</span>
-            </div>
-          </li>
-          <li class="p-4 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors flex items-start gap-4">
-            <mat-icon class="text-slate-400 dark:text-stone-500 mt-0.5 flex-shrink-0">apple</mat-icon>
-            <div>
-              <strong class="text-slate-900 dark:text-stone-100 block">VoiceOver</strong>
-              <span class="text-slate-600 dark:text-stone-300 text-sm">Integrato nativamente in tutti i dispositivi Apple (macOS, iOS).</span>
-            </div>
-          </li>
-          <li class="p-4 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors flex items-start gap-4">
-            <mat-icon class="text-slate-400 dark:text-stone-500 mt-0.5 flex-shrink-0">android</mat-icon>
-            <div>
-              <strong class="text-slate-900 dark:text-stone-100 block">TalkBack</strong>
-              <span class="text-slate-600 dark:text-stone-300 text-sm">Lo screen reader predefinito per il sistema Android.</span>
-            </div>
-          </li>
+          @for (tool of screenReaders; track tool.name) {
+            <li class="p-4 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors flex items-start gap-4">
+              <mat-icon class="mt-0.5 flex-shrink-0" [class]="tool.highlighted ? 'text-indigo-500' : 'text-slate-400 dark:text-stone-500'" aria-hidden="true">{{ tool.icon }}</mat-icon>
+              <div>
+                <h5 class="text-slate-900 dark:text-stone-100 font-bold m-0">{{ tool.name }}</h5>
+                <span class="text-slate-600 dark:text-stone-300 text-sm">{{ tool.description }}</span>
+              </div>
+            </li>
+          }
         </ul>
       </div>
     </div>
@@ -172,7 +85,7 @@
         </div>
         <div>
           <h4 class="text-xl font-bold text-indigo-900 dark:text-stone-100 tracking-tight leading-none mb-1">Focus su NVDA</h4>
-          <p class="text-indigo-600/80 dark:text-indigo-400 text-sm font-medium m-0 uppercase tracking-wider">Capire il cuore dello Screen Reader</p>
+          <p class="text-indigo-700 dark:text-indigo-300 text-sm font-medium m-0 uppercase tracking-wider">Capire il cuore dello Screen Reader</p>
         </div>
       </div>
       
@@ -180,7 +93,7 @@
         <div class="space-y-6">
           <div>
             <h5 class="text-slate-900 dark:text-stone-100 font-bold mb-2 flex items-center gap-2">
-               <mat-icon class="text-indigo-500 text-lg">account_tree</mat-icon> Interpretazione del DOM
+               <mat-icon class="text-indigo-600 dark:text-indigo-400 text-lg">account_tree</mat-icon> Interpretazione del DOM
             </h5>
             <p class="text-slate-600 dark:text-stone-300 text-sm leading-relaxed">
               Lo screen reader non legge direttamente i tag nel DOM: il browser trasforma il codice nell'<strong>albero dell'accessibilità</strong> (Accessibility Tree), una rappresentazione filtrata e ripulita per le tecnologie assistive. NVDA lo interroga in tempo reale attraverso le API di accessibilità del sistema operativo, come IAccessible2 o Microsoft UI Automation.
@@ -189,7 +102,7 @@
 
           <div>
             <h5 class="text-slate-900 dark:text-stone-100 font-bold mb-2 flex items-center gap-2">
-               <mat-icon class="text-indigo-500 text-lg">keyboard</mat-icon> Intercettazione tasti (Keydowns)
+               <mat-icon class="text-indigo-600 dark:text-indigo-400 text-lg">keyboard</mat-icon> Intercettazione tasti (Keydowns)
             </h5>
             <p class="text-slate-600 dark:text-stone-300 text-sm leading-relaxed">
               Quando NVDA è in esecuzione, intercetta le pressioni dei tasti prima che arrivino al browser. Per ogni <code>keydown</code> decide se tenere il comando per sé, ad esempio <kbd class="px-2 py-0.5 bg-white dark:bg-stone-800 border border-slate-200 dark:border-stone-700 rounded text-xs shadow-sm text-slate-800 dark:text-stone-200">H</kbd> per raggiungere l'intestazione successiva, oppure lasciarlo passare alla pagina.
@@ -198,7 +111,7 @@
 
           <div>
             <h5 class="text-slate-900 dark:text-stone-100 font-bold mb-2 flex items-center gap-2">
-               <mat-icon class="text-indigo-500 text-lg">mouse</mat-icon> Synthetic Clicks
+               <mat-icon class="text-indigo-600 dark:text-indigo-400 text-lg">mouse</mat-icon> Synthetic Clicks
             </h5>
             <p class="text-slate-600 dark:text-stone-300 text-sm leading-relaxed mb-2">
               In modalità di lettura, quando l'utente preme <kbd class="px-2 py-0.5 bg-white dark:bg-stone-800 border border-slate-200 dark:border-stone-700 rounded text-xs shadow-sm text-slate-800 dark:text-stone-200">Enter</kbd> o <kbd class="px-2 py-0.5 bg-white dark:bg-stone-800 border border-slate-200 dark:border-stone-700 rounded text-xs shadow-sm text-slate-800 dark:text-stone-200">Space</kbd>, NVDA spesso non invia un normale evento tastiera al browser. Chiede invece all'API di attivare l'elemento e il browser traduce la richiesta simulando un click del mouse: un <strong>"synthetic click"</strong>.
@@ -225,9 +138,9 @@
                 </p>
               </div>
 
-              <div class="p-4 bg-indigo-600 dark:bg-indigo-700 rounded-xl text-white shadow-md shadow-indigo-100 dark:shadow-none">
+              <div class="p-4 bg-indigo-700 dark:bg-indigo-800 rounded-xl text-white shadow-md shadow-indigo-100 dark:shadow-none">
                 <strong class="block mb-1">2. Focus Programmatico (Focus Mode)</strong>
-                <p class="text-indigo-100 text-sm m-0 leading-relaxed">
+                <p class="text-white text-sm m-0 leading-relaxed">
                   Si attiva quando è necessario interagire con un elemento, ad esempio un pulsante o un link. Il cursore virtuale si fa da parte e il focus coincide con quello nativo gestito da JavaScript, (<code>activeElement</code>): NVDA "libera" i tasti e li passa al browser.
                 </p>
               </div>

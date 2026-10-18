@@ -25,10 +25,13 @@
       <app-custom-select [pokes]="pokes"></app-custom-select>
     </div>
   </div>  <!-- Unified Solutions Panel -->
-  <div class="mt-4 border border-slate-200 dark:border-stone-800 rounded-xl overflow-hidden bg-white dark:bg-stone-900 shadow-sm">
-    <button 
-      (click)="toggleSolutions()" 
-      class="w-full px-4 py-3 flex items-center justify-between text-sm font-bold text-slate-700 dark:text-stone-200 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors"
+  <div class="mt-4 border border-slate-200 dark:border-stone-800 rounded-xl bg-white dark:bg-stone-900 shadow-sm">
+    <button
+      [attr.aria-expanded]="showSolutions()"
+      (click)="toggleSolutions()"
+      [class.rounded-t-xl]="showSolutions()"
+      [class.rounded-xl]="!showSolutions()"
+      class="relative focus-visible:z-10 w-full px-4 py-3 flex items-center justify-between text-sm font-bold text-slate-700 dark:text-stone-200 hover:bg-slate-50 dark:hover:bg-stone-800/50 transition-colors"
     >
       <div class="flex items-center gap-2">
         <mat-icon class="text-indigo-500">lightbulb</mat-icon>
@@ -38,7 +41,7 @@
     </button>
     
     @if (showSolutions()) {
-      <div class="p-6 bg-slate-50 dark:bg-stone-950 border-t border-slate-100 dark:border-stone-800 animate-in slide-in-from-top-1 duration-200">
+      <div class="p-6 rounded-b-xl bg-slate-50 dark:bg-stone-950 border-t border-slate-100 dark:border-stone-800 animate-in slide-in-from-top-1 duration-200">
         <div class="grid sm:grid-cols-2 gap-8">
           <!-- Soluzione Nativa -->
           <div class="bg-white dark:bg-stone-900 p-4 rounded-xl border border-slate-200 dark:border-stone-800 shadow-sm">

@@ -14,6 +14,13 @@
       box-shadow: none;}
     }
 
+  /* Custom combobox: ring also on mouse click, like native <select> */
+  [role="combobox"]:focus {
+    outline: 3px solid Highlight;
+    outline-offset: 3px;
+    box-shadow: none;
+  }
+
   h1,h2,h3,h4,h5,h6,  #alert-btn-cancel {
     &:focus{
      outline: 3px solid Highlight;

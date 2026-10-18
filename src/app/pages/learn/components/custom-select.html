@@ -11,7 +11,7 @@
       [attr.aria-expanded]="isDittoOpen()"
       aria-controls="ditto-listbox"
       aria-labelledby="ditto-label"
-      [attr.aria-activedescendant]="highlightedOptionId()"
+      [attr.aria-activedescendant]="isDittoOpen() ? highlightedOptionId() : null"
       tabindex="0"
       (click)="toggleDitto()"
       (keydown)="onKeyDown($event)"
@@ -27,11 +27,11 @@
       >
     </div>
 
-    @if (isDittoOpen()) {
     <ul
       id="ditto-listbox"
       role="listbox"
       tabindex="-1"
+      [hidden]="!isDittoOpen()"
       class="absolute top-full left-0 right-0 mt-0 bg-white dark:bg-stone-900 border focus:bg-gray-600 border-slate-300 dark:border-stone-700 shadow-lg z-[100] overflow-hidden py-0 animate-in fade-in duration-75"
     >
       @for (poke of pokes(); track poke.id; let i = $index) {
@@ -51,6 +51,5 @@
       </li>
       }
     </ul>
-    }
   </div>
 </div>
