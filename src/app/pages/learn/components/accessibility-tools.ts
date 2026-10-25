@@ -47,24 +47,31 @@ export class AccessibilityToolsComponent {
       description: "Aiuta a localizzare visivamente dove si trova il focus sulla pagina durante la navigazione da tastiera.",
     },
     {
-      name: "Web Disability Simulator",
-      icon: "masks",
-      url: "https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla",
-      description: "Simula diverse disabilità (visive, motorie) per capire come l'interfaccia reagisce.",
-      note: "Ricorda sempre che nessuna disabilità potrà mai essere veramente simulata da un utente che non le vive. Questo strumento ha come scopo quello di dare un'idea delle problematiche degli utenti.",
+      name: "WAVE Evaluation Tool",
+      icon: "fact_check",
+      url: "https://chromewebstore.google.com/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh",
+      description: "Analizza la pagina e mostra direttamente sopra i contenuti icone che segnalano errori, avvisi e struttura (landmark, heading, testi alternativi).",
     },
     {
       name: "axe DevTools - Web Accessibility Testing",
       icon: "build",
-      highlighted: true,
       url: "https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd",
       description: "Lo standard dei test automatici. Scova errori nel codice durante lo sviluppo con spiegazioni dettagliate.",
     },
+  ];
+
+  readonly emulators: AccessibilityTool[] = [
     {
-      name: "Accessibility Insights for Web",
-      icon: "insights",
-      url: "https://chromewebstore.google.com/detail/accessibility-insights-fo/pbjjkligggfmakdaogkfomddhfmpjeni",
-      description: "Suite di Microsoft per test rapidi e guidati (FastPass) estremamente completi.",
+      name: "Web Disability Simulator",
+      icon: "masks",
+      url: "https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla",
+      description: "Simula diverse disabilità (visive, motorie) per capire come l'interfaccia reagisce.",    },
+    {
+      name: "DevTools - Rendering emulation",
+      icon: "tune",
+      url: "https://developer.chrome.com/docs/devtools/rendering",
+      description: "Il pannello Rendering dei Chrome DevTools permette di emulare forced-colors, prefers-color-scheme, Emulate OS text scale ed Emulate vision deficiencies, per verificare come la pagina reagisce alle impostazioni e alle esigenze visive dell'utente.",
+      note: "Alcune di queste funzionalità sono sperimentali: potrebbero non essere disponibili in tutte le versioni di Chrome o comportarsi diversamente dal rendering reale.",
     },
   ];
 

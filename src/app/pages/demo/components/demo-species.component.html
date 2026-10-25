@@ -9,34 +9,72 @@
   </h2>
   <div class="space-y-2 sm:space-y-4">
     @for (note of notes; track note.id) {
-      <details
-        class="group bg-stone-50 dark:bg-stone-950 rounded-xl sm:rounded-2xl border border-stone-200 dark:border-stone-800 overflow-visible"
-      >
-        <summary
-          class="font-semibold text-base sm:text-lg text-stone-800 dark:text-stone-200 cursor-pointer hover:bg-stone-100 dark:hover:bg-stone-900 flex justify-between items-center rounded-xl sm:rounded-2xl group-open:rounded-b-none p-2 sm:p-3.5 md:p-5"
+      @if(note.useSummary) {
+        <details
+          class="group bg-stone-50 dark:bg-stone-950 rounded-xl sm:rounded-2xl border border-stone-200 dark:border-stone-800 overflow-visible"
         >
-          {{ note.title }}
-          <mat-icon
-            class="text-stone-600 dark:text-stone-400 group-open:rotate-180 transition-transform"
-            >expand_more</mat-icon
+          <summary
+            class="font-semibold text-base sm:text-lg text-stone-800 dark:text-stone-200 cursor-pointer hover:bg-stone-100 dark:hover:bg-stone-900 flex justify-between items-center rounded-xl sm:rounded-2xl group-open:rounded-b-none relative focus-visible:z-10 p-2 sm:p-3.5 md:p-5"
           >
-        </summary>
-        <div
-          class="border-t border-stone-200 dark:border-stone-800 text-stone-600 dark:text-stone-300 bg-white dark:bg-stone-900 leading-relaxed rounded-b-xl sm:rounded-b-2xl p-2 sm:p-3.5 md:p-5"
-        >
-          {{ note.content }}
-          <div class="mt-2 sm:mt-4">
-            <button
-              type="button"
-              (click)="onScrollTo(note.targetId)"
-              class="inline-flex items-center gap-1 text-emerald-700 dark:text-emerald-400 font-medium cursor-pointer hover:text-emerald-800 dark:hover:text-emerald-300 hover:underline rounded transition-colors py-1 px-2 -ml-2"
+            {{ note.title }}
+            <mat-icon
+              class="text-stone-600 dark:text-stone-400 group-open:rotate-180 transition-transform"
+              >expand_more</mat-icon
             >
-              <mat-icon class="text-sm w-4 h-4">menu_book</mat-icon> Apri scheda
-              Pokédex
-            </button>
+          </summary>
+          <div
+            class="border-t border-stone-200 dark:border-stone-800 text-stone-600 dark:text-stone-300 bg-white dark:bg-stone-900 leading-relaxed rounded-b-xl sm:rounded-b-2xl p-2 sm:p-3.5 md:p-5"
+          >
+            {{ note.content }}
+            <div class="mt-2 sm:mt-4">
+              <a
+                [href]="'#' + note.targetId"
+                (click)="$event.preventDefault(); onScrollTo(note.targetId)"
+                class="inline-flex items-center gap-1 text-emerald-700 dark:text-emerald-400 font-medium cursor-pointer hover:text-emerald-800 dark:hover:text-emerald-300 underline rounded transition-colors py-1 px-2 -ml-2"
+              >
+                <mat-icon class="text-sm w-4 h-4">menu_book</mat-icon> Apri scheda
+                Pokédex
+              </a>
+            </div>
+          </div>
+        </details>
+      } @else {
+        <div class="group w-full bg-stone-50 dark:bg-stone-950 rounded-xl sm:rounded-2xl border border-stone-200 dark:border-stone-800 overflow-visible">  
+          <button
+            [id]="note.id + '-trigger'"
+            type="button"
+            [attr.aria-expanded]="isBulbasaurPanelOpen()"
+            [attr.aria-controls]="note.id"
+            (click)="toggleBulbasaurPanel()"
+            class="font-semibold text-base text-start w-full sm:text-lg text-stone-800 dark:text-stone-200 cursor-pointer hover:bg-stone-100 dark:hover:bg-stone-900 flex justify-between items-center rounded-xl sm:rounded-2xl aria-expanded:rounded-b-none focus-visible:rounded-none! relative focus-visible:z-10 p-2 sm:p-3.5 md:p-5"
+          >
+            {{ note.title }}
+            <mat-icon
+              class="text-stone-600 dark:text-stone-400 transition-transform"
+              [class.rotate-180]="isBulbasaurPanelOpen()"
+              aria-hidden="true"
+              >expand_more</mat-icon
+            >
+          </button>
+          <div
+            [id]="note.id"
+            [hidden]="!isBulbasaurPanelOpen()"
+            class="border-t border-stone-200 dark:border-stone-800 text-stone-600 dark:text-stone-300 bg-white dark:bg-stone-900 leading-relaxed rounded-b-xl sm:rounded-b-2xl p-2 sm:p-3.5 md:p-5"
+          >
+            {{ note.content }}
+            <div class="mt-2 sm:mt-4">
+              <a
+                [href]="'#' + note.targetId"
+                (click)="$event.preventDefault(); onScrollTo(note.targetId)"
+                class="inline-flex items-center gap-1 text-emerald-700 dark:text-emerald-400 font-medium cursor-pointer hover:text-emerald-800 dark:hover:text-emerald-300 underline rounded transition-colors py-1 px-2 -ml-2"
+              >
+                <mat-icon class="text-sm w-4 h-4">menu_book</mat-icon> Apri scheda
+                Pokédex
+              </a>
+            </div>
           </div>
         </div>
-      </details>
+      }
     }
   </div>
 </section>

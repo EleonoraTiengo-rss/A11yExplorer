@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, output } from "@angular/core";
+import { Component, ChangeDetectionStrategy, output, signal } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
 import { CommonModule } from "@angular/common";
 export interface SpeciesNote {
@@ -6,6 +6,7 @@ export interface SpeciesNote {
   readonly targetId: string;
   readonly title: string;
   readonly content: string;
+  readonly useSummary?: boolean;
 }
 @Component({
   selector: "app-demo-species",
@@ -16,6 +17,8 @@ export interface SpeciesNote {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DemoSpeciesComponent {
+  readonly isBulbasaurPanelOpen = signal(false);
+
   scrollToRequested = output<{
     id: string;
     focusOnly?: boolean;
@@ -27,6 +30,7 @@ export class DemoSpeciesComponent {
       id: "caterpie-notes",
       targetId: "caterpie-entry",
       title: "Caterpie (Comportamento)",
+      useSummary: true,
       content:
         "Caterpie si nutre prevalentemente di foglie di Baccapesca. Il suo odore respinge i predatori alati come Pidgey. È molto docile e facile da catturare per i giovani allenatori.",
     },
@@ -34,6 +38,7 @@ export class DemoSpeciesComponent {
       id: "weedle-notes",
       targetId: "weedle-entry",
       title: "Weedle (Tossicologia)",
+      useSummary: true,
       content:
         "Il veleno del pungiglione di Weedle è un neurotossico leggero. Viene studiato per applicazioni mediche nella regione di Kanto. Attenzione a dove metti i piedi!",
     },
@@ -48,5 +53,9 @@ export class DemoSpeciesComponent {
 
   onScrollTo(targetId: string): void {
     this.scrollToRequested.emit({ id: targetId });
+  }
+
+  toggleBulbasaurPanel(): void {
+    this.isBulbasaurPanelOpen.update((isOpen) => !isOpen);
   }
 }

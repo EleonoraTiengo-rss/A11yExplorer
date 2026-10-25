@@ -92,7 +92,15 @@
       }
     }
 
+    app-demo-species .species-panel-trigger:hover {
+      background-color: #292524;
+    }
+
     details[open] summary {
+      background-color: #1c1917;
+    }
+
+    app-demo-species .species-panel-trigger[aria-expanded="true"] {
       background-color: #1c1917;
     }
 
