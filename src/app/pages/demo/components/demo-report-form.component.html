@@ -29,8 +29,8 @@
         for="pokemon-name"
         class="block text-sm font-semibold text-stone-700 dark:text-stone-300 mb-1"
         >Specie Avvistata
-        <span aria-hidden="true">*</span></label
-      >
+        <span aria-hidden="true">*</span>
+      </label>
       <input
         type="text"
         id="pokemon-name"
@@ -38,7 +38,7 @@
         ngModel
         #pokemonName="ngModel"
         required
-        (invalid)="onInvalid(pokemonName)"
+        (invalid)="onInvalid($event, pokemonName)"
         aria-describedby="errorId"
         [class.border-red-600]="pokemonName.invalid && (pokemonName.touched || pokemonName.dirty)"
         class="peer w-full px-2 py-2 sm:px-4 sm:py-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 transition-shadow"
@@ -51,7 +51,7 @@
         >
         @if (pokemonName.invalid && (pokemonName.touched || pokemonName.dirty)) {
           <mat-icon class="text-base" aria-hidden="true">error</mat-icon>
-          <span>Inserisci la specie avvistata.</span>
+          <span>Errore: Inserire la specie avvistata.</span>
         }
         </span>
  

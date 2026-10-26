@@ -19,8 +19,10 @@ export class DemoReportFormComponent {
   isSubmitted = input.required<boolean>();
   formSubmitted = output<void>();
 
-  onInvalid(pokemonName: NgModel): void {
+  onInvalid(event: Event, pokemonName: NgModel): void {
+    event.preventDefault();
     pokemonName.control.markAsTouched();
+    (event.target as HTMLInputElement).focus();
   }
 
   onSubmit(event: SubmitEvent, form: HTMLFormElement, pokemonName: NgModel): void {

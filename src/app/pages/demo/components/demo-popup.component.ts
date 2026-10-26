@@ -134,14 +134,20 @@ export class DemoPopupComponent implements OnInit, OnDestroy {
   }
 
   private updateAnnouncement(seconds: number): void {
-    if (
+    if (seconds === 0) {
+      this.announcementText.set("Tempo scaduto. La sessione è terminata.");
+      return;
+    }
+
+    const shouldAnnounce =
       seconds === 30 ||
       seconds === 20 ||
       seconds === 10 ||
-      (seconds <= 5 && seconds > 0)
-    ) {
-      this.announcementText.set(`Rimangono ${seconds} secondi.`);
-    }
+      (seconds <= 5 && seconds > 0);
+
+    this.announcementText.set(
+      seconds < 5 ? `${seconds}` : `Rimangono ${seconds} secondi.`
+    );
   }
 
   private setInitialFocus(): void {
