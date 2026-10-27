@@ -137,7 +137,7 @@ export class QuizComponent {
           isCorrect: false,
         },
         {
-          id: "B",
+          id: "C",
           text: "Vero in linea generale",
           isCorrect: true,
         },
