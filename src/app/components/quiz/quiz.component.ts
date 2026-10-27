@@ -25,7 +25,11 @@ export class QuizComponent {
     {
       text: "Qual è lo scopo dell'attributo alt nelle immagini?",
       options: [
-        { id: "A", text: "Migliorare il SEO", isCorrect: false },
+        {
+          id: "A",
+          text: "Serve esclusivamente per migliorare il SEO",
+          isCorrect: false,
+        },
         {
           id: "B",
           text: "Descrivere l'immagine per chi non può vederla",
@@ -53,15 +57,19 @@ export class QuizComponent {
     {
       text: "Cosa significa il principio “Percepibile” (Perceivable)?",
       options: [
-        { id: "A", text: "Il sito deve essere veloce", isCorrect: false },
+        {
+          id: "A",
+          text: "Tutti i contenuti devono essere raggiungibili e utilizzabili tramite la sola tastiera, senza richiedere tempi di reazione specifici.",
+          isCorrect: false,
+        },
         {
           id: "B",
-          text: "Le informazioni devono poter essere percepite dagli utenti",
+          text: "Le informazioni e i componenti dell’interfaccia devono essere presentati in modi che gli utenti possano percepire, senza che dipendano da un solo canale sensoriale.",
           isCorrect: true,
         },
         {
           id: "C",
-          text: "Il sito deve essere percepibile con tutti i sensi",
+          text: "Il testo deve essere scritto in un linguaggio chiaro e prevedibile, e le interfacce devono comportarsi in modo coerente",
           isCorrect: false,
         },
       ],
@@ -120,13 +128,18 @@ export class QuizComponent {
       options: [
         {
           id: "A",
-          text: "Vero",
-          isCorrect: true,
+          text: "Completamente vero",
+          isCorrect: false,
         },
         {
           id: "B",
-          text: "Falso",
+          text: "Completamente falso",
           isCorrect: false,
+        },
+        {
+          id: "B",
+          text: "Vero in linea generale",
+          isCorrect: true,
         },
       ],
       explanation:
